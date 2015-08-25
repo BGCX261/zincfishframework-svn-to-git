@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="word_msg_main">
+    <script src="/widgets/message/word_msg_list.zs" />
+	<menu id="menu" type="left">
+		<menu text="首页" onclick="_zssSwitch(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="消息中心" onclick="goMsgCenter()" />
+		<menu text="删除留言" onclick="DeleteWordMessage()" />
+	</menu>
+	
+	<!-- message_pop和message_text(text属性可替换)写死 -->
+    <poppanel id="message_pop" class="poppanelbg" style="padding: 10 0 10 0">
+    	<label id="message_text" text="评论已经发送"/>
+    	<button id="ok" text="确定" onclick="_zssHidePopWindow(&quot;message_pop&quot;)"/>
+    </poppanel>
+	
+	<body id="word_msg_body">
+	   <div id="dheaddiv" class="full-transparence" style="min-size:0 260">
+	         <hlist id="tablist" type="5">
+	            <button text="留言板" onfocus="WSwitchView(&quot;word_msg_in&quot;)"/>
+	            <button text="留言回复" onfocus="WSwitchView(&quot;word_msg_out&quot;)"/>
+	         </hlist>
+	         <hr />
+	         <div id="word_msg_in" >
+	             <vlist id="word_msg_in_list" type="0" />
+	             <div id="word_msg_in_div" class="horizontal" style="align:center">
+					<button id="word_msg_in_next" text="上一页" visible="false"/>
+					<label  id="word_msg_in_page" text="1/10" value="页码" visible="false"/>
+					<button id="word_msg_in_prev" text="下一页" visible="false"/>
+				</div>
+	         </div>
+	         <div id="word_msg_out" visible="false">
+	           <vlist id="word_msg_out_list" type="0"/>
+	           <div id="word_msg_out_div" class="horizontal" style="align:center">
+					<button id="word_msg_out_next" text="上一页" visible="false"/>
+					<label  id="word_msg_out_page" text="1/10" value="页码" visible="false"/>
+					<button id="word_msg_out_prev" text="下一页" visible="false"/>
+				</div>
+	         </div>
+	    </div>
+	</body>
+</unit>

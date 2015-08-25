@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="diary_page">
+	<menu id="menu" type="left">
+		<menu text="修改内容" onclick="OnEditText" />
+		<menu text="修改权限" onclick="OnPrivacyEdit" />
+		<menu text="添加图片" onclick="AddImgicAttachment" />
+		<menu text="删除图片" onclick="RemoveAttachment" />
+		<menu text="添加附件" onclick="AddAttachment" />
+		<menu text="删除附件" onclick="RemoveAttachment" />
+		<menu text="发表" onclick="PostDiary" />
+		<menu text="删除日记" onclick="DeleteDiary" />
+		<menu text="日记管理"
+			onclick="_zssSwitch(&quot;/widgets/diary/diary_list.xml&quot;)" />
+	</menu>
+	<script src="/widgets/diary/diary_page.zs" />
+	<body id="diary_page_body">
+		<div class="title" bind="north">
+			<img src="/widgets/main/img/resent.png" />
+			<label text="一片树叶" class="title_text" />
+		</div>
+		<div style="layout:flowlayout(top);">
+			<label type="break" text="http://istwitterdown.com/" onclick="" />
+			<label type="break" text="她的目的就是为了告诉我们Twitter是不是挂了。" />
+			<br />
+			<label type="break" text="http://isistwitterdowndown.com/ " onclick="" />
+			<label type="break" text=" 她的目的是告诉我们前一个网站挂了没有。" />
+			<br />
+			<label type="break" text="真无聊呀！" />
+			<br />
+			<label type="break" text="送上2首歌:1" />
+			<label type="break" text="秋颂" class="att_label" onclick="" />
+			<label type="break" text="2" />
+			<label type="break" text="晚秋" class="att_label" onclick="" />
+		</div>
+		<div id="att" class="lineborder" style="layout:formlayout(top);">
+			<label text="附件:" style="color:#FFFFFF;" />
+			<div style="layout:inlinelayout(false,fill)；padding:0 0 0 10;">
+				<label text="秋颂" class="att_label" onclick="" />
+				<label text="晚秋" class="att_label" onclick="" />
+			</div>
+		</div>
+		<div id="friend" style="layout:inlinelayout(false,fill);align:fill;">
+			<label id="frnd_list_title" text="日记中提到的好友：" />
+			<hlist id="frnd_list" style="padding:0 8 0 8;gap:4 0;">
+				<label text="于鑫" onclick="" />
+				<label text="江威" onclick="" />
+				<label text="陈静聪" onclick="" />
+				<label text="Rainty" onclick="" />
+			</hlist>
+		</div>
+		<div id="comment_div" class="comment_div">
+			<div class="commentitemleft">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<label text="我的留言我的留言" type="omit" class="bubbleleft" onclick="" />
+			</div>
+			<div style="layout:formlayout(top);align:left;">
+				<label text="江威" onclick="" />
+				<label text="2009-10-12 09:34" style="margin:0 0 0 8;" />
+			</div>
+			<div class="commentitemright">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<label type="multi" text="这是一个很长很长很长很长很长很长很长很长的留言" class="bubbleright"
+					onclick="" />
+			</div>
+			<div style="layout:formlayout(top);float:right;">
+				<label text="陈静聪" onclick="" />
+				<label text="2009-10-12 12:02" style="margin:0 8 0 0;align:right;" />
+			</div>
+			<div style="layout:gridlayout(3,1);layout-data:gld(1,0,1);">
+				<label class="hr" />
+				<label text="发表评论" onclick="" />
+				<label class="hr" />
+			</div>
+		</div>
+	</body>
+</unit>

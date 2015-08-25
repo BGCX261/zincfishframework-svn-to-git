@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="diary">
+	<body id="diary_body">
+		<div class="title" bind="north">
+			<img src="/widgets/main/img/resent.png" />
+			<label text="日记" class="title_text"/>
+		</div>
+		<div id="diary_func"
+			style="layout:inlinelayout(false,fill);align:fill;margin:6 0 0 0;">
+			<label class="diarylistitem" text="写日记"
+				onclick="_zsnSend(&quot;/widgets/diary/write_diary.xml&quot;)" />
+			<label class="diarylistitem" text="我的日记"
+				onclick="_zsnSend(&quot;/widgets/diary/diary_list.xml&quot;)" />
+			<label class="diarylistitem" text="提到我的日记" onclick="" />
+			<label class="diarylistitem" text="好友的日记" onclick="" />
+			<label class="diarylistitem" text="阅读最多的日记" onclick="" />
+			<label class="diarylistitem" text="评论最多的日记" onclick="" />
+		</div>
+	</body>
+</unit>

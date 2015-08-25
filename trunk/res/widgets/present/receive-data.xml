@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="receivehome">
+	<list id="received-present_list" type="v">
+			<item id="header_item" src="loca://widgets/present/img/flower.png" title="于鑫赠送" content="2009-03-01"
+				 />
+			<item id="header_item" src="loca://widgets/present/img/car.png" title="江威赠送" content="2009-03-01"
+				  />
+			<item id="header_item" src="loca://widgets/present/img/flower.png" title="匿名赠送" content="2009-03-01"
+				  />
+			<item id="header_item" src="loca://widgets/present/img/car.png" title="小平赠送" content="2009-03-01"
+				  />
+		</list>
+</unit>

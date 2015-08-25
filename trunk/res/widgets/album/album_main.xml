@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="album">
+	<body id="diary_body">
+		<div class="title" bind="north">
+			<img src="/widgets/main/img/resent.png" />
+			<label text="相册" class="title_text" />
+		</div>
+		<div id="diary_func"
+			style="layout:inlinelayout(false,fill);align:fill;margin:6 0 0 0;">
+			<label class="diarylistitem" text="上传照片"
+				onclick="_zsnSend(&quot;/widgets/album/write_diary.xml&quot;)" />
+			<label class="diarylistitem" text="我的相册"
+				onclick="_zsnSend(&quot;/widgets/album/myalbum.xml&quot;)" />
+			<label class="diarylistitem" text="好友的相册"
+				onclick="_zsnSend(&quot;/widgets/album/otheralbum.xml&quot;)" />
+			<label class="diarylistitem" text="热门图片" onclick="" />
+		</div>
+	</body>
+</unit>

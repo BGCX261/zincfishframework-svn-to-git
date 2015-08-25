@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit   id="touchunit"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.3g.net.cn/sns"
+	xsi:schemaLocation="http://www.3g.net.cn/sns ../../zml.xsd">
+		<div id="data" visible="true">
+
+			<div id="custom_div" visible="true">
+				<checkbox id="ck-1" type="radio" />
+					<label text="摸一下"/>
+					<img id="img-1" src="loca://widgets/touch/img/touch-head.png" />
+					<br/>
+					<checkbox id="ck-2" type="radio" />
+					<label text="亲一下"/>
+					<img id="img-2" src="loca://widgets/touch/img/touch-head.png" />
+					<br/>
+					<checkbox id="ck-3" type="radio" />
+					<label text="踢一下"/>
+					<img id="img-3" src="loca://widgets/touch/img/touch-head.png"
+						  />
+					<br/>
+					<checkbox id="ck-4" type="radio" />
+					<label text="抓一下"/>
+					<img id="img-4" src="loca://widgets/touch/img/touch-head.png"
+						  />
+					<br/>
+			</div>
+
+		</div>
+
+</unit>

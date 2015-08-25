@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unit id="diary_page">
+
+<!-- 日记标题 -->
+	<head id="diary_head" src="头像url" user-name="某某的日记"	 signature="日记标题" view-count="时间" value="日记id"/> <!-- id 写死； src 头像； 其它如属性值 -->
+		
+<!-- 日记正文 -->
+	<label id="text" text="日记正文" />
+	<!-- id:写死; text:日记正文 -->
+
+<!-- 附件 -->
+	<!-- 图片附件列表 -->	
+	<div id="attachment_img" style="gap:10 10;"><!-- 写死 -->
+		<img id="attachment_img_1" src="url" onclick="OnAttachment(&quot;url&quot;)"/>
+		<!-- attachment_img_+索引; src:图片缩略图地址; onclick:OnAttachment(&quot;真实图片地址&quot;) -->
+		<img id="attachment_img_2" src="/widgets/diary/img/dimage1.png" onclick="OnAttachment(&quot;url&quot;)"/>
+		<img id="attachment_img_3" src="/widgets/diary/img/dimage1.png" onclick="OnAttachment(&quot;url&quot;)"/>
+	</div>
+	<!-- 其他附件列表 -->	
+	<hlist id="attachment_other" ><!-- 写死 -->
+		<button id="attachment_other_1" bgpath="/widgets/diary/img/dfile.png" hgpath="/widgets/diary/img/dfilesel.png" tips="文件" onclick="OnAttachment(&quot;url&quot;)"/>
+		<!-- attachment_other_+索引; bgpath,hgpath,tips:参照下列模板; onclick:OnAttachment(&quot;资源地址&quot;) -->
+
+		<!--
+			1:普通文件
+			<button id="id" bgpath="/widgets/diary/img/dfile.png" hgpath="/widgets/diary/img/dfilesel.png" tips="文件" onclick="OnAttachment(&quot;url&quot;)"/>
+			2:图片文件
+			<button id="id" bgpath="/widgets/diary/img/dimage.png"  hgpath="/widgets/diary/img/dimagesel.png" tips="图片文件"
+			onclick="OnAttachment(&quot;url&quot;)" />
+			3:音频文件
+			<button id="id" bgpath="/widgets/diary/img/daudio.png" hgpath="/widgets/diary/img/daudiosel.png" tips="音频文件"
+			onclick="OnAttachment(&quot;url&quot;)" />
+			3:视频文件
+			<button id="id" bgpath="/widgets/diary/img/dvideo.png" hgpath="/widgets/diary/img/dvideosel.png" tips="视频文件"
+			onclick="OnAttachment(&quot;url&quot;)" />
+		-->
+	</hlist>
+		
+	
+<!-- 提到的好友 -->
+	<hlist id="frnd_list" ><!-- 写死 -->
+		<label id="frnd_index" text="名称" onclick="viewMainpage(&quot;好友id&quot;)" value="好友id"/>
+		<!-- id:frnd_+索引; text: 名称; value:好友的id; onclick:viewMainpage(&quot;好友id&quot;) -->
+
+		<label id="frnd_1" text="陈静聪" onclick="viewMainpage(&quot;好友id&quot;)"/>
+		<label id="frnd_2" text="周杰伦" onclick="viewMainpage(&quot;好友id&quot;)"/>
+	</hlist>
+		
+<!-- 隐私权限 -->
+	<combobox id="diary_priv">
+		<option id="pr_all" value="0" text="任何人" selected="true"/>
+		<!-- id:写死; value:选项Id; text:选项描述; selected:标识选中 -->
+		<option id="pr_friend" value="1" text="仅好友"/>
+		<option id="pr_no" value="2" text="隐藏"/>
+	</combobox>	
+	
+<!-- 评论列表 -->			
+	<vlist id="diary_comment_list" type="0">
+		<item src="" title="评论人" content="评论内容" ltail="2009.04.07 16:45" onclick="ClickCom()" data="from=&quot;评论人ID&quot; id=&quot;评论ID&quot;"/>
+		<item src="" title="评论人" content="评论内容" ltail="2009.04.07 16:45" onclick="ClickCom()" data="from=&quot;评论人ID&quot; id=&quot;评论ID&quot;"/>
+		<item src="" title="评论人" content="评论内容" ltail="2009.04.07 16:45" onclick="ClickCom()" data="from=&quot;评论人ID&quot; id=&quot;评论ID&quot;"/>
+	</vlist>
+
+</unit>

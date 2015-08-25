@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- id写死 -->
+<unit id="mainOther" onload="_zsnSend(&quot;/widgets/main/mainOthersData.xml&quot;)">
+	<!-- onload="_zsnSend(&quot;http://test.3g.cn/gt2-kjava/chen/maindata.xml&quot;)" -->
+	<!-- style写死 -->
+	<style src="/main.css" />
+	<script src="/widgets/main/mainpage.zs" />
+	<!-- menu全部写死 -->
+	<menu type="left">
+		<menu text="日记" onclick="_zsnSend(&quot;/widgets/diary/diaryn.xml&quot;)" />
+		<menu text="相册" onclick="_zsnSend(&quot;/widgets/album/album.xml&quot;)" />
+		<menu text="好友" onclick="_zsnSend(&quot;/widgets/friends/friend.xml&quot;)" />
+		<menu text="消息" onclick="_zsnSend(&quot;/widgets/message/message.xml&quot;)" />
+		<menu text="点滴" onclick="_zsnSend(&quot;/widgets/record/recordn.xml&quot;)" />
+		<menu text="投票" onclick="_zsnSend(&quot;/widgets/vote/voten.xml&quot;)" />
+		<menu text="礼物" onclick="_zsnSend(&quot;/widgets/present/gift.xml&quot;)" />
+		<menu text="动Ta一下" onclick="_zsnSend(&quot;/widgets/touch/touch.xml&quot;)" />
+		<menu text="争车位" onclick="_zsnSend(&quot;/widgets/record/record.xml&quot;)" />
+		<menu text="组件管理" onclick="_zsnSend(&quot;/widgets/widget/widget.xml&quot;)" />
+		<menu text="最近访客" onclick="_zsnSend(&quot;/widgets/resent/resent&quot;)" />
+		<menu text="退出" onclick="_zssExit()" />
+	</menu>
+	<!--  id写死 -->
+	<body id="index">
+
+		<div class="head-transparence">
+			<hlist id="resentvisit" leftimg="/widgets/main/img/person_l.png"
+					rightimg="/widgets/main/img/person_r.png">
+					<button text="首页" onfocus="switchto(&quot;main&quot;)"/>
+					<button text="留言板" onfocus="switchto(&quot;leavemsg&quot;)"/>
+			</hlist>
+		</div>
+	</body>
+</unit>

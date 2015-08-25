@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="record01">
+	<menu id="menu" type="left">
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="删除点滴" onclick="deleteRecord(&quot;myrecords&quot;)" />
+	</menu>
+	<script src="/widgets/record/recordn.zs" />
+
+	<body id="record">
+		<div id="dheaddiv" class="full-transparence">
+			<hlist id="tablist" type="5">
+				<button id="tabm" text="我的点滴" onfocus="SwitchView(&quot;myrecord&quot;)"/>
+				<button id="tabh" text="好友的点滴" onfocus="SwitchView(&quot;frirecord&quot;)"/>
+				<button id="tabo" text="随便看看" onfocus="SwitchView(&quot;othersrecord&quot;)"/>
+			</hlist>
+			<hr />
+			<div id="myrecord" visible="true">
+				<div id="user">
+					<head src="/widgets/album/img/h.png" user-name="陈静聪"
+						view-count="256" signature="总有一日等好天气" />
+					<hr />
+				</div>
+				<div id="doing" class="horizontal" style="padding:3">
+					<label id="ltitle" text="我正在" />
+					<textfield id="recordtext" w="120" />
+				</div>
+				<button id="submit" text="发表点滴" type="btext" style="margin:0 0 0 7"
+					onclick="addRecord(&quot;myrecords&quot;)" />
+				<hr />
+				<vlist id="myrecords" type="0">
+					<item src="http" title="江威与陈静聪成为好友" ltail1="230" ltail2="150"
+						ltail="2009-04-07 16:45" onclick="goComments(&quot;myrecords&quot;)" />
+					<item src="http" title="于鑫是个傻子" ltail1="200" ltail2="250"
+						ltail="2009-04-01 00:00" onclick="goComments(&quot;myrecords&quot;)" />
+					<item src="http" title="阿杜发表日记1篇" ltail1="231" ltail2="143"
+						ltail="2009-03-30 09:45" onclick="goComments(&quot;myrecords&quot;)" />
+					<item src="http" title="我们都不是IT民工" ltail1="330" ltail2="150"
+						ltail="2009-03-30 09:45" onclick="goComments(&quot;myrecords&quot;)" />
+				</vlist>
+			</div>
+			<div id="frirecord" visible="false">
+				<vlist id="frirecords" type="0">
+					<item src="http" title="他的江威与陈静聪成为好友" ltail1="250" ltail2="650"
+						ltail="2009-04-07 16:45" onclick="goComments(&quot;frirecords&quot;)" />
+					<item src="http" title="他的于鑫是个傻子" ltail1="730" ltail2="150"
+						ltail="2009-04-01 00:00" onclick="goComments(&quot;frirecords&quot;)" />
+					<item src="http" title="他的阿杜发表日记1篇" ltail1="270" ltail2="159"
+						ltail="2009-03-30 09:45" onclick="goComments(&quot;frirecords&quot;)" />
+					<item src="http" title="他的我们都不是IT民工" ltail1="265" ltail2="155"
+						ltail="2009-03-30 09:45" onclick="goComments(&quot;frirecords&quot;)" />
+				</vlist>
+			</div>
+			<div id="othersrecord" visible="false">
+				<vlist id="news1" vstyle="0">
+					<item src="http" title="随便看看江威与陈静聪成为好友" ltail="2009-04-07 16:45" />
+					<item src="http" title="随便看看于鑫是个傻子" ltail="2009-04-01 00:00" />
+					<item src="http" title="随便看看阿杜发表日记1篇" ltail="2009-03-30 09:45" />
+					<item src="http" title="随便看看我们都不是IT民工" ltail="2009-03-30 09:45" />
+				</vlist>
+			</div>
+		</div>
+
+	</body>
+</unit>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<unit id="friendpage"  onload="getGroupList">
+
+  <script src="/widgets/friends/friend.zs" />
+  	
+	<poppanel id="addGroup" class="popbg" style="align:fill;">
+	
+		<label id="poplabel1" text="输入组名" />
+		<textfield  id="groupname" name="Groupname" value="write" />
+		<button id="popbutton8" text="创建" onclick="CreateGroup(&quot;http://test.3g.cn/sns/interface/frigroupadd.aspx?&quot;,&quot;addGroup&quot;,&quot;1&quot;)"/>
+		<button id="buttonCancel" text="取消" onclick="CancelFriendPanel(&quot;addGroup&quot;)"/>
+	</poppanel>
+	
+	<poppanel id="sendmsg" class="popbg" >
+		<textfield  id="groupname" name="content" value="消息内容" w="200" h="140"/>			
+		<button id="popbutton8" text="发送" onclick="CancelFriendPanel(&quot;sendmsg&quot;)"/>
+		<button id="buttonCancel" text="取消" onclick="CancelFriendPanel(&quot;sendmsg&quot;)"/>
+	</poppanel>
+		
+	<poppanel id="MoveFriendtoGroup" class="popbg" >
+		<label id="MoveFrName"/>
+		<select id="MoveSeleteGroup" max="1"/>
+		<button id="selectfinish1" text="确定" onclick="moveFriendFromGroup(&quot;http://test.3g.cn/sns/interface/fricopy.aspx?&quot;,&quot;MoveSeleteGroup&quot;)"/>
+		<button id="buttonCancel" text="取消" onclick="CancelFriendPanel(&quot;MoveFriendtoGroup&quot;)"/>				
+	</poppanel>
+	
+	<poppanel id="CutFriendtoGroup" class="popbg">
+		<label id="CutFrName"/>
+		<select id="CutseleteGroup" max="1"/>
+		<button id="selectfinish1" text="确定" onclick="CutFriendFromGroup(&quot;http://test.3g.cn/sns/interface/fricut.aspx?&quot;,&quot;CutseleteGroup&quot;)"/>
+		<button id="buttonCancel" text="取消" onclick="CancelFriendPanel(&quot;CutFriendtoGroup&quot;)"/>				
+	</poppanel>
+	
+  <menu type="0">
+  	<menu  text="查找好友" onclick="showcontent(&quot;/widgets/friends/searchFriend.xml&quot;)" />
+  	<menu  text="查看好友的好友" onclick="showcontent(&quot;/widgets/friends/friend_friend.xml&quot;)" />
+    <menu  text="断交" onclick="delfriend" />
+    <menu  text="添加组" onclick="popuplist(&quot;addGroup&quot;)" />
+    <menu  text="发送消息" onclick="popuplist(&quot;sendmsg&quot;)" />
+    <menu  text="从组中删除" onclick="DelfriendFromGroup" />
+    <menu  text="复制到组" onclick="PopGroupPanel(&quot;MoveFriendtoGroup&quot;,&quot;MoveFrName&quot;,&quot;MoveSeleteGroup&quot;)" />
+    <menu  text="剪切到组" onclick="PopGroupPanel(&quot;CutFriendtoGroup&quot;,&quot;CutFrName&quot;,&quot;CutseleteGroup&quot;)" />
+    <menu  text="删除当前组" onclick="DelCurGroup" />
+  </menu>  
+
+	<body id="friendbody">
+		<div id="head-transparence" class="head-transparence">
+			<hlist id="grouplist" leftimg="/widgets/main/img/person_l.png"	rightimg="/widgets/main/img/person_r.png">
+			</hlist>
+		</div>
+		<hr/>
+		<div class="tail-transparence" style="min-size:0 260;">
+			<vlist id="friendlist" type="0"/>
+		</div>
+			
+				<!--button id="prePage" text="上一页" onclick="prepagefried" visible="false"/>
+				<button id="nextPage" text="下一页" onclick="nextpagefried" visible="false"/-->
+	</body>
+</unit>

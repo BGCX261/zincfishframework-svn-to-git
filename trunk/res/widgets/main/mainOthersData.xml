@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="mainOther">
+	<!-- 首页 -->
+		<div id="mainpage">
+		<!-- 头像  -->
+		<!--  id,class写死 -->
+		<div id="user" class="midle-transparence">
+			<!--
+				src是该用户的头像URL地址; user-name是该用户名字; view-count是该用户被浏览数;
+				signature是该用户签名
+			-->
+			<head src="http://t.douban.com/icon/u1439629-273.jpg" user-name="陈静聪"
+				view-count="256" signature="总有一日等好天气" />
+			<hr />
+		</div>
+
+		<!-- 导航 -->
+		<!-- id写死 class写死 -->
+		<div id="nav" class="midle-white">
+			<!-- text写死;onclick需要修改的是"XXX",替换为该用户的用户ID -->
+			<button text="加为好友" onclick="addFriend(&quot;XXX&quot;)"/>
+			<button text="站内消息" onclick="mailTO(&quot;XXX&quot;)"/>
+			<button text="查看详情" onclick="viewInfo(&quot;XXX&quot;)"/>
+			
+			<!-- text:把"YYY"替换为该用户的名字;onclick需要修改的是"XXX",替换为该用户的用户ID -->
+			<label text="YYY的好友" onclick="goFriends(&quot;XXX&quot;)">
+			<label text="YYY的日记" onclick="goDiary(&quot;XXX&quot;)">
+			<label text="YYY的相册" onclick="goPhoto(&quot;XXX&quot;)">
+			<label text="YYY的记录" onclick="goRecord(&quot;XXX&quot;)">
+		</div>
+		
+
+
+		<!-- 最近访客 -->
+		<!-- id和class写死 -->
+		<div id="resent" class="midle-transparence">
+			<!-- id和text写死 -->
+			<label id="resentlabel" text="最近访客:" />
+			<!-- di,lefgimg和rightimg写死 -->
+			<hlist id="resentvisit" leftimg="/widgets/main/img/person_l.png"
+				rightimg="/widgets/main/img/person_r.png">
+				<!-- 最近10个访客,每个label代表一个访客,text是访客的名字 -->
+				<label text="陈静聪" />
+				<label text="周杰伦" />
+				<label text="江威" />
+				<label text="杰峰" />
+				<label text="阿杜" />
+				<label text="阿进" />
+				<label text="小朋友" />
+				<label text="孙悟空" />
+				<label text="孙悟空" />
+			</hlist>
+			<hr />
+		</div>
+
+		<hr />
+
+		<!-- 好友动态 -->
+		<!-- id和class写死 -->
+		<div id="newsdiv" class="midle-transparence">
+			<label text="好友动态" />
+			<div class="horizontal">
+				<label text="江威" onclick="" />
+				<label text="和" />
+				<label text="于鑫" onclick="" />
+				<label text="成为好朋友" />
+			</div>
+			<hr linetype="line" />
+
+			<div class="horizontal">
+				<label text="江威" onclick="" />
+				<label text="上传3张照片至" />
+				<label text="自拍相册" onclick="" />
+			</div>
+			<hr linetype="line" />
+
+			<div class="horizontal">
+				<label text="江威" onclick="" />
+				<label text="发表日记" />
+				<label text="上班真是体力活（一）" onclick="" />
+			</div>
+			<hr linetype="line" />
+			
+			<div class="horizontal">
+				<label text="江威" onclick="" />
+				<label text="记录到:" />
+				<label text="俺睡不着···又起来了··· 实在想打电话吵醒你···" onclick="" />
+			</div>
+			<hr linetype="line" />
+			<!-- class写死 -->
+			<div class="horizontal">
+				<!-- 控制好友动态列表分页的按钮.下一页和上一页返回"好友动态列表下发.xml"定义的格式 -->
+				<button text="下一页" onclick="_zsnSend(&quot;***&quot;)" />
+				<label text="1/10" />
+				<button text="上一页" onclick="_zsnSend(&quot;***&quot;)" />
+			</div>
+
+		</div>
+	
+	</div>
+
+	<!-- 留言板 -->
+	<div id="wall" class="tail-transparence">
+		<textfield style="min-size:0 50" id="editor" bg="1" w="230"
+			value="" />
+		<button text="发表留言" onclick="submitMsg" />
+		<vlist id="wall">
+			<!-- 一个item表示一条留言 -->
+			<!-- src是该用户的头像URL -->
+			<!-- title是留言的内容" -->
+			<!-- ltail是该动态的发表的时间 -->
+			<!-- onclick是跳转到该留言的用户的地址.把***换成获取该xml页面的URL地址-->
+			<item src="http://test.3g.cn/sns/Images/spec.png" title="踩踩"
+				ltail="2009.04.07 16:45" onclick="_zsnSend(&quot;***&quot;)" />
+			<item src="http://test.3g.cn/sns/Images/spec.png" title="来看看你"
+				ltail="2009.04.01 00:00" onclick="_zsnSend(&quot;***&quot;)" />
+			<item src="http://test.3g.cn/sns/Images/spec.png" title="哈哈哈哈~~"
+				ltail="2009.03.30 09:45" onclick="_zsnSend(&quot;***&quot;)" />
+		</vlist>
+		<div class="horizontal">
+			<button text="下一页" onclick="nextMsgPage" />
+			<label text="1/100" />
+			<button text="上一页" onclick="preMsgPage" />
+		</div>
+	</div>
+</unit>

@@ -1,0 +1,91 @@
+﻿<!-- 我的主页 -->
+
+<unit id="main_unit">	<!-- id写死 -->
+	
+	<!-- 标题 -->
+	<head id="head" src="/widgets/album/img/h.png" user-name="陈静聪" view-count="256" signature="总有一日等好天气" />
+	<!-- id写死。src为我的头像。user-name是我的名字。view-count是访问数。signature为签名。 -->
+
+	<!-- 导航 -->
+	<hlist id="info" leftimg="/widgets/main/img/title_l.png" rightimg="/widgets/main/img/title_r.png" style="margin:0 -10 0 -10">	<!-- 全部写死 -->
+		<button bgpath="/widgets/main/img/friend.png" hgpath="/widgets/main/img/friend1.png" tips="120" onclick="FriendPage" />		<!-- 好友。tip 好友数量 -->
+		<button bgpath="/widgets/main/img/diary.png" hgpath="/widgets/main/img/diary1.png" tips="90" onclick="DiaryPage" />			<!-- 日记。tip 日记数量 -->
+		<button bgpath="/widgets/main/img/album.png" hgpath="/widgets/main/img/album1.png" tips="79" onclick="AlbumPage" />			<!-- 相册。tip 照片数量 -->
+		<button bgpath="/widgets/main/img/car.png" hgpath="/widgets/main/img/car1.png" tips="争车位" onclick="CarPage" />			<!-- 写死 -->
+		<button bgpath="/widgets/main/img/widget.png" hgpath="/widgets/main/img/widget1.png" tips="导航" onclick="NavPage" />		<!-- 写死 -->
+		<button bgpath="/widgets/main/img/msg.png" hgpath="/widgets/main/img/msg1.png" tips="10" onclick="MsgPage" />				<!-- 消息。tip 新新消息数量 -->
+		<button bgpath="/widgets/main/img/drop.png" hgpath="/widgets/main/img/drop1.png" tips="1024" onclick="DropPage" />			<!-- 点滴。tip 点滴篇数 -->
+		<button bgpath="/widgets/main/img/vote.png" hgpath="/widgets/main/img/vote1.png" tips="768" onclick="VotePage" />			<!-- 投票。tip 发起的投票数。 -->
+		<button bgpath="/widgets/main/img/present.png" hgpath="/widgets/main/img/present1.png" tips="512" onclick="GiftPage" />		<!-- 礼物。tip 新收到的礼物数 -->
+		<button bgpath="/widgets/main/img/touch.png" hgpath="/widgets/main/img/touch1.png" tips="778" onclick="TouchPage" />		<!-- 写死 -->
+		<button bgpath="/widgets/main/img/resent.png" hgpath="/widgets/main/img/resent1.png" tips="9527" onclick="ResentPage" />	<!-- 最近访客。tip 最近访客数。-->
+		<button bgpath="/widgets/main/img/widget.png" hgpath="/widgets/main/img/widget1.png" tips="5" onclick="WidgetPage" />		<!-- 组件。tip 组件数。 -->
+	</hlist>
+
+	<!-- 最近访客 -->
+	<hlist id="RList" leftimg="/widgets/main/img/person_l.png" rightimg="/widgets/main/img/person_r.png">	<!-- 写死 -->
+		<label id="ac1" text="陈静聪" data="mid" onclick="GoAccHome"/>		<!-- text是访问者姓名。data是其mid。onclick写死。 -->
+		<label id="ac2" text="周杰伦" data="mid" onclick="GoAccHome"/>
+		<label id="ac3" text="江威" data="mid" onclick="GoAccHome"/>
+		<label id="ac4" text="杰峰" data="mid" onclick="GoAccHome"/>
+		<label id="ac5" text="阿杜" data="mid" onclick="GoAccHome"/>
+		<label id="ac6" text="阿进" data="mid" onclick="GoAccHome"/>
+		<label id="ac7" text="小朋友" data="mid" onclick="GoAccHome"/>
+		<label id="ac8" text="孙悟空" data="mid" onclick="GoAccHome"/>
+		<label id="ac9" text="孙悟空" data="mid" onclick="GoAccHome"/>
+	</hlist>
+
+	<!-- 好友动态 -->
+	<div id="FDDiv">		<!-- id写死 -->
+			<p>				<!-- 每一段p表示一个好友动态 -->
+				<label text="陈静聪" onclick="..."/>			<!-- text是文本。onclick暂略，之后会整理一张跳转表。 -->
+				<label text="和"/>
+				<label text="江威" onclick="..."/>
+				<label text="成为好友"/>	
+			</p>
+			<hr/>			<!-- 每段p后面加上hr -->
+
+			<p>
+				<label text="高安杰" onclick="..."/>
+				<label text="发表了一篇"/>
+				<label text="日记" onclick="..."/>
+				<label text="《SVN又挂了！》" onclick="..."/>
+			</p>
+			<hr/>
+
+			<p>
+				<label text="陈朋" onclick="..."/>
+				<label text="上传了照片"/>
+				<label text="《我的人体艺术》" onclick="..."/>
+				<label text="到他的专辑"/>
+				<label text="《十八禁》" onclick="..."/>
+			</p>
+			<hr/>
+
+			<p>
+				<label text="超人、" onclick="..."/>
+				<label text="奥特曼、" onclick="..."/>
+				<label text="蜡笔小新、" onclick="..."/>
+				<label text="张三丰" onclick="..."/>
+				<label text="开打了"/>
+			</p>
+			<hr/>
+
+			<p>
+				<label text="刘恒" onclick="..."/>
+				<label text="和" />
+				<label text="小梅" onclick="..."/>
+				<label text="结婚了"/>
+			</p>
+			<hr/>
+	</div>
+	
+	<!-- 留言板 -->
+	<vlist id="LWList" type="0">	<!-- id、type写死 -->
+		<item id="LW1" title="小A" data="wid=&quot;留言ID&quot; mid=&quot;留言人ID&quot;" src="/widgets/album/img/h.png" content="小A，你妈妈叫你回家吃饭。小A，你妈妈叫你回家吃饭。小A，你妈妈叫你回家吃饭。小A，你妈妈叫你回家吃饭。小A，你妈妈叫你回家吃饭。小A，你妈妈叫你回家吃饭。" onclick="ClickLW" ltail="2009.9.9 09:58"/>
+		<!-- title是留言发起人。src是留言发起人的头像url。content是留言内容。ltail是留言时间。onclick写死。 -->
+		<item id="LW2" title="小B" data="wid=&quot;留言ID&quot; mid=&quot;留言人ID&quot;"  src="/widgets/album/img/h.png" content="小B，你妈妈叫你回家吃饭。小B，你妈妈叫你回家吃饭。" onclick="ClickLW" ltail="2009.9.9 09:58"/>
+		<item id="LW3" title="小C" data="wid=&quot;留言ID&quot; mid=&quot;留言人ID&quot;" src="/widgets/album/img/h.png" content="小C，你妈妈叫你回家吃饭。小C，你妈妈叫你回家吃饭。小C，你妈妈叫你回家吃饭。" onclick="ClickLW" ltail="2009.9.9 09:58"/>
+		<item id="LW4" title="小D" data="wid=&quot;留言ID&quot; mid=&quot;留言人ID&quot;" src="/widgets/album/img/h.png" content="小D，你妈妈叫你回家吃饭。" ltail="2009.9.9 09:58" onclick="ClickLW"/>
+	</vlist>
+</unit>

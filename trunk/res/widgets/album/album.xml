@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unit id="album_unit" onload="_zsnSend(&quot;http://test.3g.cn/sns/interface/Albumspeclist.aspx&quot;)">
+<!-- <unit id="album_unit" onload="_zsnSend(&quot;/widgets/album/album_down.xml&quot;)"> -->
+	<script src="/widgets/album/album.zs" />
+
+	<menu id="IMenu" type="left">
+		<menu text="进入专辑" onclick="GoIn()"/>
+		<menu text="上传图片" onclick="ShowUploadPage()" />
+		<menu text="新建专辑" onclick="ShowCreateAlbumPage()"/>
+		<menu text="拍照" onclick="Snap()" />
+		<menu text="编辑专辑属性" onclick="ShowEditAlbumPage()"/>
+		<menu text="查看访问权限" onclick="ShowLevel()"/>
+		<menu text="删除专辑" onclick="ShowDelAlbumPop()" />
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+	</menu>
+	
+	<menu id="OMenu" type="left">
+		<menu text="查看照片" onclick="GoIn()"/>
+		<menu text="照片所在专辑" onclick="AlbumWithPhoto()"/>
+		<menu text="Ta的相册首页" onclick="GoOtherAlbum()"/>
+		<menu text="Ta的首页" onclick="GoOtherHome()"/>
+	</menu>
+	
+
+	<!-- 密码输入框 -->
+    <poppanel id="showciper" class="popbg">
+    	<div id="ciperPopBody">
+    		<label text="请输入密码:"/>
+    		<textfield id="ciper" type="password" w="120"/>
+    		<button id="cipersubmit" text="确定" onclick="CiperConfirm"/>
+    	</div>
+    </poppanel>
+    
+    <!-- 删除确认提示框 -->
+   <poppanel id="DelPop" class="popbg" style="layout:inlinelayout(false,center)">
+		<label id="DelLable" text=""/>
+		<div id="DelButton" style="layout:inlinelayout(true,center)">
+			<button id="DelSure" text="确定" onclick="SureDel()"/>
+			<button id="DelCancel" text="取消" onclick="CancelDel()"/>
+		</div>
+	</poppanel>
+
+	<!-- 创建专辑对话框 -->
+    <poppanel id="CreateAlbumPop">
+    	<div class="head-transparence">
+    		<label text="创建专辑" />
+    		<hr/>
+    	</div>
+    	<div class="tail-white">
+    		<label text="专辑名称：" />
+    		<textfield id="CA_NameT" />
+    		<label text="访问属性" />
+    		<combobox id="CA_Level">
+    			<option id="op0" text="任何人" value="0" onclick="CAPassWord(&quot;false&quot;)"/>
+					<option id="op1" text="仅好友" value="1" onclick="CAPassWord(&quot;false&quot;)"/>
+					<option id="op2" text="需密码" value="2" onclick="CAPassWord(&quot;true&quot;)"/>
+    		</combobox>
+				<label id="CA_Password_L" text="密码:" visible="false"/>
+				<textfield id="CA_Password_T" visible="false"/>
+				<div style="layout:inlinelayout(true,fill);align:center;">
+					<button text="确定" onclick="CreateAlbum()"/>
+					<button text="取消" onclick="HideCreateAlbumPage()"/>
+				</div>
+    	</div>
+    </poppanel>
+    
+    <!-- 修改专辑属性对话框 -->
+    <poppanel id="ModifyAlbumPop">
+    	<div class="head-transparence">
+    		<label text="编辑专辑属性" />
+    		<hr/>
+    	</div>
+    	<div class="tail-white">
+    		<label text="专辑名称：" />
+    		<textfield id="MA_NameT" value="123" />
+    		<label text="访问属性" />
+    		<combobox id="MA_Level">
+    			<option id="op0" text="任何人" value="0" onclick="MAPassWord(&quot;false&quot;)"/>
+					<option id="op1" text="仅好友" value="1" onclick="MAPassWord(&quot;false&quot;)"/>
+					<option id="op2" text="需密码" value="2" onclick="MAPassWord(&quot;true&quot;)"/>
+    		</combobox>
+				<label id="MA_Password_L" text="密码:" visible="false"/>
+				<textfield id="MA_Password_T" visible="false" type="password"/>
+				<div style="layout:inlinelayout(true,fill);align:center;">
+					<button text="确定" onclick="EditAlbum()"/>
+					<button text="取消" onclick="HideEditAlbumPage()"/>
+				</div>
+    	</div>
+    </poppanel>
+
+	<body id="album_body">
+		
+		<!-- tag -->
+	    <div id="tbdiv" class="head-transparence">
+	        <hlist id="tablist">
+	            <button text="我的专辑" onfocus="SwitchView(&quot;myAlbum&quot;,&quot;IMenu&quot;)"/>
+	            <button text="圈有我的照片" onfocus="SwitchView(&quot;myPhoto&quot;,&quot;OMenu&quot;)"/>
+	            <button text="圈有好友的照片" onfocus="SwitchView(&quot;friPhoto&quot;,&quot;OMenu&quot;)"/>
+	        </hlist>
+	    </div>
+	    <hr/>
+		
+		<!-- 我的专辑 -->
+		<div id="myAlbum" class="tail-white" visible="true">
+		   <clist id="myAList" type="square">
+		   	<!--
+			    <item id="album1" name="江威" title="西湖美景" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album1&quot;,&quot;myphlist&quot;)" level="2" />
+		   		<item id="album2" name="江威" title="荷塘月色" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album2&quot;,&quot;myphlist&quot;)" level="1"/>
+		   		<item id="album3" name="江威" ltail1="5" ltail2="7" title="夏威夷旅游" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album3&quot;,&quot;myphlist&quot;)" />
+					<item id="album4" name="江威" ltail1="5" ltail2="7" title="西湖美景" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album4&quot;,&quot;myphlist&quot;)" />
+		   		<item id="album5" name="江威" ltail1="5" ltail2="7" title="荷塘月色" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album5&quot;,&quot;myphlist&quot;)" />
+		   		<item id="album6" name="江威" ltail1="5" ltail2="7" title="夏威夷旅游" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album6&quot;,&quot;myphlist&quot;)" />
+					 -->
+				</clist>
+			
+			<div id="myA_button" style="layout:inlinelayout(true,fill);align:center;" >
+				<button id="myA_next" text="下一页" visible="false"/>
+				<label  id="myA_pages" text="1/2"  visible="false"/>
+				<button id="myA_prev" text="上一页"  visible="false"/>
+			</div>
+		</div>
+		
+		<!-- 圈有我的照片-->
+		<div id="myPhoto" class="tail-white" visible="false">
+			<clist id="myPList" type="rect">
+				<!--
+			    <item id="myP1" name="于鑫" ltail1="5" ltail2="7" level="0" title="西湖美景"  src="/widgets/album/img/aa.png"
+					 onclick="GoAlbum(&quot;myP1&quot;,&quot;friphlist&quot;)" />
+		   		<item id="myP2" name="Adu" ltail1="5" ltail2="7" ciper="123" level="2" title="荷塘月色" src="/widgets/album/img/aa.png"
+					 onclick="GoAlbum(&quot;myP2&quot;,&quot;friphlist&quot;)" />
+		   		<item id="myP3" name="陈静聪" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/aa.png"
+					 onclick="GoAlbum(&quot;myP3&quot;,&quot;friphlist&quot;)" />
+		   		<item id="myP4" name="江威" ltail1="5" ltail2="7" ciper="456" level="2" title="清远漂流" src="/widgets/album/img/aa.png"
+					 onclick="GoAlbum(&quot;myP4&quot;,&quot;friphlist&quot;)" />
+					<item id="myP5" name="陈静聪" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/aa.png"
+					 onclick="GoAlbum(&quot;myP5&quot;,&quot;friphlist&quot;)" />
+		   		<item id="myP6" name="江威" ltail1="5" ltail2="7" ciper="456" level="2" title="清远漂流" src="/widgets/album/img/aa.png"
+					 onclick="GoAlbum(&quot;myP6&quot;,&quot;friphlist&quot;)" />
+					<item id="myP7" name="陈静聪" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/aa.png"
+					 onclick="GoAlbum(&quot;myP7&quot;,&quot;friphlist&quot;)" />
+		   		<item id="myP8" name="江威" ltail1="5" ltail2="7" ciper="456" level="2" title="清远漂流" src="/widgets/album/img/aa.png"
+					 onclick="GoAlbum(&quot;myP8&quot;,&quot;friphlist&quot;)" />
+					 -->
+			</clist>
+			
+			<div id="myP_button" style="layout:inlinelayout(true,fill);align:center;" >
+				<button id="myP_next" text="下一页" visible="false"/>
+				<label  id="myP_pages" text="1/2" visible="false"/>
+				<button id="myP_prev" text="上一页" visible="false"/>
+			</div>
+		</div>
+		
+		<!-- 圈有好友的照片 -->
+		<div id="friPhoto" class="tail-white" visible="false">
+			<clist id="friPList" type="rect">
+					<!--
+			    <item id="friP1" name="于鑫" ltail1="5" ltail2="7" level="0" title="西湖美景"  src="/widgets/album/img/41.png"
+					 onclick="GoAlbum(&quot;friP1&quot;,&quot;friphlist&quot;)" />
+		   		<item id="friP2" name="Adu" ltail1="5" ltail2="7" ciper="123" level="2" title="荷塘月色" src="/widgets/album/img/41.png"
+					 onclick="GoAlbum(&quot;friP2&quot;,&quot;friphlist&quot;)" />
+		   		<item id="friP3" name="陈静聪" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/41.png"
+					 onclick="GoAlbum(&quot;friP3&quot;,&quot;friphlist&quot;)" />
+		   		<item id="friP4" name="江威" ltail1="5" ltail2="7" ciper="456" level="2" title="清远漂流" src="/widgets/album/img/41.png"
+					 onclick="GoAlbum(&quot;friP4&quot;,&quot;friphlist&quot;)" />
+					<item id="friP5" name="陈静聪" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/41.png"
+					 onclick="GoAlbum(&quot;friP5&quot;,&quot;friphlist&quot;)" />
+		   		<item id="friP6" name="江威" ltail1="5" ltail2="7" ciper="456" level="2" title="清远漂流" src="/widgets/album/img/41.png"
+					 onclick="GoAlbum(&quot;friP6&quot;,&quot;friphlist&quot;)" />
+					<item id="friP7" name="陈静聪" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/41.png"
+					 onclick="GoAlbum(&quot;friP7&quot;,&quot;friphlist&quot;)" />
+		   		<item id="friP8" name="江威" ltail1="5" ltail2="7" ciper="456" level="2" title="清远漂流" src="/widgets/album/img/41.png"
+					 onclick="GoAlbum(&quot;friP8&quot;,&quot;friphlist&quot;)" />
+					 -->
+			</clist>
+			
+			<div id="friP_button" style="layout:inlinelayout(true,fill);align:center;" >
+				<button id="friP_next" text="下一页" visible="false"/>
+				<label  id="friP_pages" text="1/2" visible="false"/>
+				<button id="friP_prev" text="上一页" visible="false"/>
+			</div>
+		</div>
+		
+	</body>
+</unit>  

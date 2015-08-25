@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="receivehome" onload="getReceiveData"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.3g.net.cn/sns"
+	xsi:schemaLocation="http://www.3g.net.cn/sns ../../zml.xsd">
+	<menu type="left">
+		<menu text="回赠" />
+		<menu text="返回" />
+	</menu>
+	<body id="receivebody">
+		<div id="anchordiv" bg="true">
+			<label id="l1" text="赠送礼物" onclick="goPresent" />
+			<label id="sp" text="|" />
+			<label id="l2" text="我收到的礼物" onclick="goReceive" />
+		</div>
+		<div id="receivedatadiv" bg="true">
+			<list id="received-present_list" type="v" />
+		</div>
+	</body>
+</unit>

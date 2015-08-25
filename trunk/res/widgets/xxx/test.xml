@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="main" onload="updateFriendsList">
+	<style src="/main.css" />
+
+	<body id="index">
+		<div style="layout:flowlayout(top);">
+			<label type="break" text="你好"/>
+			<label type="break" text="于鑫" onclick=""/>
+			<label type="break" text=",你在哪里呢？我很想你。快回来吧"/>
+			<br/>
+			<label type="break" text="我写的这首歌，是一首简单的，不复杂也不难唱的那一种歌..."/>
+		</div>
+	</body>
+</unit>

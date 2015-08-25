@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="presenthome" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.3g.net.cn/sns" xsi:schemaLocation="http://www.3g.net.cn/sns ../../zml.xsd">
+	<script src="/widgets/present/present.zs" />
+	<menu type="left">
+		<menu text="回赠" />
+		<menu text="返回" />
+	</menu>
+	<body id="present_body">
+		<div id="anchordiv" bg="true">
+			<label id="l1" text="赠送礼物" onclick="goPresent" />
+			<label id="sp" text="|" />
+			<label id="l2" text="我收到的礼物" onclick="goReceive" />
+		</div>
+
+		<div id="to-friends_div" bg="true">
+			<label text="赠送给:" />
+			<br />
+			<button id="sel-friends" onclick="addFriends" src="/widgets/present/img/add" />
+			<label id="friends" text="好友列表选择赠送人:" />
+			<list id="friends_hlist" type="h">
+				<label id="name-1_t" text="陈静聪," />
+				<label id="name-2_t" text="武藤兰," />
+				<label id="name-3_t" text="小闹," />
+				<label id="name-4_t" text="阿杜," />
+				<label id="name-5_t" text="江威," />
+				<label id="name-6_t" text="猥琐男," />
+				<label id="name-7_t" text="御姐," />
+			</list>
+		</div>
+		<div id="sel-present_div" bg="true">
+			<label id="sel-present_t" text="选择礼物:" />
+			<list id="tablist" type="h">
+				<tab id="tab1" name="普通礼物" value="garbage" />
+				<tab id="tab2" name="高级礼物" value="high-class" />
+			</list>
+
+			<div id="tabdiv">
+				<div id="garbage" visible="true" type="1">
+					<checkbox id="ck-1" type="radio" />
+					<img id="img-1" src="loca://widgets/present/img/flower.png" />
+					<checkbox id="ck-2" type="radio" />
+					<img id="img-2" src="loca://widgets/present/img/flower.png" />
+					<br />
+
+					<checkbox id="ck-3" type="radio" />
+					<img id="img-3" src="loca://widgets/present/img/flower.png" />
+					<checkbox id="ck-4" type="radio" />
+					<img id="img-4" src="loca://widgets/present/img/flower.png" />
+					<br />
+
+					<checkbox id="ck-5" type="radio" />
+					<img id="img-5" src="loca://widgets/present/img/flower.png" />
+				</div>
+
+				<div id="high-class" visible="false" type="1">
+					<checkbox id="ck-1" type="radio" />
+					<img id="img-1" src="loca://widgets/present/img/car.png" />
+					<checkbox id="ck-2" type="radio" />
+					<img id="img-2" src="loca://widgets/present/img/car.png" />
+					<br />
+
+					<checkbox id="ck-3" type="radio" />
+					<img id="img-3" src="loca://widgets/present/img/car.png" />
+					<checkbox id="ck-4" type="radio" />
+					<img id="img-4" src="loca://widgets/present/img/car.png" />
+					<br />
+
+					<checkbox id="ck-5" type="radio" />
+					<img id="img-5" src="loca://widgets/present/img/car.png" />
+				</div>
+			</div>
+
+		</div>
+
+		<div id="words" bg="true">
+			<label text="赠言:" />
+			<textfield id="info_txt" line="1" />
+			<button id="submit_b" text="送出" onclick="present" />
+		</div>
+	</body>
+
+</unit>

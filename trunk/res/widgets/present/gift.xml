@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<unit id="gift_main" ><!-- onload="__LoadAllList()"-->
+	
+	<!-- script -->
+	<!-- script src="/widgets/present/gift.zs"/-->
+	
+	<!-- menu -->
+	<menu type="left">
+		<menu text="回赠" onclick="PresentBack()"/>
+		<menu text="删除" onclick="DelRecord()"/>
+		<menu text="去赠送人主页" onclick="HomePage()"/>		
+	</menu>
+	
+	<!-- body -->
+	<body id="gift_body">
+		<div class="head-transparence">
+			<hlist id="gift_switch_buttons" leftimg="/widgets/main/img/person_l.png" rightimg="/widgets/main/img/person_r.png">
+				<label id="send_gift" text="赠送礼物  " available="true" onfocus="changevisable(&quot;out_gift_div&quot;, &quot;in_gift_div&quot;)"/>
+				<label id="receive_gift" text="我收到的礼物" available="true" onfocus="changevisable(&quot;in_gift_div&quot;, &quot;out_gift_div&quot;)"/>
+			</hlist>
+			<hr/>
+		</div>
+		
+		<!-- 我收到的礼物 -->
+		<div id="in_gift_div" class="tail-white" visible="false">
+			<label id="giftCount" text="你共收到了35件礼物"/>			
+			<vlist id="in_gift_list">
+				<item id="in1" title="朋友A送的" content="礼物1"  rtail="2009-02-26" icon="0"/>
+				<item id="in2" title="朋友A送的" content="礼物2"  rtail="2010-02-26" icon="0"/>
+				<item id="in3" title="朋友A送的" content="礼物3"  rtail="2011-02-26" icon="0"/>
+				<item id="in4" title="朋友A送的" content="礼物1"  rtail="2009-02-26" icon="0"/>
+				<item id="in5" title="朋友A送的" content="礼物1"  rtail="2009-02-26" icon="0"/>
+		  </vlist>
+		   
+		  <div id="in_gift_pageButton" style="layout:inlinelayout(true,fill);align:center;" >
+				<button id="in_gift_prev" text="上一页"/>
+				<label  id="in_gift_pages" text="1/2" style="margin:0 10 0 10;"/>
+				<button id="in_gift_next" text="下一页"/>
+			</div>
+		</div>
+
+
+		<!-- 赠送礼物 -->		
+		<div id="out_gift_div" class="tail-white" style="padding:0;gap:0 5;">
+			<label text="赠送给:"/>
+			<button id="seleteFriendButton" text="选择好友" onclick="PopFriendPanel(&quot;seleteFriend&quot;,&quot;FriendChecks&quot;)"/>
+
+			<label text="选择礼物:"/>
+			<hlist id="gift_level_switch">
+				<button id="common_gift" text="普通礼物" onfocus="changevisable(&quot;com_gift_div&quot;, &quot;vip_gift_div&quot;)"/>
+				<button id="vip_gift" text="高级礼物" onfocus="changevisable(&quot;vip_gift_div&quot;, &quot;com_gift_div&quot;)"/>
+			</hlist>
+
+			<!-- 普通礼物 -->
+			<div id="com_gift_div" >	
+				<select id="com_gift_select" max="1"  available="true" style="layout:gridlayout(3,3);">				
+						<div id="comgift_div1" style="layout:inlinelayout(false,center)">
+							<img id="comimg1" src="/widgets/present/img/flower.png" />
+							<checkbox id="comgift1" type="radio" />
+						</div>
+	
+					  <div id="comgift_div2" style="layout:inlinelayout(false,center)">
+					  	<img id="comimg2" src="/widgets/present/img/flower.png" />
+							<checkbox id="comgift2" type="radio" />
+						</div>
+	
+						<div id="comgift_div3" style="layout:inlinelayout(false,center)">
+							<img id="comimg3" src="/widgets/present/img/flower.png" />
+							<checkbox id="comgift3" type="radio" />
+						</div>
+	
+						<div id="comgift_div4" style="layout:inlinelayout(false,center)">
+							<img id="comimg4" src="/widgets/present/img/flower.png" />
+							<checkbox id="comgift4" type="radio" />
+						</div>
+	
+						<div id="comgift_div5" style="layout:inlinelayout(false,center)">
+							<img id="comimg5" src="/widgets/present/img/flower.png" />
+							<checkbox id="comgift5" type="radio" />
+						</div>					
+	
+						<div id="comgift_div6" style="layout:inlinelayout(false,center)">
+							<img id="comimg6" src="/widgets/present/img/flower.png"  />
+							<checkbox id="comgift6" type="radio"  />
+						</div>
+						
+						<div id="comgift_div7" style="layout:inlinelayout(false,center)">
+							<img id="comimg7" src="/widgets/present/img/flower.png"  />
+							<checkbox id="comgift7" type="radio"  />
+						</div>
+	
+						<div id="comgift_div8" style="layout:inlinelayout(false,center)">
+							<img id="comimg8" src="/widgets/present/img/flower.png"  />
+							<checkbox id="comgift8" type="radio"  />
+						</div>					
+	
+						<div id="comgift_div9" style="layout:inlinelayout(false,center)">
+							<img id="comimg9" src="/widgets/present/img/flower.png"  />
+							<checkbox id="comgift9" type="radio"  />
+						</div>
+				</select>  
+
+				<div id="com_pageButton" style="layout:inlinelayout(true,fill);align:center;">
+					<button id="com_prev" text="上一页"/>
+					<label  id="com_pages" text="1/10" style="margin:0 10 0 10;"/>
+					<button id="com_next" text="下一页"/>
+				</div>
+				
+			</div>
+			 
+			<!-- 高级礼物 -->
+			<div id="vip_gift_div" visible="false">
+				<select id="vip_gift_select" max="1"  available="true" style="layout:gridlayout(3,3);">				
+						<div id="comgift_div1" style="layout:inlinelayout(false,center)">
+							<img id="comimg1" src="/widgets/present/img/car.png" />
+							<checkbox id="comgift1" type="radio" />
+						</div>
+	
+					  <div id="comgift_div2" style="layout:inlinelayout(false,center)">
+					  	<img id="comimg2" src="/widgets/present/img/car.png" />
+							<checkbox id="comgift2" type="radio" />
+						</div>
+	
+						<div id="comgift_div3" style="layout:inlinelayout(false,center)">
+							<img id="comimg3" src="/widgets/present/img/car.png" />
+							<checkbox id="comgift3" type="radio" />
+						</div>
+	
+						<div id="comgift_div4" style="layout:inlinelayout(false,center)">
+							<img id="comimg4" src="/widgets/present/img/car.png" />
+							<checkbox id="comgift4" type="radio" />
+						</div>
+	
+						<div id="comgift_div5" style="layout:inlinelayout(false,center)">
+							<img id="comimg5" src="/widgets/present/img/car.png" />
+							<checkbox id="comgift5" type="radio" />
+						</div>					
+	
+						<div id="comgift_div6" style="layout:inlinelayout(false,center)">
+							<img id="comimg6" src="/widgets/present/img/car.png"  />
+							<checkbox id="comgift6" type="radio"  />
+						</div>
+						
+						<div id="comgift_div7" style="layout:inlinelayout(false,center)">
+							<img id="comimg7" src="/widgets/present/img/car.png"  />
+							<checkbox id="comgift7" type="radio"  />
+						</div>
+	
+						<div id="comgift_div8" style="layout:inlinelayout(false,center)">
+							<img id="comimg8" src="/widgets/present/img/car.png"  />
+							<checkbox id="comgift8" type="radio"  />
+						</div>					
+	
+						<div id="comgift_div9" style="layout:inlinelayout(false,center)">
+							<img id="comimg9" src="/widgets/present/img/car.png"  />
+							<checkbox id="comgift9" type="radio"  />
+						</div>
+				</select>  
+				
+				<list id="vip_pageButton" style="layout:inlinelayout(true,fill);align:center;">
+					<button id="vip_prev" text="上一页"/>
+					<label  id="vip_pages" text="1/5"/>
+					<button id="vip_next" text="下一页"/>
+				</list>
+			
+			</div>
+			
+		    <label text="附送留言"/>
+	
+		    <textfield id="words" value="你要对好友说的话"/>
+
+		    <label text="赠送方式"/>
+		 
+		    <combobox id="wayBox" cocoa="true">
+		    	<option id="way1" value="0" text="普通方式" selected="true"/>
+		    	<option id="way2" value="1" text="悄悄的送"/>
+		    	<option id="way3" value="2" text="匿名赠送"/>
+		    </combobox>
+   	
+		    <button id="send" text="送出" onclick="SendGift()" style="align:right;"/>
+		</div>
+	</body>
+	
+		
+	<!-- popPanel -->
+	<poppanel id="seleteFriend" class="popbg">
+		<button id="abc" text="123"/>
+		<select id="seleteF" max="1">
+		<list id="FriendChecks" type="c" num="2"/>
+		</select>
+		<br/>
+		<br/>
+		<br/>
+		<button id="selectfinish" text="确定" onclick="CancelFriendPanel(&quot;seleteFriend&quot;)"/>	
+	</poppanel>
+</unit>

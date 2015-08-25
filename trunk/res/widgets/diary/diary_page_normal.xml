@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="diary_page">
+	<menu id="menu" type="left">
+		<menu text="日记管理" onclick="_zssSwitch(&quot;/widgets/diary/diary_list.xml&quot;)" />
+	</menu>
+	<script src="/widgets/diary/diary_page.zs" />
+
+	<body id="diary_page_body">
+		<div id="tbdiv" class="head-transparence">
+			<hlist id="tablist" >
+				<button id="tab_diary" text="日记 " onfocus="SwitchView(&quot;diary_content&quot;)" />
+				<button id="tab_comment" text="评论" onfocus="SwitchView(&quot;diary_comments&quot;)" />
+			</hlist>
+			<hr />
+		</div>
+		
+		<div id="diary_content">
+	<!-- 日记标题 -->
+			<div class="midle-transparence">
+				<head id="diary_head" src="/widgets/album/img/h.png" user-name="某某的日记"	 signature="日记标题" view-count="时间" value="日记id"/> <!-- id 写死； src 头像； 其它如属性值 -->
+			</div>
+
+	<!-- 日记正文 -->
+			<div id="diary_text" class="midle-white"  style="min-size:0 50">
+				<hr />
+				<label id="text" text="据国外媒体报道，微软公司日前决定，从本周开始微软将停止对移动浏览器Deepfish的研发支持。微软在博客中称，在它收到的客户反馈意见中，有用户明确表示，“微软终止Deepfish浏览器研发将影响到他们未来的项目”。" />
+			</div>
+
+	<!-- 附件 -->
+			<div id="diary_attachment" class="midle-transparence" style="layout:inlinelayout(false,left);gap:10 10;">
+					<hr />
+					<label id="attachment_list_title"  text="附件："/>
+					<div id="attachment_img" style="gap:10 10;">
+								
+					</div>
+					
+					<hlist id="attachment_other" >
+						
+					</hlist>
+			</div>
+	
+	<!-- 提到的好友 -->
+			<div id="diary_frnd" class="midle-transparence">
+				<hr />
+				<label id="frnd_list_title"  text="提到的好友："/>
+				<hlist id="frnd_list" >
+					
+				</hlist>
+			</div>
+	<!-- 还有其他的应用可在此添加 -->
+			<div class="tail-transparence" style="min-size:0 1">
+				<hr />
+			</div>
+
+			<div visible="false">
+				<combobox id="diary_priv"/>
+			</div>
+		</div>
+
+		<div id="diary_comments" visible="true" class="tail-white">
+			<hlist id="info" leftimg="/widgets/main/img/person_l.png"
+				rightimg="/widgets/main/img/person_r.png" >
+				<button bgpath="/widgets/diary/img/dup.png" hgpath="/widgets/diary/img/dup.png" tips="赞" 
+					onclick="dup" />
+				<button bgpath="/widgets/diary/img/ddown.png" hgpath="/widgets/diary/img/ddown.png" tips="倒"
+					onclick="down" />
+				<button bgpath="/widgets/diary/img/dcom.png"  hgpath="/widgets/diary/img/dcom.png" tips="评论"
+					onclick="com" />
+				<button bgpath="/widgets/diary/img/dshare.png"  hgpath="/widgets/diary/img/dshare.png" tips="分享"
+					onclick="share" />
+			</hlist>
+			<textfield style="min-size:230 50"  id="comment_text" bg="1" w="230" value=""/>
+			<button id="adddiary" text="发表评论" type="btext" style="margin:0 0 0 7" onclick="postComment"/>
+			<hr />
+			<vlist id="diary_comment_list" type="0">
+				
+			</vlist>
+		</div>
+	</body>
+	
+</unit>

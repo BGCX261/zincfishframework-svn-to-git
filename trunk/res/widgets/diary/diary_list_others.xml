@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="diary_list_unit_others">
+	<menu id="menu" type="left">
+		<menu text="写日记" onclick="WriteDiary" />
+		<menu text="回首页" onclick="_zssSwitch(&quot;/widgets/main/mainpage.xml&quot;)" />
+	</menu>
+	<script src="/widgets/diary/diary_list_others.zs" />
+
+	<body id="diary_list_body">
+		<div id="tbdiv" class="head-transparence">
+			<hlist id="tablist" >
+				<button id="tab_diary_ownd" text="他（她）的全部日记" onfocus="SwitchView(&quot;diary_ownd&quot;)" />
+				<button id="tab_diary_related" text="提到他（她）的日记" onfocus="SwitchView(&quot;diary_related&quot;)" />
+			</hlist>
+			<hr />
+		</div>
+		<div id="diary_ownd" class="tail-transparence" style="min-size:0 260">
+			<!-- $src:头像图片地址$user-name:用户名$view-count:浏览数$signature:最近更新状态 -->
+			<head id="head" src="/widgets/album/img/h.png" user-name="陈静聪" view-count="256"
+				signature="总有一日等好天气" />
+			<hr />
+			<vlist id="diary_list_ownd" type="2">
+				<!--
+					$id:日记ID;$title:日记标题$ltail1:浏览数$ltail2:评论数$ltail:发表日期$onclick:把XXX换成日记链接地址
+				-->
+				<item id="yyy" title="江威与陈静聪成为好友" ltail1="20" ltail2="100"
+					ltail="2009.04.07 16:45"  onclick="viewMyDiary(&quot;/widgets/diary/diary_downloadpages/diary_page_download.xml&quot;)" />
+				<item title="于鑫是个傻子" ltail1="230" ltail2="150" ltail="2009.04.01 00:00"
+					 onclick="viewMyDiary(&quot;/widgets/diary/diary_downloadpages/diary_page_download.xml&quot;)" />
+				<item title="于鑫是个Hello World." ltail1="120" ltail2="120"
+					ltail="2009.04.01 00:00" onclick="viewMyDiary(&quot;/widgets/diary/diary_downloadpages/diary_page_download.xml&quot;)" />
+			</vlist>
+			<div class="horizontal">
+				<button id="diary_list_ownd_prev" text="上一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+				<label  id="diary_list_ownde_pages" text="1/1" visible="false"/>
+				<button id="diary_list_ownd_next" text="下一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+			</div>
+		</div>
+		<div id="diary_related" visible="false" class="tail-transparence" style="min-size:0 260">
+			<vlist id="diary_list_related" type="1">
+				<!--
+					$title:日记标题$ltail1:浏览数$ltail2:评论数$ltail:发表日期$onclick:把XXX换成日记链接地址
+				-->
+				<item src="/widgets/album/img/h.png" title="江威与陈静聪成为好友" ltail1="20" ltail2="100"
+					ltail="2009.04.07 16:45" onclick="viewDiary(&quot;/widgets/diary/diary_downloadpages/diary_page_download.xml&quot;)" />
+				<item src="/widgets/album/img/h.png" title="于鑫是个傻子" ltail1="20" ltail2="120"
+					ltail="2009.04.07 16:45"  onclick="viewDiary(&quot;/widgets/diary/diary_downloadpages/diary_page_download.xml&quot;)" />
+				<item src="/widgets/album/img/h.png" title="wo是个傻子" ltail1="220" ltail2="100"
+					ltail="2009.04.07 16:45"  onclick="viewDiary(&quot;/widgets/diary/diary_downloadpages/diary_page_download.xml&quot;)" />
+			</vlist>
+			<div class="horizontal">
+				<button id="diary_list_related_prev" text="上一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+				<label  id="diary_list_related_pages" text="1/1" visible="false"/>
+				<button id="diary_list_related_next" text="下一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+			</div>
+		</div>
+	</body>
+	
+</unit>

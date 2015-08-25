@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<unit id="main_unit">
+
+	<!-- 最近访客数据 -->
+	<div id="visitor" class="visitordiv"
+		onclick="_zsnSend(&quot;/widgets/main/mainpage_guest.xml&quot;)">
+		<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威"
+			date="2009.08.28 11:23" />
+		<mixtag id="mt2" src="/ui/mixtag_user.png" user-name="陈静聪"
+			date="2009.08.29 12:23" />
+		<mixtag id="mt3" src="/ui/mixtag_user.png" user-name="A du"
+			date="2009.08.29 15:25" />
+		<mixtag id="mt4" src="/ui/mixtag_user.png" user-name="于鑫"
+			date="2009.08.30 15:25" />
+		<mixtag id="mt5" src="/ui/mixtag_user.png" user-name="Helen" />
+		<img class="more" src="/ui/more.png"
+			onclick="_zsnSend(&quot;/widgets/main/mainpage_guest.xml&quot;)" />
+	</div>
+
+	<!-- 好友动态数据 -->
+	<div class="frienddiv" id="FDDiv">
+		<!-- 好友动态目前有以下11种动态 -->
+		<!-- ----------------(1) 修改个人资料------------------------ -->
+		<div>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="周杰伦" onclick="GoAccHome" data="365038201492538187" />
+			<!-- text写死 -->
+			<label text="修改了个人资料" />
+			<!-- text写死;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text=">>快去看看" onclick="GoAccHome" data="365038201492538187" />
+		</div>
+		<!-- 写死-->
+		<label text="2009-09-09 09:09" class="time" />
+
+
+		<!-- ----------------(2) 更新头像------------------------ -->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="周杰伦" onclick="GoAccHome" data="365038201492538187" />
+			<!-- text写死 -->
+			<label text="更新了头像" />
+			<!-- text写死;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text=">>快去看看" onclick="GoAccHome" data="365038201492538187" />
+		</p>
+		<!-- 写死-->
+		<label text="2009-09-09 09:09" class="time" />
+
+		<!-- ----------------(3) 上传新照片------------------------ -->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="江威" onclick="GoAccHome" data="365038201492538187" />
+			<!-- text:XXX替换成新上传照片的张数 -->
+			<label text="上传XXX张照片至" />
+			<!-- text是上传照片所在的相册;goAlbum表示的是跳转到该相册,XXX替换成好友的ID,YYY替换成该相册的ID -->
+			<label text="我的相册" onclick="goAlbum(&quot;XXX&quot;,&quot;YYY&quot;)" />
+		</p>
+		<label text="2009-09-09 09:09" class="time" />
+
+		<!-- ----------------(4) 发表新日记------------------------ -->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="阿杜" onclick="GoAccHome" data="365038201492538187" />
+			<!-- 写死 -->
+			<label text="发表日记:" />
+			<!-- text是日记标题;goDiary表示跳到该日记页面,YYY是日记ID -->
+			<label text="上班真是体力活（一）" onclick="goDiary(&quot;259&quot;)" />
+		</p>
+		<label style="color:#555555；magin:-8 0 0 0;" text="早上8：30开学典礼。听这名字就如同还没毕业一样。..." />
+		<label text="2009-09-09 09:09" class="time" />
+
+
+		<!-- ----------------(5)建立新群 -------------->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="周杰伦" onclick="GoAccHome" data="365038201492538187" />
+			<!-- text写死 -->
+			<label text="建立了群" />
+			<!-- text群的名字;goFriend表示的是跳转到好友的个人主页,YYY替换成群的ID. -->
+			<label text="粉丝联盟" onclick="goGroup(&quot;YYY&quot;)" />
+		</p>
+		<!-- 写死-->
+		<label text="2009-09-09 09:09" class="time" />
+
+		<!-- ----------------(6)加入群 -------------------->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="阿杜" onclick="GoAccHome" data="365038201492538187" />
+			<!-- text写死 -->
+			<label text="加入群" />
+			<!-- text群的名字;goFriend表示的是跳转到好友的个人主页,YYY替换成群的ID. -->
+			<label text="粉丝联盟" onclick="goGroup(&quot;YYY&quot;)" />
+		</p>
+		<!-- 写死-->
+		<label text="2009-09-09 09:09" class="time" />
+
+		<!-- ----------------(7)和某人加为好友(离线到上线的这段时间)-------------------->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="江威" onclick="GoAccHome" data="365038201492538187" />
+			<!-- 写死 -->
+			<label text="和" />
+			<!-- text是用户的名字;goFriend表示的是跳转到用户的个人主页,XXX替换成好友的ID. -->
+			<label text="于鑫" onclick="GoAccHome" data="365038201492538187" />
+			<!-- 与多个用户成为好友,中间用逗号分隔-->
+			<label text="," />
+			<!-- text是用户的名字;goFriend表示的是跳转到用户的个人主页,XXX替换成好友的ID. -->
+			<label text="小小" onclick="GoAccHome" data="365038201492538187" />
+			<!-- 写死 -->
+			<label text="成为好友" />
+		</p>
+
+		<!-- 写死 -->
+		<label text="2009-09-09 09:09" class="time" />
+
+		<!-- -----------------(8)添加新组件------------------------ -->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="阿杜" onclick="GoAccHome" data="365038201492538187" />
+			<!-- text写死 -->
+			<label text="添加新组件" />
+			<!-- text组件的名字;onclick表示跳到某个组件的首页,对应关系如下: -->
+			<!--
+				# 好友: FriendPage # 日记: DiaryPage # 相册: AlbumPage # 争车位: CarPage #
+				导航: NavPage # 消息: MsgPage # 点滴: DropPage # 投票: VotePage # 礼物:
+				GiftPage # 动他一下: TouchPage # 最近访客: ResentPage # 组件: WidgetPage
+			-->
+			<label text="争车位" onclick="CarPage" />
+
+		</p>
+		<!-- 写死-->
+		<label text="2009-09-09 09:09" class="time" />
+
+
+		<!-- -----------------(9)记录------------------------ -->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="王月=.=!" onclick="GoAccHome" data="365038201492538187" />
+			<!-- 写死 -->
+			<label text="记录到:" />
+			<!-- 记录的文字 -->
+			<label text="俺睡不着···又起来了··· 实在想打电话吵醒你···" />
+			<!-- text写死;goRecord表示跳到该日记页面,XXX替换成该好友的ID,YYY是该条记录的ID -->
+		</p>
+		<label text="2009-09-09 09:09" class="time" />
+
+		<!-- 注意: (10)和(11)只在评论人和被评论人的共同好友的动态里显示--->
+
+		<!-- -----------------(10)在某某留言板留言------------------------ -->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="王月=.=!" onclick="GoAccHome" data="365038201492538187" />
+			<!-- 写死 -->
+			<label text="在" />
+			<!-- 记录的文字 -->
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="江威" onclick="GoAccHome" data="365038201492538187" />
+			<!-- goRecord表示跳到该日记页面,XXX替换成该好友的ID,YYY是该条记录的ID -->
+			<label text="留言板留言了" />
+			<!-- text写死;goMsg表示跳到该好友的留言板,XXX替换成该好友的ID -->
+			<label text=">>快去看看" onclick="GoAccHome" data="365038201492538187" />
+		</p>
+		<label text="2009-09-09 09:09" class="time" />
+
+		<!-- -----------------(11)给某某日记,照片等评论------------------------ -->
+		<!-- 日记评论 -->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="王月=.=!" onclick="GoAccHome" data="365038201492538187" />
+			<!-- 写死 -->
+			<label text="评论了" />
+			<!-- 记录的文字 -->
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="江威" onclick="GoAccHome" data="365038201492538187" />
+			<!-- text 日记或照片或点滴-->
+			<label text="的日记" />
+			<!-- text日记/照片/点滴的标题;goMsg表示跳到该评论,XXX替换成该好友的ID,YYY该日记/照片/点滴的ID -->
+			<label text="写给王菲" onclick="goDiaryComment(&quot;259&quot;)" />
+		</p>
+		<label text="2009-09-09 09:09" class="time" />
+		<!-- 照片评论 -->
+		<p>
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="王月=.=!" onclick="GoAccHome" data="365038201492538187" />
+			<!-- 写死 -->
+			<label text="评论了" />
+			<!-- 记录的文字 -->
+			<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+			<label text="江威" onclick="GoAccHome" data="365038201492538187" />
+			<!-- text 日记或照片或点滴-->
+			<label text="照片" />
+			<!-- text日记/照片/点滴的标题;goMsg表示跳到该评论,XXX替换成该好友的ID,YYY该日记/照片/点滴的ID -->
+			<label text="松岛枫" onclick="goPhotoComment(&quot;155&quot;,&quot;155&quot;)" />
+		</p>
+		<label text="2009-09-09 09:09" class="time" />
+		<img class="more" src="/ui/more.png"
+			onclick="_zsnSend(&quot;/widgets/main/mainpage_trends.xml&quot;)" />
+	</div>
+
+	<!-- 留言板数据 -->
+	<div id="comment" class="commentdiv"
+		onclick="_zsnSend(&quot;/widgets/main/mainpage_msg_board.xml&quot;)">
+		<div class="horizontal">
+			<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威"
+				available="false" />
+			<bubble text="最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+		</div>
+		<div class="horizontal">
+			<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威"
+				available="false" />
+			<bubble text="最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+		</div>
+		<div class="horizontal">
+			<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威"
+				available="false" />
+			<bubble text="最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+		</div>
+		<div class="horizontal">
+			<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威"
+				available="false" />
+			<bubble text="最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+		</div>
+		<img class="more" src="/ui/more.png"
+			onclick="_zsnSend(&quot;/widgets/main/mainpage_msg_board.xml&quot;)" />
+	</div>
+</unit>

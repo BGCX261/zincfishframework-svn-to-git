@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="AlbumPage_unit" >
+	<script src="/widgets/album/albumpage.zs" />
+
+	<menu type="left">
+		<menu text="查看" onclick="OpenCur()"/>
+		<menu text="编辑" onclick="ShowEditPhotoPage()"/>
+		<menu text="上传照片" onclick="ShowUploadPage()"/>
+		<menu text="设为专辑封面" onclick="SetCover()"/>
+		<menu text="删除照片" onclick="DeletePhoto()"/>
+		<menu text="我的相册首页" onclick="_zsnSend(&quot;/widgets/album/album.xml&quot;)" />
+		<menu text="我的首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+	</menu>
+	
+	<!-- 删除确认框 -->
+	<poppanel id="DelPop" class="popbg" style="layout:inlinelayout(false,center)">
+		<label id="DelLable" />
+		<div id="DelButton" style="layout:inlinelayout(true,center)">
+			<button id="DelSure" text="确定" onclick="SureDel()"/>
+			<button id="DelCancel" text="取消" onclick="CancelDel()"/>
+		</div>
+	</poppanel>
+
+	<!-- 设为专辑封面确认 -->
+	<poppanel id="CoverPop" class="popbg" style="layout:inlinelayout(false,center)">
+		<label id="CoverLable" />
+		<div id="CoverButton" style="layout:inlinelayout(true,center)">
+			<button id="CoverSure" text="确定" onclick="SureCover()"/>
+			<button id="CoverCancel" text="取消" onclick="CancelCover()"/>
+		</div>
+	</poppanel>
+
+	<body id="AlbumPage_body">
+		<div id="headdiv" class="head-transparence" style="padding: -6 -10 0 8;">
+			<label id="albumtext" text="XXX的相册" />
+		</div>
+		<hr />
+	   	<div id="user" class="midle-transparence">
+	  		 <head id="headtext" src="/widgets/album/img/pp.png" user-name="XX的相册" view-count="共X张" signature="XX新专辑" data="id=&quot;专辑id&quot; mid=&quot;专辑主人的mid&quot;"/>
+	   	</div>
+	   	<div id="photodiv" class="tail-white">
+		   <clist id="photolist" type="rect">
+		   	<!--
+		   		<item id="P0" title="刘亦菲01" ltail1="200" ltail2="20" src="\widgets\album\img\11.png"
+						onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		   		<item id="P1" title="刘亦菲02" ltail1="230" ltail2="120" src="\widgets\album\img\21.png"
+						onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		   		<item id="P2" title="刘亦菲03" ltail1="200" ltail2="220" src="\widgets\album\img\31.png"
+						onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		   		<item id="P3" title="刘亦菲04" ltail1="250" ltail2="20" src="\widgets\album\img\41.png"
+						onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		   		<item id="P4" title="刘亦菲05" ltail1="250" ltail2="20" src="\widgets\album\img\aa.png"
+						onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+					<item id="P5" title="刘亦菲04" ltail1="250" ltail2="20" src="\widgets\album\img\41.png"
+						onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		   		<item id="P6" title="刘亦菲05" ltail1="250" ltail2="20" src="\widgets\album\img\aa.png"
+						onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+					<item id="P7" title="刘亦菲05" ltail1="250" ltail2="20" src="\widgets\album\img\aa.png"
+						onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+				-->
+		   </clist>
+		   
+		   <div id="in_gift_pageButton" style="layout:inlinelayout(true,fill);align:center;" >
+				<button id="in_gift_prev" text="上一页" onclick="PrePage()" visible="false"/>
+				<label  id="in_gift_pages" text="1/2" style="margin:0 10 0 10;" data="当前页码" visible="false"/>
+				<button id="in_gift_next" text="下一页" onclick="NextPage()" visible="false"/>
+			</div>
+		   
+	   	</div>
+	</body>
+</unit>  

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="rec_msg_main">
+	<script src="/widgets/message/rec_msg_list.zs" />
+	<menu id="menu" type="left">
+		<menu text="回首页" onclick="_zssSwitch(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="消息中心" onclick="MsgCenter()" />
+		<menu text="删除消息" onclick="DeleteMessage()" />
+		<menu text="清空收件箱" onclick="DeleteBoxMessage(&quot;0&quot;)" />
+		<menu text="清空发件箱" onclick="DeleteBoxMessage(&quot;1&quot;)" />
+	</menu>
+    
+    <poppanel id="replay_pop" class="poppanelbg" style="padding: 10 0 10 0">
+        <label id="msgtext_re" text="消息"/> <!-- ID写死    text内容是可替换的 -->
+    	<textfield id="content_re" style="min-size: 0 60;"/> <!-- ID写死   为回复内容  -->
+    	<button id="submit" text="回复" onclick="ReplayMessage()"/>
+    </poppanel>
+    
+    <!-- message_pop和message_text(text属性可替换)写死 -->
+    <poppanel id="message_pop" class="poppanelbg" style="padding: 10 0 10 0">
+    	<label id="message_text" text="消息已经发出"/>
+    	<button id="ok" text="确定" onclick="_zssHidePopWindow(&quot;message_pop&quot;)"/>
+    </poppanel>
+    
+	<!-- 选择好友弹出框 -->	
+	<poppanel id="FriSelPop" class="popbg">
+		<label id="MyFri" text="我的好友"/>
+		<select id="FriSelect" max="1">
+		</select>
+		<button text="确定" onclick="updateRcvr()"/>
+	</poppanel>
+
+	<body id="innermessage">
+	   <div id="dheaddiv" class="full-transparence">
+	         <div id="tbdiv" style="margin: -5 0 0 10;">
+		         <hlist id="tablist" type="5">
+		             <button text="收件箱" onfocus="SwitchView(&quot;rec_msg_in&quot;)"/>
+		             <button text="发件箱" onfocus="SwitchView(&quot;rec_msg_out&quot;)"/>
+		             <button text="发送消息" onfocus="SwitchView(&quot;rec_msg_send&quot;)"/>
+		         </hlist>
+	         </div>
+	         <hr />
+	         <div id="rec_msg_in" style="min-size:0 260">
+	            <vlist id="rec_msg_in_list" type="0"/>
+				<div id="rec_msg_in_div" class="horizontal" style="align:center">
+					<button id="rec_msg_in_next" text="下一页" visible="false"/>
+					<label  id="rec_msg_in_page" text="1/10" value="页码" visible="false"/>
+					<button id="rec_msg_in_prev" text="上一页" visible="false"/>
+				</div>
+	         </div>
+	         <div id="rec_msg_out" visible="false" style="min-size:0 260">
+		         <vlist id="rec_msg_out_list" type="0"/>
+				 <div id="rec_msg_out_div" class="horizontal" style="align:center">
+					<button id="rec_msg_out_next" text="下一页" visible="false"/>
+					<label  id="rec_msg_out_page" text="1/10" value="页码" visible="false"/>
+					<button id="rec_msg_out_prev" text="上一页" visible="false"/>
+				 </div>
+	         </div>
+	         <div id="rec_msg_send" visible="false" style="min-size:0 260">
+	             <!-- 两个textfield的id写死  rec_msg_send_text:消息正文 rec_msg_sendto:好友  -->
+				 <div class="horizontal" style="gap:10 0;">
+					<label text="to:" onclick="PopRecvrs"/>
+					 <label id="msg_recvr"/>
+				 </div>
+	             <textfield style="min-size:0 200"  id="rec_msg_send_text" bg="1" value="请在这里输入发送的信息"/>  
+	             <!--textfield id="rec_msg_sendto" style="min-size:100 20" /-->
+	             <button id="submit" text="发送消息" onclick="SendMessage()"/>
+	         </div>
+	    </div>
+	</body>
+</unit>

@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.3g.net.cn/sns" xmlns="http://www.3g.net.cn/sns"
+	elementFormDefault="qualified">
+
+	<!--
+		(1) 如需要验证ZML,unit元素应该被这样写: <unit
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns="http://www.3g.net.cn/sns"
+		xsi:schemaLocation="http://www.3g.net.cn/sns zml.xsd">
+
+		其中可能需要改动的是:xsi:schemaLocation属性.定义该schema文件的位置"http://www.3g.net.cn/sns"是命名空间,
+		空格后面的zml.xsd是相对路径,比如schema文件在zml文件的上一级,可以这样写:
+
+		xsi:schemaLocation="http://www.3g.net.cn/sns ../zml.xsd"; (2)
+		如需加入新的组件元素,加到"TODO 其实组件元素加到这里"注释处; (3)
+		定义元素的类型,加到"TODO其他组件类型加到这里"注释处.注意: 组件类型需要继承father-type;
+	-->
+
+
+	<!-- *********************组件元素的组********************************* -->
+	<xs:group name="components">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded" >
+				<xs:element name="div" type="div-type" />
+				<xs:element name="list" type="list-type" />
+				<xs:element name="a" type="a-type" nillable="true"/>
+				<xs:element name="img" type="img-type" />
+				<xs:element name="textfield" type="textfield-type" />
+				<xs:element name="combobox" type="combobox-type" />
+				<xs:element name="album" type="album-type" />
+				<xs:element name="br" type="br-type" />
+				<xs:element name="hr" type="hr-type" />
+				<xs:element name="label" type="label-type" />
+				<xs:element name="checkbox" type="checkbox-type" />
+				<xs:element name="item" type="item-type" />
+				<xs:element name="button" type="button-type" />
+				<!-- TODO 其实组件元素加到这里 -->
+				<xs:element name="navigation" type="navigation-type" />
+				<xs:element name="nmenu" type="nmenu-type" />
+				<xs:element name="submenu" type="submenu-type" />
+				<xs:element name="tab" type="tab-type" />
+				<xs:element name="friends" type="friends-type" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+	<!--***********************简单类型**********************	-->
+	<xs:simpleType name="halign-type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="left" />
+			<xs:enumeration value="center" />
+			<xs:enumeration value="right" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="l-type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="v" />
+			<xs:enumeration value="h" />
+			<xs:enumeration value="c" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<!--***********************组件**********************	-->
+
+	<!-- 所有body元素的父类型(对应dom的公共属性)  -->
+	<xs:complexType name="father-type">
+		<xs:attribute name="id" type="xs:string" use="optional" />
+		<xs:attribute name="name" type="xs:string" use="optional" />
+		<xs:attribute name="value" type="xs:string" use="optional" />
+		<xs:attribute name="tips" type="xs:string" use="optional" />
+		<xs:attribute name="halign" type="halign-type" use="optional" />
+		<xs:attribute name="available" type="xs:boolean" use="optional" />
+		<xs:attribute name="visible" type="xs:boolean" use="optional" />
+		<xs:attribute name="x" type="xs:integer" use="optional" />
+		<xs:attribute name="y" type="xs:integer" use="optional" />
+		<xs:attribute name="w" type="xs:integer" use="optional" />
+		<xs:attribute name="h" type="xs:integer" use="optional" />
+		<xs:attribute name="onclick" type="xs:string" use="optional" />
+		<xs:attribute name="onfocus" type="xs:string" use="optional" />
+		<xs:attribute name="onlosefocus" type="xs:string" use="optional" />
+		<xs:attribute name="onchanged" type="xs:string" use="optional" />
+		<xs:attribute name="onload" type="xs:string" use="optional" />
+		<xs:attribute name="oninit" type="xs:string" use="optional" />
+		<xs:attribute name="onshow" type="xs:string" use="optional" />
+		<xs:attribute name="onhide" type="xs:string" use="optional" />
+		<xs:attribute name="ontimer" type="xs:string" use="optional" />
+		<xs:attribute name="linkup" type="xs:string" use="optional" />
+		<xs:attribute name="linkright" type="xs:string" use="optional" />
+		<xs:attribute name="linkdown" type="xs:string" use="optional" />
+		<xs:attribute name="linkleft" type="xs:string" use="optional" />
+		<xs:attribute name="fg-color" type="xs:hexBinary" use="optional" />
+		<xs:attribute name="bg-color" type="xs:hexBinary" use="optional" />
+	</xs:complexType>
+
+	<!-- Div -->
+	<xs:complexType name="div-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:group ref="components" />
+				<xs:attribute name="bg" type="xs:boolean" use="optional"></xs:attribute>
+				<xs:attribute name="type" type="xs:string" use="optional"></xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- List -->
+	<xs:complexType name="list-type">
+
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:group ref="components" />
+				<xs:attribute name="type" type="l-type" use="required" />
+				<xs:attribute name="num" type="xs:integer" use="optional" />
+			</xs:extension>
+		</xs:complexContent>
+
+	</xs:complexType>
+
+	<!-- Button -->
+	<xs:complexType name="button-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:attribute name="src" type="xs:anyURI" use="optional" />
+				<xs:attribute name="text" type="xs:string" use="optional" />
+				<xs:attribute name="ltail1" type="xs:string" use="optional" />
+				<xs:attribute name="ltail2" type="xs:string" use="optional" />
+				<!-- xs:attribute name="light" type="xs:string" use="optional" /-->
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- a -->
+	<xs:complexType name="a-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:attribute name="href" type="xs:anyURI" use="optional" />
+				<xs:attribute name="text" type="xs:string" use="optional" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- img -->
+	<xs:complexType name="img-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:attribute name="src" type="xs:anyURI" use="required" />
+				<xs:attribute name="alt" type="xs:string" use="optional" />
+				<xs:attribute name="pre" type="xs:string" use="optional" />
+				<xs:attribute name="next" type="xs:string" use="optional" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- lable -->
+	<xs:complexType name="lable-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:attribute name="text" type="xs:string" use="required" />
+				<xs:attribute name="wrap" type="xs:boolean" use="optional" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- textfield -->
+	<xs:complexType name="textfield-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:attribute name="line" type="xs:integer" use="optional" />
+				<xs:attribute name="max" type="xs:integer" use="optional" />
+				<xs:attribute name="type" type="xs:string" use="optional" />
+				<xs:attribute name="title" type="xs:string" use="optional" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- combobox -->
+
+	<xs:complexType name="combobox-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:sequence minOccurs="1" maxOccurs="unbounded">
+					<xs:element name="option">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="father-type">
+									<xs:attribute name="text" type="xs:string" />
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="cocoa" type="xs:boolean" use="optional" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- item -->
+	<xs:complexType name="item-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:attribute name="title" type="xs:string" use="optional"/>
+				<xs:attribute name="content" type="xs:string" use="optional"/>
+				<xs:attribute name="ltail1" type="xs:string" use="optional"/>
+				<xs:attribute name="ltail2" type="xs:string" use="optional"/>
+				<xs:attribute name="rtail" type="xs:string" use="optional"/>
+				<xs:attribute name="icon" type="xs:string" use="optional"/>
+				<xs:attribute name="src" type="xs:string" use="optional"/>			 
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- album -->
+	<xs:complexType name="album-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:attribute name="src" type="xs:anyURI" use="optional" />
+				<xs:attribute name="type" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="album" />
+							<xs:enumeration value="pic" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="level" type="xs:integer" use="required" />
+				<xs:attribute name="title" type="xs:string" use="required" />
+				<xs:attribute name="ltail1" type="xs:string" use="optional" />
+				<xs:attribute name="ltail2" type="xs:string" use="optional" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- br -->
+	<xs:complexType name="br-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- hr -->
+	<xs:complexType name="hr-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!-- label -->
+	<xs:complexType name="label-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:attribute name="text" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!-- label -->
+	<xs:complexType name="checkbox-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:attribute name="type" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="radio"/>
+						<xs:enumeration value="check"/>
+					</xs:restriction>
+				</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+
+	<!-- TODO 其他组件类型加到这里  -->
+    <!-- @add by 江威 -->
+    <!-- navigation -->
+	<xs:complexType name="navigation-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+			    <xs:group ref="components" />
+				<xs:attribute name="icon" type="xs:string" use="optional"/>
+				<xs:attribute name="ltail1" type="xs:string" use="optional"/>
+				<xs:attribute name="ltail2" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    <!-- nmenu 菜单导航 主菜单 -->
+	<xs:complexType name="nmenu-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+			    <xs:group ref="components" />
+				<xs:attribute name="icon" type="xs:string" use="optional"/>
+				<xs:attribute name="src" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    <!-- submenu 菜单导航 子菜单 -->
+	<xs:complexType name="submenu-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+			    <xs:group ref="components" />
+				<xs:attribute name="icon" type="xs:string" use="optional"/>
+				<xs:attribute name="src" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    <!-- tab 选项 -->
+	<xs:complexType name="tab-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+			    <xs:group ref="components" />
+				<xs:attribute name="checked" type="xs:boolean" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    <!-- friends 好友管理-所有好友 -->
+	<xs:complexType name="friends-type">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+			    <xs:group ref="components" />
+				<xs:attribute name="type" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- ***************************zml分段*************************** -->
+	<!-- Script 段 -->
+	<xs:complexType name="script-type">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="src" use="optional" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<!-- Menu段  -->
+	<xs:complexType name="menu-type">
+		<xs:sequence>
+			<xs:element name="menu" type="menu-type" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="type" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="left" />
+					<xs:enumeration value="right" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+
+		<xs:attribute name="text" type="xs:string" use="optional" />
+		<xs:attribute name="onclick" type="xs:string" use="optional" />
+		<xs:attribute name="code" type="xs:integer" use="optional" />
+	</xs:complexType>
+
+	<!-- Style段  -->
+	<xs:complexType name="style-type">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="src" use="optional" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<!-- Body段 -->
+	<xs:complexType name="body-type" mixed="true">
+		<xs:complexContent>
+			<xs:extension base="father-type">
+				<xs:group ref="components" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- Pop段 -->
+	<xs:complexType name="pop-type">
+		<xs:complexContent>
+			<xs:extension base="body-type">
+				<!-- TODO : Pop继承自Body,如需扩展,添加到这里 -->
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+   
+	<!-- ***************************根*************************** -->
+	<!-- Unit -->
+	<xs:element name="unit">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+				
+					<xs:element name="script" type="script-type" minOccurs="0"
+						maxOccurs="1" />
+					<xs:element name="style" type="style-type" minOccurs="0"
+						maxOccurs="1" />
+					<xs:element name="menu" type="menu-type" minOccurs="1"
+						maxOccurs="1" />
+					<xs:element name="body" type="body-type" minOccurs="1"
+						maxOccurs="1" />
+					<xs:element name="pop" type="pop-type" minOccurs="0"
+						maxOccurs="3" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="onload" type="xs:string" use="optional" />
+			<xs:attribute name="id" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+
+
+</xs:schema>

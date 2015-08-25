@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unit id="RnInfo_unit">
+
+	<!--script src="/widgets/login/login.zs" /-->
+
+		
+	<body id="RnInfo_body" style="margin:4 3 0 4;">
+		<div class="head-transparence">
+	       <label text="消息"/>
+			<hr/>
+	    </div>
+		<div class="head-transparence">
+	    </div>
+	    
+		<div class="tail-white" style="min-size:0 260">
+			<vlist id="rninfos"  type="0" />
+		</div>			
+	</body>
+</unit>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="otheralbum">
+	<body id="diary_body">
+		<div class="title" bind="north">
+			<img src="/widgets/main/img/resent.png" />
+			<label text="好友的相册" class="title_text" />
+		</div>
+		<div style="layout:gridlayout(3,3);align:fill;margin:6 0 0 0;gap:2 2;">
+			<div class="album_div" onclick="">
+				<img src="/ui/cover.png" class="album" />
+				<label text="专辑01"/>
+			</div>
+			<div class="album_div" onclick="">
+				<img src="/ui/cover.png" class="album" />
+				<label text="专辑02" />
+			</div>
+			<div class="album_div" onclick="">
+				<img src="/ui/cover.png" class="album" />
+				<label text="专辑03" />
+			</div>
+			<div class="album_div" onclick="">
+				<img src="/ui/cover.png" class="album" />
+				<label text="专辑04" />
+			</div>
+			<div class="album_div" onclick="">
+				<img src="/ui/cover.png" class="album" />
+				<label text="专辑05" />
+			</div>
+			<div class="album_div" onclick="">
+				<img src="/ui/cover.png" class="album" />
+				<label text="专辑06" />
+			</div>
+			<div class="album_div" onclick="">
+				<img src="/ui/cover.png" class="album" />
+				<label text="专辑07" />
+			</div>
+			<div class="album_div" onclick="">
+				<img src="/ui/cover.png" class="album" />
+				<label text="专辑08" />
+			</div>
+			<div class="album_div" onclick="">
+				<img src="/ui/cover.png" class="album" />
+				<label text="专辑09" />
+			</div>
+		</div>
+	</body>
+</unit>

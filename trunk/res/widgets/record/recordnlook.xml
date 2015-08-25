@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="record02">
+	<menu id="menu" type="left">
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="回点滴" onclick="_zsnSend(&quot;/widgets/record/recordn.xml&quot;)" />
+	</menu>
+	<script src="/widgets/record/recordn.zs" />
+
+	<body id="record">
+		<div id="dheaddiv" class="full-transparence">
+			<label id="label" text="点滴正文" />
+			<hr />
+			<head src="/widgets/album/img/h.png" user-name="陈静聪"
+				view-count="256" signature="总有一日等好天气" />
+			<div id="reply" >
+				<label id="ltitle" text="回复:" class="horizontal" />
+				<textfield id="recomtext" w="160" />
+			</div>
+			<br />
+			<button id="submit" text="发表评论" type="btext" style="margin:0 0 0 7"
+				onclick="addComment(&quot;recomtext&quot;,&quot;comsrecord&quot;)" />
+			<vlist id="comsrecord" type="0">
+				<item src="http" title="江威与陈静聪成为好友" ltail="2009-04-07 16:45"
+					onclick="_zsnPopDlg(&quot;应当跳转到哪个好友的主页？？&quot;)" />
+				<item src="http" title="于鑫是个傻子" ltail="2009-04-01 00:00"
+					onclick="_zsnPopDlg(&quot;应当跳转到于鑫的主页。&quot;)" />
+				<item src="http" title="阿杜发表日记1篇" ltail="2009-03-30 09:45"
+					onclick="_zsnPopDlg(&quot;应当跳转到此篇日记。&quot;)" />
+				<item src="http" title="我们都不是IT民工" ltail="2009-03-30 09:45"
+					onclick="_zsnPopDlg(&quot;应当跳转到此篇日记。&quot;)" />
+			</vlist>
+		</div>
+	</body>
+</unit>

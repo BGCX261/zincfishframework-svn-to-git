@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"../../../target/docbook-xml-4.4/docbookx.dtd">
+<book lang="zh">
+	<title>ZincFish -- 一款灵活的UI框架和移动Ajax框架</title>
+	<bookinfo>
+		<copyright>
+			<year>2009-2010</year>
+			<holder>
+				<ulink url="http://3g.cn">久邦数码科技有限公司</ulink>
+			</holder>
+		</copyright>
+		<productname>3G门户(3g.cn)</productname>
+		<authorgroup>
+			<author>
+				<personname>
+					<othername>于鑫</othername>
+				</personname>
+				<email>yuxin@3g.net.cn</email>
+			</author>
+		</authorgroup>
+		<revhistory>
+			<revision>
+				<revnumber>1.0</revnumber>
+				<date>2009-10-27</date>
+				<authorinitials>于鑫</authorinitials>
+				<revdescription>
+					<para>新建</para>
+				</revdescription>
+			</revision>
+		</revhistory>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/logo.png" />
+			</imageobject>
+		</mediaobject>
+	</bookinfo>
+	<toc />
+
+	<chapter>
+		<title>概述</title>
+
+		<para>
+			随着手机性能的提升，手机应用软件功能越来越复杂、界面越来越华丽。特别是iPhone推出后，移动客户端不约而同地开始关注软件界面和用户体验。
+			与用户体验相关的设计和代码在项目中占的比重越来越大，开发中花在界面和操作上成本呈指数级增长。
+		</para>
+
+		<section>
+			<title>项目背景</title>
+			<para></para>
+		</section>
+
+		<section>
+			<title>我们的解决方案</title>
+			<para></para>
+		</section>
+
+		<section>
+			<title>文档对象</title>
+			<para>
+				本文档最先服务的对象是SNS产品的开发者。本文档的前身其实是项目开发过程中书写的技术文档、功能特性说明和培训文档，
+				目的是为了让SNS开发者对ZincFish框架的功能和接口有全面的了解，便于搭建在此框架上的具体功能的实现。通过此文档，
+				SNS开发者可以了解ZincFish框架的工作流程以及框架提供的功能特性，从而能够快速高效地搭建起上层的功能逻辑和界面实现。
+			</para>
+			<para>
+				ZincFish框架是一个通用的框架，提供的功能非常原子化，正式这些原子化、细力度的设计，保证了它的通用性。
+				使它可以方便地应用于任何其他项目。新项目可能需要自己独特的需求，本文档可以帮助新项目的开发者如何根据自身需求，扩展ZincFish框架。
+			</para>
+			<para>
+				ZincFish框架带来的好处之一就是界面与代码的分离。使用ZincFish框架，界面实现、逻辑实现可以完全分离，交给其他人或第三方来完成。
+				对于非核心编程人员或第三方开发者来说，本文档是入门教材和工具书。
+			</para>
+		</section>
+
+		<section>
+			<title>预备知识</title>
+			<para>
+				对于核心开发者来说，要求熟悉J2ME或Symbian平台开发，尤其是界面绘制部分。ZincFish采用了xml、css、Akebono技术和大量的面向对象编程思想，
+				需要核心开发者对上述技术都要有所了解，这样才能整体的把握ZincFish框架。
+			</para>
+			<para>
+				对于框架使用者或第三方开发者来说，需要熟悉xml页面和css的编写，同时还要掌握ZincScript脚本语言 --
+				ZincFish框架实现移动Ajax的灵魂。当掌握了三方面技术后，你会发现手机软件开发可以像在电脑上写网页一样轻松。
+			</para>
+		</section>
+
+		<section>
+			<title>文档结构</title>
+			<para>
+			</para>
+		</section>
+	</chapter>
+
+	<chapter>
+		<title>核心框架</title>
+
+		<section>
+			<title></title>
+			<para></para>
+		</section>
+	</chapter>
+
+	<chapter>
+		<title>像写网页一样实现程序界面--XML与界面组件</title>
+		<section>
+			<title></title>
+			<para></para>
+		</section>
+	</chapter>
+
+	<chapter>
+		<title>让界面丰富起来--CSS</title>
+		<section>
+			<title></title>
+			<para></para>
+		</section>
+	</chapter>
+
+	<chapter>
+		<title>移动Ajax的基础--DOM Tree</title>
+		<section>
+			<title></title>
+			<para></para>
+		</section>
+	</chapter>
+
+	<chapter>
+		<title>移动Ajax的灵魂--ZincScript</title>
+		<section>
+			<title></title>
+			<para></para>
+		</section>
+	</chapter>
+</book>

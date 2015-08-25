@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit onload="_zsnSend(&quot;/widgets/touch/defaut-action.xml&quot;)"
+	id="touchunit" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.3g.net.cn/sns" xsi:schemaLocation="http://www.3g.net.cn/sns ../../zml.xsd">
+	<script src="/widgets/touch/touch.zs" />
+	<menu type="left">
+		<menu text="发送动作" />
+		<menu text="返回" />
+	</menu>
+	<body id="touch_body">
+		<div id="title" bg="true">
+			<label text="动他一下" />
+		</div>
+
+		<button id="defaut_b" text="默认动作"
+			onclick="_zsnSend(&quot;/widgets/touch/defaut-action.xml&quot;)" />
+		<button id="custom_b" text="自定义动作"
+			onclick="_zsnSend(&quot;/widgets/touch/custom-action.xml&quot;)" />
+
+		<div id="data" visible="true" />
+		<div id="d-1">
+			<checkbox id="ck-2" type="check" />
+			<label text="悄悄地动" />
+		</div>
+		<div id="touch-to" visible="true">
+			<label text="选择你要动的人:" />
+			<button id="import_b" text="从名片夹导入" onclick="" />
+		</div>
+
+	</body>
+
+</unit>

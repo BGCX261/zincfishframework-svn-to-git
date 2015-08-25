@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="cardescribe">
+	<script src="/widgets/car/buycar.zs" />
+
+	<menu type="left">
+		<menu text="争车位" onclick="_zsnSend(&quot;/widgets/car/car.xml&quot;)" />
+		<menu text="以旧换新" onclick="ExchangeCar()" />
+		<menu text="购买新车" onclick="BuyNewCar()" />
+	</menu>
+
+    <poppanel>
+    	
+    </poppanel>
+    
+	<body id="carbody">
+		<div id="box" class="shadebg" style="margin: 0;">
+		    <div id="title" class="horizontal" style="padding: 6 0 0 50;">
+		    	<img id="icon" src="/widgets/car/img/temp/iconbuick.png"/>
+			    <label id="name" text="别克A320"/>
+		    </div>
+		    <img id="car" src="/widgets/car/img/temp/bbcar.png"/>
+		    <div id="info" style="padding: 0 0 6 20;">
+			    <label id="oilbox" text="邮箱:剩16升"/>
+			    <label id="type" text="型号:奥拓小王子1.8升"/>
+			    <label id="oilwear" text="油耗:4升/小时, 还能行驶4小时"/>
+			    <label id="price" text="价格:23000元"/>
+		    </div>
+		</div>
+	</body>
+</unit>  

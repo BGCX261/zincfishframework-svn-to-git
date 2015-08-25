@@ -1,0 +1,94 @@
+<!-- 相册主页，包括 专辑列表、圈有我的照片的列表、圈有好友的照片的列表。 AlbumSpecList.aspx -->
+<!--
+请求中有三种type
+ty=all表示请求整个页面，全第一页
+ty=myA表示请求我的专辑列表
+ty=myP表示圈有我的照片列表
+ty=friP表示请求圈有好友的照片列表
+ -->
+
+
+<unit id="album_unit" >			<!-- id写死 -->
+	<!-- <body id="album_body"> id写死 -->
+
+		<!-- 我的专辑 -->
+		   <clist id="myAList" type="square">			<!-- id、type写死。一页中最多放6个item。 -->
+			    <item id="album1" ltail1="5" ltail2="7" title="西湖美景" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum()" level="0" data="pw=&quot;abc&quot; id=&quot;123&quot; level=&quot;0&quot;"/>
+					 <!-- id:album1~album6。ltail1查看数。ltail2评论数。title专辑名。src专辑封面url。level访问权限，0任何人，1仅好友，2凭密码。 -->
+					 <!-- data的各个字段间用空格分隔  -->
+					 <!-- level为1或2时，不用带src -->
+
+		   		<item id="album2" ltail1="5" ltail2="7" title="荷塘月色" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum()" level="2" data="pw=&quot;abc&quot; id=&quot;专辑ID&quot; level=&quot;1&quot;"/>
+		   		<item id="album3" ltail1="5" ltail2="7" title="夏威夷旅游" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum()" level="2" data="pw=&quot;def&quot; id=&quot;专辑ID&quot; level=&quot;2&quot;"/>
+					<item id="album4" ltail1="5" ltail2="7" title="西湖美景" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum()" level="1" data="pw=&quot;密码&quot; id=&quot;专辑ID&quot; level=&quot;0&quot;"/>
+		   		<item id="album5" ltail1="5" ltail2="7" title="荷塘月色" src="/widgets/album/temp/upicture.png"
+					 onclick="GoAlbumTest()" level="0" data="pw=&quot;密码&quot; id=&quot;专辑ID&quot; level=&quot;1&quot;"/>
+		   		<item id="album6" ltail1="5" ltail2="7" title="夏威夷旅游" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum()" level="1" data="pw=&quot;密码&quot; id=&quot;专辑ID&quot; level=&quot;2&quot;"/>
+				</clist>
+			
+
+				<button id="myA_next" text="下一页" onclick="MAN()"/>			<!-- id、text、onclick写死 -->
+				<label  id="myA_pages" data="pn=&quot;当前页数&quot; total=&quot;总页数&quot; mid=&quot;专辑主人mid&quot;" text="1/2"/>			<!-- id写死。data中有照片主人的mid -->
+				<button id="myA_prev" text="上一页" onclick="MAP()"/>			<!-- id、text、onclick写死 -->
+		
+		<!-- 圈有我的照片-->
+			<clist id="myPList" type="rect">			<!-- id、type写死。一页最多放8个item。 -->
+			    <item id="myP1" ltail1="5" ltail2="7" level="0" title="西湖美景"  src="/widgets/album/img/aa.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot; album=&quot;albumID0&quot;"/>
+					 <!-- id:myP1~myP8。ltail1查看数。ltail2评论数。title照片名。src照片图片url。onclick中有照片主人的mid、照片id。 -->
+					 
+		   		<item id="myP2" ltail1="5" ltail2="7" level="2" title="荷塘月色" src="/widgets/album/img/aa.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot; album=&quot;albumID1&quot;"/>
+		   		<item id="myP3" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/aa.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot; album=&quot;albumID2&quot;"/>
+		   		<item id="myP4" ltail1="5" ltail2="7" level="2" title="清远漂流" src="/widgets/album/img/aa.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot; album=&quot;albumID3&quot;"/>
+					<item id="myP5" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/aa.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot; album=&quot;albumID4&quot;"/>
+		   		<item id="myP6" ltail1="5" ltail2="7" level="2" title="清远漂流" src="/widgets/album/img/aa.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot; album=&quot;albumID5&quot;"/>
+					<item id="myP7" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/aa.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot; album=&quot;albumID6&quot;"/>
+		   		<item id="myP8" ltail1="5" ltail2="7"  level="2" title="清远漂流" src="/widgets/album/img/aa.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot; album=&quot;albumID7&quot;"/>
+			</clist>
+			
+			<button id="myP_next" text="下一页" onclick="MPN()"/>			<!-- id、text、onclick写死 -->
+			<label  id="myP_pages" data="pn=&quot;当前页数&quot; total=&quot;总页数&quot;" text="1/2"/>			<!-- id写死。 -->
+			<button id="myP_prev" text="上一页" onclick="MPP()"/>			<!-- id、text、onclick写死 -->
+
+
+
+		<!-- 圈有好友的照片 -->
+			<clist id="friPList" type="rect">			<!-- id、type写死。一页最多放8个item。 -->
+			    <item id="friP1" ltail1="5" ltail2="7" level="0" title="西湖美景"  src="/widgets/album/img/41.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot;"/>
+					 <!-- id：friP1～friP8。注释与“圈有我的好友”一样 -->
+					 
+		   		<item id="friP2" ltail1="5" ltail2="7" level="2" title="荷塘月色" src="/widgets/album/img/41.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot;"/>
+		   		<item id="friP3" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/41.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot;"/>
+		   		<item id="friP4" ltail1="5" ltail2="7" level="2" title="清远漂流" src="/widgets/album/img/41.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot;"/>
+					<item id="friP5" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/41.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot;"/>
+		   		<item id="friP6" ltail1="5" ltail2="7" level="2" title="清远漂流" src="/widgets/album/img/41.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot;"/>
+					<item id="friP7" ltail1="5" ltail2="7" level="1" title="夏威夷旅游" src="/widgets/album/img/41.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot;"/>
+		   		<item id="friP8" ltail1="5" ltail2="7" level="2" title="清远漂流" src="/widgets/album/img/41.png"
+					 onclick="GoPhoto()" data="id=&quot;照片ID&quot; mid=&quot;照片主人ID&quot;"/>
+			</clist>
+
+				<button id="friP_next" text="下一页" onclick="FPN()"/>			<!-- id、text、onclick写死 -->
+				<label  id="friP_pages" data="pn=&quot;当前页数&quot; total=&quot;总页数&quot;" text="1/2"/>			<!-- id写死。 -->
+				<button id="friP_prev" text="上一页" onclick="FPP()"/>			<!-- id、text、onclick写死 -->
+		
+	<!-- </body> -->
+</unit>  

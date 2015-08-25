@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="PhotoPage_Unit">
+	<script src="/widgets/album/PhotoPage_other.zs" />
+
+	<menu type="left">
+		<menu text="查看照片信息" onclick="PhotoInfo()" />
+		<menu text="照片所在专辑" onclick="GoAlbum()" />
+		<menu text="Ta的相册首页" onclick="OtherPhotoHome()"/>
+		<menu text="Ta的首页" onclick="OtherHome()" />
+		<menu text="我的首页" onclick="MyHome()" />
+	</menu>
+	
+	<!-- 评论框 -->
+    <poppanel id="comments" class="popbg" style="padding: 0 0 0 0;">
+        <label id="titlelabel" text="评论区"/>
+	    <hr />
+	    <textfield id="commentT" />
+	    <button id="commentB" text="提交评论" onclick="SubmitComment()"/>
+	    <hr/>
+        <vlist id="popcomlist" type="1">
+         </vlist>
+         <button id="MoreComment" text="更多评论" onclick="MoreComment()"/>
+    </poppanel>
+    
+	<body id="PhotoPage_body" style="margin:0">
+	   <album id="albumlist" init="0" >
+	   </album>
+	</body>
+	
+</unit>  

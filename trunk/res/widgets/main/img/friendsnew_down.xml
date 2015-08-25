@@ -1,0 +1,25 @@
+<unit id="main">
+	<vlist id="news1">
+		<!-- 一个item表示一个好友最近的动态(发表日记,记录,投票,照片等) -->
+		<!-- src是该用户的头像URL -->
+		<!-- title是该用户的动态,比如"于鑫上传3张照片" -->
+		<!-- content是该动态的简介,比如发表日记标题,照片名字等 -->
+		<!-- ltail是该动态的发表的时间 -->
+		<!-- onclick是跳转到该动态的地址,如果是日记就跳到日记的页面地址,以此类推.把***换成获取该xml页面的URL地址-->
+		<item src="http://test.3g.cn/sns/Images/spec.png" title="江威与陈静聪成为好友"
+			content="hello,革命尚未成功，同志仍需努力" ltail="2009.04.07 16:45" onclick="_zsnSend(&quot;***&quot;)" />
+		<item src="http://test.3g.cn/sns/Images/spec.png" title="于鑫上传3张照片"
+			content="革命尚未成功，同志仍需努力。He.....革命尚未成功，同志仍需努力" ltail="2009.04.01 00:00"
+			onclick="_zsnSend(&quot;***&quot;)" />
+		<item src="http://test.3g.cn/sns/Images/spec.png" title="阿杜发表日记1篇"
+			content="革命尚未成功，同志仍需努力。He...革命尚未成功，同志仍需努力" ltail="2009.03.30 09:45"
+			onclick="_zsnSend(&quot;***&quot;)" />
+	</vlist>
+	<!-- class写死 -->
+	<div class="horizontal">
+		<!-- 控制好友动态列表分页的按钮.下一页和上一页返回"好友动态列表下发.xml"定义的格式 -->
+		<button text="下一页" onclick="_zsnSend(&quot;***&quot;)" />
+		<label text="1/3" />
+		<button text="上一页" onclick="_zsnSend(&quot;***&quot;)" />
+	</div>
+</unit>

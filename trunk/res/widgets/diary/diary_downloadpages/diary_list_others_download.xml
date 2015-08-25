@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="diary_list_unit_others">
+	
+<!-- 用户标题 -->
+		<!-- $src:头像图片地址$user-name:用户名$view-count:浏览数$signature:最近更新状态 -->
+		<head id="head" src="/widgets/album/img/h.png" user-name="陈聪" view-count="256"
+		signature="总有一日等好天气" />
+
+<!-- 发起的日记 -->
+		<vlist id="diary_list_ownd" type="2"><!-- 写死 -->
+				<item id="yyy" title="日记标题" ltail1="浏览数:123" ltail2="评论数:123"
+					ltail="2009.04.07 16:45" onclick="viewMyDiary" value="日记id" />
+				<!--$id:日记ID;$value:日记ID;$title:日记标题$ltail1:浏览数$ltail2:评论数$ltail:发表日期$onclick:viewMyDiary(用户可以修改)，viewDiary(不能修改) -->
+		</vlist>
+			
+		<!-- 翻页 -->
+		<button id="diary_list_ownd_prev" text="上一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+		<label  id="diary_list_ownde_pages" text="1/1" visible="false"/>
+		<button id="diary_list_ownd_next" text="下一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+
+
+
+<!-- 提到他的日记 -->
+		<vlist id="diary_list_related" type="1"><!-- 写死 -->
+				<item id="yyy" title="日记标题" ltail1="浏览数:123" ltail2="评论数:123"
+					ltail="2009.04.07 16:45" onclick="viewMyDiary" value="日记id" />
+				<!--$id:日记ID;$value:日记ID;$title:日记标题$ltail1:浏览数$ltail2:评论数$ltail:发表日期$onclick:viewMyDiary(用户可以修改)，viewDiary(不能修改) -->
+		</vlist>
+		<!-- 翻页 -->
+		
+		<button id="diary_list_related_prev" text="上一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+		<label  id="diary_list_related_pages" text="1/1" visible="false"/>
+		<button id="diary_list_related_next" text="下一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+
+</unit>

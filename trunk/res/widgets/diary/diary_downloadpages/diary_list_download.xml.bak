@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="diary_list_unit"><!-- 写死 -->
+				
+<!-- 用户标题 -->
+				<!-- $src:头像图片地址$user-name:用户名$view-count:浏览数$signature:最近更新状态 -->
+				<head id="head" src="/widgets/album/img/h.png" user-name="陈静聪" view-count="256"
+				signature="总有一日等好天气" />
+
+<!-- 我的日记 -->
+			<vlist id="diary_list_mine" type="2"><!-- 写死 -->
+				<item id="yyy" title="日记标题" ltail1="浏览数:123" ltail2="评论数:123"
+					ltail="2009.04.07 16:45" onclick="viewMyDiary(&quot;http://test.3g.cn/sns/interface/diarymsg.aspx?id=298&guid=13560237826&quot;)" value="日记id" />
+				<!--$id:日记ID;$value:日记ID;$title:日记标题$ltail1:浏览数$ltail2:评论数$ltail:发表日期$onclick:viewMyDiary(用户可以修改)，viewDiary(不能修改) -->
+			</vlist>
+			
+			<!-- 翻页 -->
+			<button id="diary_list_mine_prev" text="上一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+			<label  id="diary_list_mine_pages" text="1/1" value="页码" visible="false"/>
+			<button id="diary_list_mine_next" text="下一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+
+
+<!-- 好友的日记 -->
+			<vlist id="diary_list_fr" type="1"><!-- 写死 -->
+				<item src="/widgets/album/img/h.png" title="江威与陈静聪成为好友" ltail1="20" ltail2="100"
+					ltail="2009.04.07 16:45" onclick="viewDiary" value="日记id"/>
+				<!--$id:日记ID;$value:日记ID;$title:日记标题$ltail1:浏览数$ltail2:评论数$ltail:发表日期$onclick:viewMyDiary(用户可以修改)，viewDiary(不能修改) -->
+			</vlist>
+	
+			<!-- 翻页 -->
+			<button id="diary_list_fr_prev" text="上一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+			<label  id="diary_list_fr_pages" text="1/1" value="页码" visible="false"/>
+			<button id="diary_list_fr_next" text="下一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+		
+
+
+<!-- 提到我的日记 -->
+			<vlist id="diary_list_relate_me" type="1"><!-- 写死 -->
+				<item src="/widgets/album/img/h.png" title="江威与陈静聪成为好友" ltail1="20" ltail2="100"
+					ltail="2009.04.07 16:45" onclick="viewDiary" value="日记id"/>
+				<!--$id:日记ID;$value:日记ID;$title:日记标题$ltail1:浏览数$ltail2:评论数$ltail:发表日期$onclick:viewMyDiary(用户可以修改)，viewDiary(不能修改) -->
+			</vlist>
+			
+			<!-- 翻页 -->
+			<button id="diary_list_relate_me_prev" text="上一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+			<label  id="diary_list_relate_me_pages" text="1/1" value="页码" visible="false"/>
+			<button id="diary_list_relate_me_next" text="下一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+		
+	
+
+<!-- 提到好友的日记 -->		
+			<vlist id="diary_list_relate_fr" type="1"><!-- 写死 -->
+				<item src="/widgets/album/img/h.png" title="江威与陈静聪成为好友" ltail1="20" ltail2="100"
+					ltail="2009.04.07 16:45" onclick="viewDiary" value="日记id"/>
+				<!--$id:日记ID;$value:日记ID;$title:日记标题$ltail1:浏览数$ltail2:评论数$ltail:发表日期$onclick:viewMyDiary(用户可以修改)，viewDiary(不能修改) -->
+			</vlist>
+
+			<!-- 翻页 -->
+			<button id="diary_list_relate_fr_prev" text="上一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>
+			<label  id="diary_list_relate_fr_pages" text="1/1" value="页码" visible="false"/>
+			<button id="diary_list_relate_fr_next" text="下一页" onclick="_zsnSend(&quot;url&quot;)" visible="false"/>	
+</unit>
+
+
+<!--
+共有4个日记列表：我的日记、好友的日记、提到我的日记、提到好友的日记
+&lt=1 下发 标题 和 所有类型的日记
+&lt=2 下发我的日记
+&lt=3 下发好友的日记
+&lt=4 下发提到我的日记
+&lt=5 下发提到好友的日记
+-->

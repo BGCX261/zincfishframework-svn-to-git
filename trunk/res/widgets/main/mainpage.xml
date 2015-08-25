@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unit id="main_unit">
+	<script src="/widgets/main/mainpage.zs" />
+	<style src="/main.css" />
+
+	<menu type="left">
+		<menu text="好友管理首页"
+			onclick="_zsnSend(&quot;/widgets/friends/mainfriend.xml&quot;)" />
+		<menu text="去留言人首页" onclick="LWHome()" />
+		<menu text="color wall" onclick="SetColorPage()" />
+		<menu text="退出" onclick="_zssExit()" />
+	</menu>
+
+	<body id="main_body">
+		<div id="head" style="layout:formlayout(center);">
+			<img
+				src="http://test.3g.cn/sns/StreamPage/IconStreamClient.aspx?key=364038201492543171"
+				class="headimg" />
+			<div style="layout:inlinelayout(false,fill);padding:0 4 0 4;">
+				<div style="layout:gridlayout(2,1);">
+					<label id="name" class="male" text="Rainty" />
+					<label id="city" text="广州" />
+				</div>
+				<label id="signature" text="坚决支持黄英!" />
+				<label id="viewcount" text="浏览:413" />
+			</div>
+		</div>
+
+		<hlist class="info">
+			<img id="FriB" src="/widgets/main/img/friend.png" class="hlistitem"
+				onclick="_zsnSend(&quot;/widgets/friends/mainfriend.xml&quot;)" />
+			<img id="DiaB" src="/widgets/main/img/diary.png" class="hlistitem"
+				onclick="_zsnSend(&quot;/widgets/diary/diary.xml&quot;)" />
+			<img id="AlbB" src="/widgets/main/img/album.png" class="hlistitem"
+				onclick="_zsnSend(&quot;/widgets/album/album_main.xml&quot;)" />
+			<img id="CarB" src="/widgets/main/img/car.png" tips="争车位" class="hlistitem"
+				onclick="CarPage" />
+			<img id="MsgB" src="/widgets/main/img/msg.png" class="hlistitem"
+				onclick="MsgPage" />
+			<img id="DroB" src="/widgets/main/img/drop.png" class="hlistitem"
+				onclick="DropPage" />
+			<img id="VotB" src="/widgets/main/img/vote.png" class="hlistitem"
+				onclick="VotePage" />
+			<img id="GifB" src="/widgets/main/img/present.png" class="hlistitem"
+				onclick="GiftPage" />
+			<img id="TouB" src="/widgets/main/img/touch.png" class="hlistitem"
+				onclick="TouchPage" />
+		</hlist>
+
+		<div class="frienddiv" id="FDDiv">
+			<div class="frienditem">
+				<label text="阿杜" onclick="GoAccHome" data="365038201492538187" />
+				<label text="发表日记:" />
+				<label type="break" text="上班真是体力活上(一)" onclick="goDiary(&quot;259&quot;)" />
+				<br />
+				<label type="break" text="早上8：30开学典礼。听这名字就如同还没毕业一样。" />
+			</div>
+			<label text="2009-09-09 09:09" class="right" />
+
+			<div class="frienditem">
+				<label text="王月=.=!" onclick="GoAccHome(&quot;江威&quot;)" data="365038201492538187" />
+				<label text="评论了" />
+				<label text="江威" onclick="GoAccHomelocked(&quot;江威&quot;)"
+					data="365038201492538187" />
+				<label text="照片" />
+				<label text="松岛枫" type="break"
+					onclick="goPhotoComment(&quot;155&quot;,&quot;155&quot;)" />
+			</div>
+			<label text="2009-09-09 09:09" class="right" />
+
+			<label text="" class="more" />
+		</div>
+
+		<div id="visitor" class="visitordiv">
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="visitorinfo" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" class="right" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="visitorinfo" onclick="">
+					<label text="江威" style="align:center;" />
+					<label text="2009-10-11 19:45" class="right" />
+				</div>
+			</div>
+			<label text="" class="more" />
+		</div>
+
+		<div id="comment" class="commentdiv">
+			<div class="commentitemleft">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<label text="我的留言我的留言" type="omit" class="bubbleleft" onclick="" />
+			</div>
+			<div style="layout:formlayout(top);align:left;">
+				<label text="江威" onclick="" />
+				<label text="2009-10-12 09:34" style="margin:0 0 0 8;" />
+			</div>
+			<div class="commentitemright">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<label text="这是一个很长很长很长很长很长很长很长很长的留言" type="omit" class="bubbleright"
+					onclick="" />
+			</div>
+			<div style="layout:formlayout(top);float:right;">
+				<label text="陈静聪" onclick="" />
+				<label text="2009-10-12 12:02" style="margin:0 8 0 0;align:right;" />
+			</div>
+			<label text="" class="more" />
+		</div>
+	</body>
+</unit>

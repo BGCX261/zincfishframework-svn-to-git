@@ -1,0 +1,30 @@
+<!-- 别人的相册 -->
+<unit id="other_album_unit" >	<!-- id写死 -->
+	
+	<label id="header" text="XXX的相册"/>		<!-- id写死。text中的XXX为相册主人名 --> 
+	
+	<clist id="AList" type="square">			<!-- id、type写死。一页中最多放6个item。 -->
+	    <item id="album1" ltail1="5" ltail2="7" title="西湖美景" src="/widgets/album/temp/other.png"
+			 onclick="GoAlbum()" level="0" data="pw=&quot;abc&quot; id=&quot;123&quot; level=&quot;1&quot;"/>
+			 <!-- id:album1~album6。ltail1查看数。ltail2评论数。title专辑名。src专辑封面url。level访问权限，0任何人，1仅好友，2凭密码。 -->
+			 <!-- data的各个字段间用空格分隔  -->
+			 <!-- level为1或2时，不用带src -->
+			 <!-- data中的level为实际的访问权限。 -->
+
+		<item id="album2" ltail1="5" ltail2="7" title="荷塘月色" src="/widgets/album/temp/other.png"
+			onclick="GoAlbum()" level="2" data="pw=&quot;abc&quot; id=&quot;专辑ID&quot; level=&quot;1&quot;"/>
+		<item id="album3" ltail1="5" ltail2="7" title="夏威夷旅游" src="/widgets/album/temp/other.png"
+			onclick="GoAlbum()" level="2" data="pw=&quot;def&quot; id=&quot;专辑ID&quot; level=&quot;1&quot;"/>
+		<item id="album4" ltail1="5" ltail2="7" title="西湖美景" src="/widgets/album/temp/other.png"
+			onclick="GoAlbum()" level="1" data="pw=&quot;密码&quot; id=&quot;专辑ID&quot; level=&quot;1&quot;"/>
+		<item id="album5" ltail1="5" ltail2="7" title="荷塘月色" src="/widgets/album/temp/upicture.png"
+			onclick="GoAlbumTest()" level="0" data="pw=&quot;密码&quot; id=&quot;专辑ID&quot; level=&quot;1&quot;"/>
+		<item id="album6" ltail1="5" ltail2="7" title="夏威夷旅游" src="/widgets/album/temp/other.png"
+			onclick="GoAlbum()" level="1" data="pw=&quot;密码&quot; id=&quot;专辑ID&quot; level=&quot;1&quot;"/>
+	</clist>
+			
+
+	<button id="next" text="下一页" onclick="Next()"/>			<!-- id、text、onclick写死 -->
+	<label  id="pages" data="pn=&quot;当前页数&quot; total=&quot;总页数&quot; mid=&quot;专辑主人mid&quot;" text="1/2"/>			<!-- id写死。data中有照片主人的mid -->
+	<button id="prev" text="上一页" onclick="Pre()"/>			<!-- id、text、onclick写死 -->
+</unit>

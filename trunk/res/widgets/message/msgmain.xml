@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- LoadMSGData() 加载新的消息条数 -->
+<unit id="messagecenter" onload="LoadMSGData()">
+	<menu id="menu" type="left">
+		<menu text="回首页" onclick="_zssSwitch(&quot;/widgets/main/mainpage.xml&quot;)" />
+	</menu>
+	<script src="/widgets/message/msgmain.zs" />
+	<body id="cmessage">
+		<div id="msgheaddiv" class="head-transparence">
+			<label id="titlelabel" text="消息中心" />
+			<hr />
+		</div>
+		<div id="msg" class="tail-white" style="min-size:0 260;" >
+		    <!-- 一下div ID写死        label和button的id分别为{divid}_l和{divid}_b  -->
+		    <!-- EntryMessage 函数参数为本地url路径 和button的id(将button的text属性置为0表明已经查看)-->
+			<div id="short_msg" class="horizontal">
+				<label id="short_msg_l" text="短消息:" />
+				<button id="short_msg_b" text="0条新" onclick="GoShortMsgList" />
+			</div>
+			<div id="sys_msg" class="horizontal">
+				<label id="sys_msg_l" text="系统消息:" />
+				<button id="sys_msg_b" text="0条新" onclick="GoSysMsgList" />
+			</div>
+			<div id="leave_words" class="horizontal">
+				<label id="leave_words_l" text="留言板:" />
+				<button id="leave_words_b" text="0条新" onclick="GoWordMsgList"/>
+			</div>
+			<div id="comment" class="horizontal">
+				<label id="comment_l" text="评论:"/>
+				<button id="comment_b" text="0条新" onclick="GoCommentMsgList" />
+			</div>
+		</div>
+
+	</body>
+</unit>

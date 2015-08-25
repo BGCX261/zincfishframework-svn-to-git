@@ -1,0 +1,171 @@
+<unit id="main">
+		<!-- 好友动态 -->
+		<!-- id和class写死 -->
+		<div id="newsdiv" class="tail-transparence">
+			<!-- 写死-->
+			<label text="好友动态:" />
+			<!-- 好友动态目前有以下11种动态 -->
+
+			<!-- ----------------(1) 修改个人资料------------------------ -->
+			<p >
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="周杰伦" onclick="goFriend(&quot;XXX&quot;)" />			
+				<!-- text写死 -->
+				<label text="修改了个人资料" />
+					<!-- text写死;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text=">>快去看看" onclick="goFriend(&quot;XXX&quot;)" />		
+			</p>			
+			<!-- 写死-->
+			<hr linetype="line" />
+
+
+			<!-- ----------------(2) 更新头像------------------------ -->
+			<p >
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="周杰伦" onclick="goFriend(&quot;XXX&quot;)" />			
+				<!-- text写死 -->
+				<label text="更新了头像" />
+					<!-- text写死;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text=">>快去看看" onclick="goFriend(&quot;XXX&quot;)" />		
+			</p>			
+			<!-- 写死-->
+			<hr linetype="line" />
+
+			<!-- ----------------(3) 上传新照片------------------------ -->
+			<p >
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="江威" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- text:XXX替换成新上传照片的张数 -->
+				<label text="上传XXX张照片至" />	
+				<!-- text是上传照片所在的相册;goAlbum表示的是跳转到该相册,XXX替换成好友的ID,YYY替换成该相册的ID -->
+				<label text="我的相册" onclick="goAlbum(&quot;XXX,YYY&quot;)"/>	
+			</p>			
+			<hr linetype="line" />
+
+			<!-- ----------------(4) 发表新日记------------------------ -->
+			<p>	
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="阿杜" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- 写死 -->
+				<label text="发表日记:" />	
+				<!-- text是日记标题;goDiary表示跳到该日记页面,XXX替换成该好友的ID,YYY是日记ID -->
+				<label text="上班真是体力活（一）" onclick="goDiary(&quot;XXX,YYY&quot;)" />
+			</p>			
+			<label style="color:#ff0000" text="早上8：30开学典礼。听这名字就如同还没毕业一样。..."  />
+			
+			<hr linetype="line" />
+
+			<!-- ----------------(5)建立新群 -------------->
+			<p >
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="周杰伦" onclick="goFriend(&quot;XXX&quot;)" />			
+				<!-- text写死 -->
+				<label text="建立了群" />
+					<!-- text群的名字;goFriend表示的是跳转到好友的个人主页,YYY替换成群的ID. -->
+				<label text="粉丝联盟" onclick="goGroup(&quot;YYY&quot;)" />		
+			</p>			
+			<!-- 写死-->
+			<hr linetype="line" />
+
+			<!-- ----------------(6)加入群 -------------------->
+			<p >
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="阿杜" onclick="goFriend(&quot;XXX&quot;)" />			
+				<!-- text写死 -->
+				<label text="加入群" />
+				<!-- text群的名字;goFriend表示的是跳转到好友的个人主页,YYY替换成群的ID. -->
+				<label text="粉丝联盟" onclick="goGroup(&quot;YYY&quot;)" />		
+			</p>			
+			<!-- 写死-->
+			<hr linetype="line" />
+
+			<!-- ----------------(7)和某人加为好友(离线到上线的这段时间)-------------------->
+			<p >
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="江威" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- 写死 -->
+				<label text="和" />
+				<!-- text是用户的名字;goFriend表示的是跳转到用户的个人主页,XXX替换成好友的ID. -->
+				<label text="于鑫" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- 与多个用户成为好友,中间用逗号分隔-->
+				<label text="," />
+				<!-- text是用户的名字;goFriend表示的是跳转到用户的个人主页,XXX替换成好友的ID. -->
+				<label text="小小" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- 写死 -->
+				<label text="成为好友" />
+			</p>
+			<!-- 写死 -->
+			<hr linetype="line" />
+			
+			<!-- -----------------(8)添加新组件------------------------ -->
+			<p >
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="阿杜" onclick="goFriend(&quot;XXX&quot;)" />			
+				<!-- text写死 -->
+				<label text="添加新组件" />
+				<!-- text组件的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成标志组件的ID. -->
+				<label text="争车位" onclick="goWidgets(&quot;XXX&quot;)" />		
+			</p>			
+			<!-- 写死-->
+			<hr linetype="line" />
+		
+			
+			<!-- -----------------(9)记录------------------------ -->
+			<p>
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="王月=.=!" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- 写死 -->
+				<label text="记录到:" />		
+				<!-- 记录的文字 -->
+				<label text="俺睡不着···又起来了··· 实在想打电话吵醒你···"/>
+				<!-- text写死;goRecord表示跳到该日记页面,XXX替换成该好友的ID,YYY是该条记录的ID -->
+				<label text=">>快去看看" onclick="goRecord(&quot;XXX,YYY&quot;)" />
+			</p>			
+			<hr linetype="line" />
+
+			<!-- 注意: (10)和(11)只在评论人和被评论人的共同好友的动态里显示--->
+			
+			<!-- -----------------(10)在某某留言板留言------------------------ -->
+			<p>
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="王月=.=!" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- 写死 -->
+				<label text="在" />		
+				<!-- 记录的文字 -->
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="江威" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- goRecord表示跳到该日记页面,XXX替换成该好友的ID,YYY是该条记录的ID -->
+				<label text="留言板留言了" />
+				<!-- text写死;goMsg表示跳到该好友的留言板,XXX替换成该好友的ID -->
+				<label text=">>快去看看" onclick="goMsg(&quot;XXX&quot;)" />
+			</p>			
+			<hr linetype="line" />
+
+			<!-- -----------------(11)给某某日记,照片,点滴评论------------------------ -->
+				<p>
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="王月=.=!" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- 写死 -->
+				<label text="评论了" />		
+				<!-- 记录的文字 -->
+				<!-- text是好友的名字;goFriend表示的是跳转到好友的个人主页,XXX替换成好友的ID. -->
+				<label text="江威" onclick="goFriend(&quot;XXX&quot;)" />
+				<!-- text 日记或照片或点滴-->
+				<label text="的日记/照片/点滴" />
+				<!-- text日记/照片/点滴的标题;goMsg表示跳到该评论,XXX替换成该好友的ID,YYY该日记/照片/点滴的ID -->
+				<label text="写给王菲" onclick="goComment(&quot;XXX,YYY&quot;)" />
+			</p>			
+			<hr linetype="line" />
+
+			<!-- 分页 -->
+			<!-- class写死 -->
+			<div class="horizontal">
+				<!-- 控制好友动态列表分页的按钮.下一页和上一页返回"好友动态列表下发.xml"定义的格式 -->
+				<button text="下一页" onclick="_zsnSend(&quot;***&quot;)" />
+				<!-- '/'号前是当前页,'/'号后是总页数 -->
+				<label text="2/10" />
+				<button text="上一页" onclick="_zsnSend(&quot;***&quot;)" />
+			</div>
+
+		</div>
+</unit>

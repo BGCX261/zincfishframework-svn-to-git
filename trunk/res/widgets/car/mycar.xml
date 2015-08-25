@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="mycarunit">
+	<script src="/widgets/car/car.zs" />
+
+	<menu type="left">
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="查看详情" onclick="_zsnSend(&quot;/widgets/car/carstatus.xml&quot;)" />
+		<menu text="我的车位" onclick="_zsnSend(&quot;/widgets/car/mycar.xml&quot;)" />
+		<menu text="汽车描述" onclick="_zsnSend(&quot;/widgets/car/cardescribe.xml&quot;)" />
+		<menu text="好友车位" onclick="_zsnSend(&quot;/widgets/car/friendpark.xml&quot;)" />
+	</menu>
+
+    <poppanel id="poptietiao" class="poppanelbg">
+       	<label text="=温馨提示=" style="margin: 0 0 0 30;"/>
+       	<label id="tietiao" text=""/>
+       	<button id="submit" text="我要贴条" onclick="TieTiaoConfirm()"/>
+    </poppanel>
+    
+    <poppanel id="poptip" class="poppanelbg">
+       	<label id="tip" text="贴条成功"/>
+    </poppanel>
+
+    <poppanel id="callpolice" class="poppanelbg">
+    	<div id="me" style="margin: 10 12 16 12; border: 2; border-color: #A5CE8C;">
+    		<vlist id="f0" available="false" type="6" style="margin: 0 0 0 15;">
+    			<item title="我:" icon="/widgets/car/img/man_zx.png"/>
+    		</vlist>
+    		<label text="XX在违章停车" style="margin: 0 0 0 15;"/>
+    	</div>
+    	<div id="police" style="margin: 10 12 16 12; border: 2; border-color: #A5CE8C;">
+    		<vlist id="f1" available="false" type="6" style="margin: 0 0 0 15;">
+    			<item title="警察:" icon="/widgets/car/img/man_zx.png"/>
+    		</vlist>
+    		<label text="我马上赶到" style="margin: 0 0 0 15;"/>
+    	</div>
+    </poppanel>
+
+	<body id="car" style="margin: 0;">
+		<div id="container">
+			<div id="scene" class="carboard">
+				<park id="park" type="me" lane="3" title="江威的西湖停车场" color="red">
+					<car id="01" src="/widgets/car/img/temp/qc_01.png" lane="1"
+						name="奥拓" describe="我X1同学的XX车贴条了, 没收停车所得5200元" onclick="TieTiao(&quot;01&quot;)"/>
+					<car id="02" src="/widgets/car/img/temp/qc_02.png" lane="2"
+						name="奥迪A8" describe="我X2同学的XX车贴条了, 没收停车所得6200元" onclick="TieTiao(&quot;02&quot;)"/>
+					<car id="04" src="/widgets/car/img/temp/qc_01.png" lane="4"
+						name="奔驰R7" describe="我X3同学的XX车贴条了, 没收停车所得7200元 " onclick="TieTiao(&quot;04&quot;)"/>
+				</park>
+			</div>
+			<hr />
+			<div id="info" class="carboard" style="bg-color: #F2FAED;">
+			    <div id="divtab" style="padding: 6 8 8 8;">
+					<hlist id="blist">
+						<button bgpath="/widgets/car/img/mycarb.png" hgpath="/widgets/car/img/mycarbf.png"
+							 onfocus="SwitchView(&quot;carlist&quot;)"/>
+						<button bgpath="/widgets/car/img/carstatusb.png" hgpath="/widgets/car/img/carstatusbf.png"
+							 onfocus="SwitchView(&quot;recordlist&quot;)"/>
+					</hlist>
+			    </div>
+				<vlist id="carlist" type="3">
+					<item id="X001" icon="/widgets/car/img/temp/iconbuick.png"
+						src="/widgets/car/img/temp/qc_01.png" title="粤A56588"/>
+					<item id="X002" icon="/widgets/car/img/temp/iconmitsubishi.png"
+						src="/widgets/car/img/temp/qc_02.png" title="粤A56589" />
+					<item id="X003" icon="/widgets/car/img/temp/iconbuick.png"
+						src="/widgets/car/img/temp/qc_01.png" title="粤A56599" />
+				</vlist>
+				<vlist id="recordlist" type="4" visible="false">
+					<item id="r001" title="我的林肯加长在罗章虎的私家车位停满了3天，获得停车收入7200元" ltail="(12小时前)"/>
+					<item id="r002" title="我花129800元买了一辆飞度" ltail="(1天前)"/>
+					<item id="r003" title="我的法拉利F430在陈振军的私家车位停满了3天，被自动挪走，获得停车收入7200元" ltail="(3天前)"/>
+				</vlist>
+			</div>
+		</div>
+	</body>
+</unit>  

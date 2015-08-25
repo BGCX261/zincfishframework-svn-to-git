@@ -1,0 +1,35 @@
+<!-- 本页面显示一个专辑，包括 一个专辑内的照片列表。AlbumPicList.aspx -->
+
+<unit id="AlbumPage_unit">				<!-- id写死 -->
+
+<label id="albumtext" text="XXX的相册" />   <!-- id写死、text中的XXX是是相册主人的名字 -->
+
+	<head id="headtext" src="/widgets/album/img/pp.png" user-name="专辑名称" view-count="共X张" signature="创建时间" data="id=&quot;专辑id&quot; mid=&quot;专辑主人的mid&quot;"/>
+		<!-- id写死。src为相册主人的头像。data中有 相册的id、专辑主人的Mid -->
+
+	<clist id="photolist" type="rect">		<!-- id、type写死 -->
+		<item id="P0" title="刘亦菲01" ltail1="200" ltail2="20" src="\widgets\album\img\11.png"
+			onclick="BrowserAlbum()" data="id=&quot;PhotoId&quot;"/>
+						<!-- id:P0~P7。title是照片名。ltail1是查看数、ltail2是访问数。src是照片的url。onclick写死。data中有照片的ID -->
+						
+		<item id="P1" title="刘亦菲02" ltail1="230" ltail2="120" src="\widgets\album\img\21.png"
+			onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		<item id="P2" title="刘亦菲03" ltail1="200" ltail2="220" src="\widgets\album\img\31.png"
+			onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		<item id="P3" title="刘亦菲04" ltail1="250" ltail2="20" src="\widgets\album\img\41.png"
+			onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		<item id="P4" title="刘亦菲05" ltail1="250" ltail2="20" src="\widgets\album\img\aa.png"
+			onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		<item id="P5" title="刘亦菲04" ltail1="250" ltail2="20" src="\widgets\album\img\41.png"
+			onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		<item id="P6" title="刘亦菲05" ltail1="250" ltail2="20" src="\widgets\album\img\aa.png"
+			onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+		<item id="P7" title="刘亦菲05" ltail1="250" ltail2="20" src="\widgets\album\img\aa.png"
+			onclick="BrowserAlbum()" data="id=&quot;照片ID&quot;"/>
+	</clist>
+		   
+	<button id="in_gift_prev" text="上一页" onclick="PrePage()"/>	<!-- id、text、onclick写死 -->
+	<label  id="in_gift_pages" text="1/2"  data="当前页码"/>		<!-- id写死。text：当前页数/总页数。-->
+	<button id="in_gift_next" text="下一页" onclick="NextPage()"/>	<!-- id、text、onclick写死 -->
+
+</unit>  

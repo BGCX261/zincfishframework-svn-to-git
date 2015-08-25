@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unit id="other_album_unit">
+
+	<script src="/widgets/album/album_other.zs" />
+	
+	<menu id="OMenu" type="left">
+		<menu text="进入专辑" onclick="GoIn()"/>
+		<menu text="查看访问限制" onclick="ShowLevel()"/>
+		<menu text="Ta的首页" onclick="OtherHome()"/>
+		<menu text="我的首页" onclick="MyHome()"/>
+	</menu>
+	
+
+	<!-- 密码输入框 -->
+    <poppanel id="showciper" class="popbg">
+    	<div id="ciperPopBody">
+    		<label text="请输入密码:"/>
+    		<textfield id="ciper" type="password" w="120"/>
+    		<button id="cipersubmit" text="确定" onclick="CiperConfirm"/>
+    	</div>
+    </poppanel>
+
+	<body id="other_album_body">
+		
+	    <div id="tbdiv" class="head-transparence">
+			<label id="header" />
+	    </div>
+	    <hr/>
+		
+		<!-- 我的专辑 -->
+		<div id="Album" class="tail-white" visible="true">
+		   <clist id="AList" type="square">
+		   	<!--
+			    <item id="album1" name="江威" title="西湖美景" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album1&quot;,&quot;myphlist&quot;)" level="2" />
+		   		<item id="album2" name="江威" title="荷塘月色" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album2&quot;,&quot;myphlist&quot;)" level="1"/>
+		   		<item id="album3" name="江威" ltail1="5" ltail2="7" title="夏威夷旅游" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album3&quot;,&quot;myphlist&quot;)" />
+				<item id="album4" name="江威" ltail1="5" ltail2="7" title="西湖美景" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album4&quot;,&quot;myphlist&quot;)" />
+		   		<item id="album5" name="江威" ltail1="5" ltail2="7" title="荷塘月色" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album5&quot;,&quot;myphlist&quot;)" />
+		   		<item id="album6" name="江威" ltail1="5" ltail2="7" title="夏威夷旅游" src="/widgets/album/temp/other.png"
+					 onclick="GoAlbum(&quot;album6&quot;,&quot;myphlist&quot;)" />
+			-->
+			</clist>
+			
+			<div id="page_button" style="layout:inlinelayout(true,fill);align:center;" >
+				<button id="next" text="下一页" visible="false"/>
+				<label  id="pages" text="1/2"  visible="false"/>
+				<button id="prev" text="上一页"  visible="false"/>
+			</div>
+		</div>
+		
+	</body>
+</unit>  

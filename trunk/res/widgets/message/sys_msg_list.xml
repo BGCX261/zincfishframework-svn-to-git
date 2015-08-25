@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="sys_msg_main">
+	<script src="/widgets/message/sys_msg_list.zs" />
+	<menu id="menu" type="left">
+		<menu text="回首页" onclick="_zssSwitch(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="消息中心" onclick="MsgCenter()" />
+		<menu text="删除消息" onclick="DeleteSMessage(&quot;msglist&quot;)" />
+	</menu>
+	<body id="sys_msg_body">
+		<div id="dheaddiv" class="full-transparence">
+			<hlist id="tablist" type="5">
+				<button text="全部系统消息" onfocus="SSwitchView(&quot;sys_msg_all&quot;)" />
+				<button text="好友请求" onfocus="SSwitchView(&quot;sys_msg_req&quot;)" />
+				<button text="生日提醒" onfocus="SSwitchView(&quot;sys_msg_day&quot;)" />
+			</hlist>
+			<hr />
+			<div id="sys_msg_all" style="min-size:0 260;">
+				<vlist id="sys_msg_all_list" type="0"/>
+				<div id="sys_msg_all_div" class="horizontal" style="align:center">
+					<button id="sys_msg_all_next" text="下一页" visible="false"/>
+					<label  id="sys_msg_all_page" text="1/10" value="页码" visible="false"/>
+					<button id="sys_msg_all_prev" text="上一页"	visible="false"/>
+				</div>
+			</div>
+			<div id="sys_msg_req" visible="false" style="min-size:0 260;">
+				<vlist id="sys_msg_req_list" type="0"/>
+				<div id="sys_msg_req_div" class="horizontal" style="align:center">
+					<button id="sys_msg_req_next" text="下一页"	visible="false"/>
+					<label  id="sys_msg_req_page" text="1/10" value="页码" visible="false"/>
+					<button id="sys_msg_req_prev" text="上一页" visible="false" />
+				</div>
+			</div>
+			<div id="sys_msg_day" visible="false" style="min-size:0 260;">
+				<vlist id="sys_msg_day_list" type="0"/>
+				<div id="sys_msg_day_div" class="horizontal" style="align:center">
+					<button id="sys_msg_day_next" text="下一页" visible="false"/>
+					<label  id="sys_msg_day_page" text="1/10" value="页码" visible="false"/>
+					<button id="sys_msg_day_prev" text="上一页" visible="false"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</unit>

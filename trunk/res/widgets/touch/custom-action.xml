@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit   id="touchunit"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.3g.net.cn/sns"
+	xsi:schemaLocation="http://www.3g.net.cn/sns ../../zml.xsd">
+
+		<div id="data" visible="true">
+
+			<textfield id="t1_txt" title="" line="1" />
+			<textfield id="t2_txt" title="他" line="1" />
+			<button  id="add-1" text="添加" onclick="add" />
+			
+				<label text="自定义动作:"/>
+				<div id="custom_div" visible="true">
+					<checkbox id="ck-1" type="radio" />
+					<label text="摸一下"/>
+					<img id="img-1" src="loca://widgets/touch/img/touch-head.png"
+						 />
+					<button id="del-1" text="删除"
+						onclick="remove(&quot;ck-1&quot;,&quot;img-1&quot;,&quot;del-1&quot;)" />
+					<br/>
+					<checkbox id="ck-2" type="radio" />
+					<label text="亲一下"/>
+					<img id="img-2" src="loca://widgets/touch/img/touch-head.png"
+						  />
+					<button  id="del-2" text="删除"
+						onclick="remove(&quot;ck-2&quot;,&quot;img-2&quot;,&quot;del-2&quot;)" />
+					<br/>
+					<checkbox id="ck-3" type="radio" />
+					<label text="踢一下"/>
+					<img id="img-3" src="loca://widgets/touch/img/touch-head.png"
+						  />
+					<button  id="del-3" text="删除"
+						onclick="remove(&quot;ck-3&quot;,&quot;img-3&quot;,&quot;del-3&quot;)" />
+					<br/>
+					<checkbox id="ck-4" type="radio" />
+					<label text="抓一下"/>
+					<img id="img-4" src="loca://widgets/touch/img/touch-head.png"
+						  />
+					<button id="del-4" text="删除"
+						onclick="remove(&quot;ck-4&quot;,&quot;img-4&quot;,&quot;del-4&quot;)" />
+					<br/>
+				</div>
+
+		</div>
+
+
+</unit>

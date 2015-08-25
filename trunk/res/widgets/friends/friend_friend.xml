@@ -1,0 +1,41 @@
+﻿<unit id="friend_friend_unit" onload="refshfriendfriend">
+
+  <menu type="0">
+  	<menu  text="查找好友" onclick="showcontent(&quot;/widgets/friends/searchFriend.xml&quot;)" />  	
+    <menu  text="发送消息" onclick="popuplist(&quot;sendmsg&quot;)" />    
+    <menu  text="邀请好友" onclick="PopGroupPanel(&quot;InviteFriendtoGroup&quot;,&quot;Invitechecks1&quot;)" />
+  </menu>
+ 
+  <script src="/widgets/friends/friend_friend.zs" />
+
+	<poppanel id="InviteFriend" class="popbg">
+		<label id="frInvite"/>
+		<label text="验证信息"/>
+		<textfield  id="ensuremsg" value="输入验证信息" name="lh84" type="0" />
+		
+		<label  text="添加到组"/>
+		<select id="Invitechecks1" max="1"/>
+		
+		<div class="horizontal">
+			<button id="selectfinish1" text="确定" onclick="InviteFriendRequest(&quot;http://test.3g.cn/sns/interface/FriInvite.aspx?&quot;,&quot;ensuremsg&quot;,&quot;Invitechecks1&quot;)"/>
+			<button id="buttonCancel" text="取消" onclick="CancelFriendPanel(&quot;InviteFriendtoGroup&quot;)"/>
+		</div>				
+	</poppanel>
+
+	<body id="friend_friend_body">	
+		<div class="head-transparence">
+	       <label text="好友的好友"/>
+	    </div>
+	    <hr/>
+		<div class="tail-transparence" style="min-size:0 260;">
+			<vlist id="friendlist" type="1" visible="false">
+			</vlist>
+
+			<div style="layout:inlinelayout(true,fill);align:center;" >
+				<button id="search_prev" text="上一页" onclick="prePage()" visible="false"/>
+				<label  id="search_pages" text="0/0" data="pn=&quot;当前页码quot; total=&quot;总页码quot;"/>
+				<button id="search_next" text="下一页"  onclick="nextPage()" visible="false"/>
+			</div>
+		</div>
+	</body>
+</unit>

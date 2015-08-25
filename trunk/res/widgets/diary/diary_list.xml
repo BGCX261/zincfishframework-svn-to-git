@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="diary_list_unit" onload="LoadDiaryList">
+	<menu id="menu" type="left">
+		<menu text="写日记" onclick="WriteDiary" />
+		<menu text="打开草稿" onclick="OnLoadDiary" />
+		<menu text="删除" onclick="delDiary" />
+		<menu text="修改" onclick="editDiary" />
+		<menu text="回首页" onclick="_zssSwitch(&quot;/widgets/main/mainpage.xml&quot;)" />
+	</menu>
+	<script src="/widgets/diary/diary_list.zs" />
+
+	<body id="diary_list_body">
+		<div class="title" bind="north">
+			<img src="/widgets/main/img/resent.png" />
+			<label text="我的日记" class="title_text" />
+		</div>
+		<div id="tbdiv"
+			style="layout:inlinelayout(false,fill);margin:6 0 0 0;align:fill">
+			<label text="一片树叶"
+				onclick="_zssSwitch(&quot;/widgets/diary/diary_page_mine.xml&quot;)"
+				data="365038201492538187" />
+			<div style="layout:inlinelayout(true,right);align:right;">
+				<label text="李世杰" onclick="" />
+				<label text="于2009-09-09 09:09发表" />
+			</div>
+			<label text="一片树叶"
+				onclick="_zssSwitch(&quot;/widgets/diary/diary_page_mine.xml&quot;)"
+				data="365038201492538187" />
+			<div style="layout:inlinelayout(true,right);align:right;">
+				<label text="李世杰" onclick="" />
+				<label text="于2009-09-09 09:09发表" />
+			</div>
+			<label text="一片树叶"
+				onclick="_zssSwitch(&quot;/widgets/diary/diary_page_mine.xml&quot;)"
+				data="365038201492538187" />
+			<div style="layout:inlinelayout(true,right);align:right;">
+				<label text="李世杰" onclick="" />
+				<label text="于2009-09-09 09:09发表" />
+			</div>
+			<label text="一片树叶"
+				onclick="_zssSwitch(&quot;/widgets/diary/diary_page_mine.xml&quot;)"
+				data="365038201492538187" />
+			<div style="layout:inlinelayout(true,right);align:right;">
+				<label text="李世杰" onclick="" />
+				<label text="于2009-09-09 09:09发表" />
+			</div>
+			<label text="一片树叶"
+				onclick="_zssSwitch(&quot;/widgets/diary/diary_page_mine.xml&quot;)"
+				data="365038201492538187" />
+			<div style="layout:inlinelayout(true,right);align:right;">
+				<label text="李世杰" onclick="" />
+				<label text="于2009-09-09 09:09发表" />
+			</div>
+			<label text="一片树叶"
+				onclick="_zssSwitch(&quot;/widgets/diary/diary_page_mine.xml&quot;)"
+				data="365038201492538187" />
+			<div style="layout:inlinelayout(true,right);align:right;">
+				<label text="李世杰" onclick="" />
+				<label text="于2009-09-09 09:09发表" />
+			</div>
+		</div>
+	</body>
+</unit>

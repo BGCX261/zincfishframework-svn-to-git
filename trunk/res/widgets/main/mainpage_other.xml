@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="main_other_unit">
+	
+	<script src="/widgets/main/mainpage_other.zs" />
+
+	<menu type="left">
+		<menu text="留言" onclick="ShowLWPop()"/>
+		<menu text="发消息" onclick="SendMsg()" />
+		<menu text="去留言人首页" onclick="LWHome()"/>
+		<menu text="我的首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)"/>
+	</menu>
+	
+	<!-- 留言框 -->
+    <poppanel id="LWPop" class="popbg" style="layout:inlinelayout(false,center)">
+        <label id="LWPL" text="留言"/>
+	    <hr />
+	    <textfield id="LWPT" style="min-size:210 100"/>
+		<div style="layout:inlinelayout(true,center)">
+			<button text="确定" onclick="SureLW()"/>
+			<button text="取消" onclick="_zssHidePopWindow(&quot;LWPop&quot;)"/>
+		</div>
+    </poppanel>
+    
+    <!-- 消息框 -->
+    <poppanel id="MsgPop" class="popbg" style="layout:inlinelayout(false,center)">
+        <label id="MsgPL" text="发消息"/>
+	    <hr />
+	    <textfield id="MsgPT" style="min-size:210 100"/>
+		<div style="layout:inlinelayout(true,center)">
+			<button text="确定" onclick="SureMsg()"/>
+			<button text="取消" onclick="_zssHidePopWindow(&quot;MsgPop&quot;)"/>
+		</div>
+    </poppanel>
+
+	<body id="main_other_body">
+		<div class="full-transparence">
+			<label id="titlelabel" text="XXX的首页" />
+			<hr />
+			
+			<head id="head"/>
+			<hr />
+			
+			<div style="layout:inlinelayout(true,fill)">
+				<label text="性别："/>
+				<label id="sex"/>	
+			</div>
+			<div style="layout:inlinelayout(true,fill)">
+				<label text="现所在地："/>
+				<label id="city"/>	
+			</div>
+			<div style="layout:inlinelayout(true,fill)">
+				<label text="星座："/>
+				<label id="star"/>	
+			</div>
+			<hr />
+				
+			<hlist id="nums" leftimg="/widgets/main/img/title_l.png" rightimg="/widgets/main/img/title_r.png" style="margin:0 -10 0 -10">
+				<button id="FriB" bgpath="/widgets/main/img/friend.png" hgpath="/widgets/main/img/friend1.png" onclick="_zsnPopDlg(&quot;跳&quot;)"/>
+				<button id="DarB" bgpath="/widgets/main/img/diary.png" hgpath="/widgets/main/img/diary1.png" onclick="_zsnPopDlg(&quot;跳&quot;)"/>
+				<button id="AlbB" bgpath="/widgets/main/img/album.png" hgpath="/widgets/main/img/album1.png" onclick="_zsnPopDlg(&quot;跳&quot;)"/>
+				<button id="DrpB" bgpath="/widgets/main/img/drop.png" hgpath="/widgets/main/img/drop1.png" onclick="_zsnPopDlg(&quot;跳&quot;)"/>
+				<button id="VotB" bgpath="/widgets/main/img/vote.png" hgpath="/widgets/main/img/vote1.png" onclick="_zsnPopDlg(&quot;跳&quot;)"/>
+				<button id="GifB" bgpath="/widgets/main/img/present.png" hgpath="/widgets/main/img/present1.png" onclick="_zsnPopDlg(&quot;跳&quot;)"/>
+			</hlist>
+			<hr/>
+			
+			<label id="RLabel" text="最近访客:" />
+			<hlist id="RList" leftimg="/widgets/main/img/person_l.png" rightimg="/widgets/main/img/person_r.png">
+			</hlist>
+		</div>
+		
+		<!-- 好友动态 -->
+		<div class="head-transparence">
+			<label id="FDLabel" text="好友动态" />
+			<hr/>
+		</div>
+		
+		<div class="tail-white">
+			<div id="FDDiv">
+			</div>
+			<button id="FDButton" text="更多好友动态" onclick="_zsnPopDlg(&quot;跳到好友动态界面&quot;)"/>
+		</div>
+		
+		<!-- 留言板 -->
+		<div class="head-transparence">
+			<label id="LWLabel" text="留言板" />
+			<hr/>
+		</div>
+		
+		<div class="tail-white">
+			<vlist id="LWList" type="0">
+			</vlist>
+			<button id="LWButton" text="更多留言" onclick="_zsnPopDlg(&quot;跳到留言界面&quot;)"/>
+		</div>
+	</body>
+	
+</unit>

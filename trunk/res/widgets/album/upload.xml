@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="AlbumUpload_unit">
+	
+	<script src="/widgets/album/upload.zs" />
+	
+	<!-- 创建专辑对话框 -->
+    <poppanel id="CreateAlbumPop">
+    	<div class="head-transparence">
+    		<label text="创建专辑" />
+    		<hr/>
+    	</div>
+    	<div class="tail-white">
+    		<label text="专辑名称：" />
+    		<textfield id="CA_NameT" />
+    		<label text="访问属性" />
+    		<combobox id="CA_Level">
+    			<option id="op0" text="任何人" value="0" onclick="CAPassWord(&quot;false&quot;)"/>
+				<option id="op1" text="仅好友" value="1" onclick="CAPassWord(&quot;false&quot;)"/>
+				<option id="op2" text="需密码" value="2" onclick="CAPassWord(&quot;true&quot;)"/>
+    		</combobox>
+				<label id="CA_Password_L" text="密码:" visible="false"/>
+				<textfield id="CA_Password_T" visible="false"/>
+				<div style="layout:inlinelayout(true,fill);align:center;">
+					<button text="确定" onclick="NewAlbum()"/>
+					<button text="取消" onclick="HideCreateAlbumPage()"/>
+				</div>
+    	</div>
+    </poppanel>
+    
+	<!-- 删除确认提示框 -->
+	<poppanel id="DelPop" class="popbg" style="layout:inlinelayout(false,center)">
+		<label id="DelLable" text=""/>
+		<div id="DelButton" style="layout:inlinelayout(true,center)">
+			<button id="DelSure" text="确定" onclick="SureDel()"/>
+			<button id="DelCancel" text="取消" onclick="CancelDel()"/>
+		</div>
+	</poppanel>
+	
+	<!-- 上传中 -->
+	<poppanel id="loading">
+    	<loading id="albumloading" src="/widgets/album/img/portrait.png" value="照片上传中...按右软键取消" onclick="CancelUpload()"/> <!-- onclick是用户按右键时调用的脚本 -->
+    </poppanel>
+	
+	<menu type="left">
+		<menu text="测试：停止上传" onclick="_zsnStopPostPhoto()" />
+		<menu text="测试：上传控件" onclick="_zssShowPopWindow(&quot;loading&quot;)"/>
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="相册首页" onclick="_zsnSend(&quot;/widgets/album/album.xml&quot;)" />
+	</menu>
+
+	<body id="AlbumUpload_body" >
+	    <div id="head" class="head-transparence" style="padding: -5 0 0 0">
+	        <label text="上传图片"/>
+	    </div>
+		<hr />
+		<div id="comdiv" class="tail-white">
+			
+		  <div id="dcom" style="padding: 0 0 0 10">
+			    <label text="选择照片专辑:"/>
+			    <br/>
+					<combobox id="AlbumBox1" w="140">
+						<option id="op1" text="默认专辑" value="0" />
+						<!--
+						<option id="op2" text="国外旅游" value="1" />
+						<option id="op0" text="野外狩猎" value="2" />
+						-->
+					</combobox>
+		  </div>
+		    
+			<div id="oalbum" class="horizontal">
+			   <button id="addalbum" text="[新建专辑]" onclick="ShowCreateAlbumPage()"/>
+			   <button id="delalbum" text="[删除专辑]" onclick="ShowDelAlbumPop()"/>
+			</div>
+			
+			<div id="phdiv1" class="horizontal">
+				<label text="照片1"/>
+				<textfield id="phtext1" w="120"/>
+				<button id="phbrowser1" text="[浏览]" onclick="BrowserPhoto(&quot;phtext1&quot;)"/>
+			</div>
+			
+			<div id="phdiv2" class="horizontal">
+				<label text="照片2"/>
+				<textfield id="phtext2" w="120"/>
+				<button id="phbrowser2" text="[浏览]" onclick="BrowserPhoto(&quot;phtext2&quot;)"/>
+			</div>
+			
+			<div id="phdiv3" class="horizontal" visible="false">
+				<label text="照片3"/>
+				<textfield id="phtext3" w="120"/>
+				<button id="phbrowser3" text="[浏览]" onclick="BrowserPhoto(&quot;phtext3&quot;)"/>
+			</div>
+			
+			<div id="phdiv4" class="horizontal" visible="false">
+				<label text="照片4"/>
+				<textfield id="phtext4" w="120"/>
+				<button id="phbrowser4" text="[浏览]" onclick="BrowserPhoto(&quot;phtext4&quot;)"/>
+			</div>
+			
+			<div id="phdiv5" class="horizontal" visible="false">
+				<label text="照片5"/>
+				<textfield id="phtext5" w="120"/>
+				<button id="phbrowser5" text="[浏览]" onclick="BrowserPhoto(&quot;phtext5&quot;)"/>
+			</div>
+			
+			<div id="oph" class="horizontal">
+				<button id="phbrowser5" text="添加" onclick="AddSolt()"/>
+				<button id="phbrowser5" text="上传" onclick="StartUpload()"/>
+			</div>
+			
+		</div>
+	</body>
+</unit>  

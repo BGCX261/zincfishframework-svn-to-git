@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="carstatus">
+	<script src="/widgets/car/carstatus.zs" />
+
+	<menu type="left">
+		<menu text="争车位首页" onclick="_zsnSend(&quot;/widgets/car/car.xml&quot;)" />
+		<menu text="寻找车位" onclick="_zsnSend(&quot;/widgets/car/friendpark.xml&quot;)" />
+		<menu text="换购新车" onclick="_zsnSend(&quot;/widgets/car/car.xml&quot;)" />
+		<menu text="送车好友" onclick="_zssShowPopWindow(&quot;sendcar&quot;)" />
+		<menu text="等候加油" onclick="AddOil()" />
+		<menu text="卖给收购站" onclick="_zssShowPopWindow(&quot;salecar&quot;)" />
+	</menu>
+
+    <poppanel id="sendcar" class="poppanelbg">
+    	<label text="即将送出" style="margin: 0 0 0 15;"/>
+    	<label is="carnum" text="宝马X300" style="margin: 0 0 0 30;"/>
+    	<label is="carprice" text="200 000 元" style="margin: 0 0 0 30;"/>
+    	<label text="你想送给哪位好友?" style="margin: 0 0 0 15;"/>
+    	
+    	<vlist id="friends" type="6" style="margin: 0 0 0 15;">
+    		<item title="于鑫" icon="/widgets/car/img/man_zx.png" onclick="_zssShowPopWindow(&quot;sendingcar&quot;)"/>
+    		<item title="杜紹师" icon="/widgets/car/img/man_zx.png" onclick="_zssShowPopWindow(&quot;sendingcar&quot;)"/>
+    		<item title="陈静聪" icon="/widgets/car/img/man_zx.png" onclick="_zssShowPopWindow(&quot;sendingcar&quot;)"/>
+    		<item title="许杰峰" icon="/widgets/car/img/man_fm.png" onclick="_zssShowPopWindow(&quot;sendingcar&quot;)"/>
+    		<item title="马骁军" icon="/widgets/car/img/man_fm.png" onclick="_zssShowPopWindow(&quot;sendingcar&quot;)"/>
+    		<item title="张三" icon="/widgets/car/img/man_lx.png" onclick="_zssShowPopWindow(&quot;sendingcar&quot;)"/>
+    		<item title="王五" icon="/widgets/car/img/man_lx.png" onclick="_zssShowPopWindow(&quot;sendingcar&quot;)"/>
+    	</vlist>
+    </poppanel>
+    
+    <poppanel id="sendingcar" class="poppanelbg">
+    	<div id="me" style="margin: 10 12 16 12; border: 2; border-color: #A5CE8C;">
+    		<label text="即将送出" style="margin: 0 0 0 15;"/>
+	    	<label is="carnum" text="宝马X300" style="margin: 0 0 0 30;"/>
+	    	<label is="carprice" text="200 000 元" style="margin: 0 0 0 30;"/>
+	    	<label text="你想送给哪位好友?" style="margin: 0 0 0 15;"/>
+    	</div>
+    	<hr/>
+    	<label text="说点什么吧:"/>
+    	<div id="police" style="margin: 10 12 16 12; border: 2; border-color: #A5CE8C;">
+    		<textfield style="min-size:0 50"  id="editor" bg="1"/>
+    	</div>
+    	<button id="submit" text="送出" onclick="SendCarOK()" style="align:center;"/>
+    </poppanel>
+    
+    <poppanel id="salecar" class="poppanelbg">
+    	<label text="确定要将XX车卖了么?" style="margin: 0 0 0 10;" onclick="_zssShowPopWindow(&quot;popresult&quot;)"/>
+    </poppanel>
+    
+    <poppanel id="popresult" class="poppanelbg">
+    	<label id="result" text="已经将车卖了" style="margin: 0 0 0 10;"/>
+    </poppanel>
+    
+    <poppanel id="gasstation" class="poppanelbg">
+    	<label text="确定要把XX车移动到加油站么?" style="margin: 0 0 0 10;" onclick=""/>
+    </poppanel>
+    
+    <poppanel id="popoil" class="poppanelbg">
+    	<label id="surplus"/>
+    	<label id="total"/>
+    	<label text="请输入油量(单位: 升):"/>
+    	<textfield style="min-size:0 20" type="num" id="quantity" bg="1"/>
+    	<button id="submit" text="加油" onclick="AddOilOK()"/>
+    </poppanel>
+    
+	<body id="car">
+		<div id="box" class="carboard">
+		    <div id="head" class="horizontal" style="margin: 0;padding: 6 0 0 50;bg-color: #DEEFD4;">
+		        <img id="icon" src="/widgets/car/img/temp/iconbuick.png" available="false"/>
+			    <label id="name" text="别克A320"/>
+		    </div>
+		    <div id="info" style="padding: 12 0 0 0; margin: 0;bg-color: #F2FAED;">
+		        <div id="content" style="padding: 10 0 20 20;">
+				    <label id="oilbox" text="邮箱:剩16升"/>
+				    <label id="type" text="型号:奥拓小王子1.8升"/>
+				    <label id="oilwear" text="油耗:4升/小时, 还能行驶4小时"/>
+				    <label id="price" text="价格:23000元"/>
+				    <label id="carnum" text="车牌:粤A2556"/>
+				    <label id="describe" text="目前停在XX的私家车位上"/>
+				    <label id="income" text="预计收入:7000元"/>
+		        </div>
+				<dock id="park">
+					<car id="001" src="/widgets/car/img/temp/qc_01.png" surplus="12.5" zoomsrc="/widgets/car/img/temp/bigcar.png"
+						name="奥拓" />
+					<car id="002" src="/widgets/car/img/temp/qc_02.png" surplus="22" zoomsrc="/widgets/car/img/temp/bigcar.png"
+						name="奥迪A8" />
+					<car id="003" src="/widgets/car/img/temp/qc_03.png" surplus="42" zoomsrc="/widgets/car/img/temp/bigcar.png"
+						name="奥拓E0" />
+					<car id="004" src="/widgets/car/img/temp/qc_01.png" surplus="32" zoomsrc="/widgets/car/img/temp/bigcar.png"
+						name="奥拓" />
+					<car id="005" src="/widgets/car/img/temp/qc_02.png" surplus="33" zoomsrc="/widgets/car/img/temp/bigcar.png"
+						name="奥迪A8" />
+					<car id="006" src="/widgets/car/img/temp/qc_03.png" surplus="36.2" zoomsrc="/widgets/car/img/temp/bigcar.png"
+						lname="奥拓E0" />
+				</dock>
+		    </div>
+		</div>
+	</body>
+</unit>  

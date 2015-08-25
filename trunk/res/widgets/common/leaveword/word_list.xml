@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="word_list_unit">
+    <script src="/widgets/common/leaveword/word_list.zs" />
+	
+
+	
+	<body id="word_list_body">	
+		<div class="head-transparence">
+	       <label text="留言"/>
+		   <hr/>
+	    </div>
+	    
+		<div class="tail-transparence" style="min-size:0 260;">
+			<vlist id="word_list" type="1" visible="false">
+			</vlist>
+
+			<div style="layout:inlinelayout(true,fill);align:center;" >
+				<button id="word_list_prev" text="上一页"	onclick="_zsnSend(&quot; 上一页URL&quot;)" visible="false"/>
+				<label  id="word_list_pages" text="1/10" visible="false"/>
+				<button id="word_list_next" text="下一页" onclick="_zsnSend(&quot; 下一页URL&quot;)" visible="false"/>
+			</div>
+		</div>
+
+	</body>
+</unit>

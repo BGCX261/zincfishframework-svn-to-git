@@ -1,0 +1,19 @@
+<!-- 相册上传页面。 -->
+<!-- 
+原接口：http://test.3g.cn/sns/interface/AlbumSpecList2.aspx?specid=8&guid=13560237826
+需稍作改动
+ -->
+<unit id="AlbumUpload_unit">		<!-- id写死 -->
+  <body id="AlbumUpload_body">		<!-- id写死 -->
+
+    <combobox id="AlbumBox1" w="140">		<!-- id、w写死 -->
+      <option id="Box1OP1" value="8" text="我的同学阿"/>
+      <option id="Box1OP2" value="67" text="哈哈哈" selected="true"/>		<!-- 将请求中的specid对应的专辑，设置selected="true" -->
+      <option id="Box1OP3" value="75" text="请输入专辑" />
+      <option id="Box1OP4" value="76" text="拉丁香港台湾" />
+      <option id="Box1OP5" value="95" text="fdsa" />
+      <option id="Box1OP6" value="106" text="Mwtj" />
+    </combobox>
+
+  </body>
+</unit>

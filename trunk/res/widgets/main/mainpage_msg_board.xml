@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unit id="main_msg_board_unit">
+	<turnpage id="turnpage" src="/widgets/main/img/turnpage_msg_board.png" text="15"
+	url="http://test.3g.cn/gt2-kjava/widgets/main/mainpage_msg_board_data1.xml"></turnpage>
+	<body id="main_body">
+		<div id="msg_board_list" class="midle-transparence">
+			<div class="horizontal" style="padding: 0 0 0 -10;">
+				<bubble type="ALIGN_LEFT" text="最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+				<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威" available="false"/>
+			</div>
+			<div class="horizontal">
+				<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威" available="false"/>
+				<bubble text="最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+			</div>
+			<div class="horizontal" style="padding: 0 0 0 -10;">
+				<bubble type="ALIGN_LEFT" text="最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+				<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威" available="false"/>
+			</div>
+			<div class="horizontal">
+				<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威" available="false"/>
+				<bubble text="最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+			</div>
+		</div>
+	</body>
+</unit>

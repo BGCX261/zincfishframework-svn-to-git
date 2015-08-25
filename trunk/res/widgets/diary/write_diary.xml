@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="write_diary_unit" onload="InitEvent()">
+	<menu id="menu" type="left">
+		<menu text="发表" onclick="PostDiary" />
+		<menu text="打开草稿" onclick="OnLoadDiary" />
+		<menu text="保存到草稿" onclick="SaveDiary" />
+	</menu>
+
+	<!--menu id="menu" type="right" onclick="SaftExit()"/-->
+
+
+
+	<script id="script" src="/widgets/diary/write_diary.zs" />
+
+	<!-- 选择好友弹出框 -->
+	<poppanel id="FrndSelPop" class="popbg">
+		<label id="MyFrnd" text="我的好友" />
+		<select id="FrndSelect">
+		</select>
+		<button text="确定" onclick="updateFrndList" />
+	</poppanel>
+
+	<!-- 弹出日记列表 -->
+	<poppanel id="draftListPop" class="popbg" style="align:fill;">
+		<label text="草稿：" />
+		<div id="draftList" style="align:center; layout:inlinelayout(false, left);">
+		</div>
+	</poppanel>
+
+	<!-- 保存草稿确认 -->
+	<poppanel id="SaveInsurePop" class="popbg" style="align:fill;">
+		<label text="保存当前日记为:" />
+		<textfield id="saveNameTemp" />
+		<div style="layout:gridlayout(2,1)">
+			<button text="保存" onclick="confirmSave" />
+			<button text="取消" onclick="escSave" />
+		</div>
+	</poppanel>
+
+	<!-- 保存草稿确认 -->
+	<poppanel id="safe_exit_pop" class="popbg" style="align:fill;">
+		<label text="当前日记尚未保存，确认保存么？" />
+		<div style="layout:gridlayout(2,1)">
+			<button text="保存" onclick="confirmSave" />
+			<button text="取消" onclick="escSave" />
+		</div>
+	</poppanel>
+
+	<!-- 上传中 -->
+	<poppanel id="play_upload_pop">
+		<loading id="play_upload" src="/widgets/album/img/portrait.png"
+			value="正在发表日记..." onclick="CancelUpload()" /> <!-- onclick是用户按右键时调用的脚本 -->
+	</poppanel>
+
+	<body id="write_diary_body" style="margin:0;bg-color:#eaeaea;padding:10 10 10 10;gap:0 5;">
+		<label id="fileName" visible="false" />
+		<label id="tempFileName" visible="false" />
+		<label text="写日记" style="color:#bcbbbb;font-size:small;" />
+		<div style="gap:0 5;">
+			<textfield id="title" />
+			<textfield id="text" style="min-size:0 200" />
+			<hlist src="/widgets/main/img/cursor.png" leftimg="/widgets/main/img/title_r.png">
+				<button bgpath="/widgets/diary/img/laugh.png" tips="添加表情(暂不支持)"
+					onclick="addFace" />
+				<button bgpath="/widgets/diary/img/video.png" />
+				<button bgpath="/widgets/diary/img/video.png" tips="添加视频"
+					onclick="AddVideoAttachment" />
+				<button bgpath="/widgets/diary/img/picture.png" tips="添加图片"
+					onclick="AddImgicAttachment" />
+				<button bgpath="/widgets/diary/img/video.png" tips="录制声音"
+					onclick="ShowRecordPop" />
+			</hlist>
+			<div id="attachment_img"></div>
+			<hlist id="attachment_other" src="/widgets/main/img/cursor.png"
+				leftimg="/widgets/main/img/title_r.png" />
+		</div>
+		<hr />
+		<div style="gap:0 5">
+			<combobox id="diary_priv">
+				<option id="pr_all" value="0" text="任何人" />
+				<option id="pr_friend" value="1" text="仅好友" />
+				<option id="pr_no" value="2" text="隐藏" />
+			</combobox>
+			<label text="日记上提到的好友有：" style="color:#000000;font-size:small;" />
+			<hlist id="diary_friends" src="/widgets/main/img/cursor.png"
+				leftimg="/widgets/main/img/title_r.png">
+			</hlist>
+			<button text="添加" onclick="PopFrndList" />
+		</div>
+	</body>
+</unit>

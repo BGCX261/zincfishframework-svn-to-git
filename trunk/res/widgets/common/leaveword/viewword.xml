@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="word_unit">
+    <script src="/widgets/common/leaveword/viewword.zs" />
+	<menu id="menu" type="left">
+		<menu text="删除回复" onclick="DeletewordReply()" />
+	</menu>
+	
+	<!-- message_pop和message_text(text属性可替换)写死 -->
+    <poppanel id="message_pop" class="poppanelbg" style="padding: 10 0 10 0">
+    	<label id="message_text" text="操作已经完成"/>
+    	<button id="ok" text="确定" onclick="_zssHidePopWindow(&quot;message_pop&quot;)"/>
+    </poppanel>
+	
+	<body id="word_body">
+	   <div id="dheaddiv" class="full-transparence"  style="min-size:0 260">
+			<head id="word_content" src="/widgets/album/img/h.png" user-name="某某的留言"	 signature="留言内容" view-count="时间" value="留言id"/> <!-- id 写死； src 头像； 其它如属性值 -->
+	        <!--label id="replay_title" text="回复" value="回复的唯一标识"/-->
+	        <textfield id="reply_text" style="min-size: 0 60;"/>
+	        <button id="submit" text="添加回复" onclick="AddWordReplay"/>
+            <vlist id="word_reply_list" type="0"/><!-- id、type写死 -->
+            <div id="comment_reply_div" class="horizontal"  style="align:center">
+				<button id="wordreply_prev" text="上一页" onclick="_zsnSend(&quot;取回复列表的URL&quot;)" visible="false"/>
+				<label  id="wordreply_pages" text="1/10" value="页码" visible="false"/>
+				<button id="wordreply_next" text="下一页" onclick="_zsnSend(&quot;取回复列表的URL&quot;)" visible="false"/>
+			</div>
+	    </div>
+	</body>
+</unit>

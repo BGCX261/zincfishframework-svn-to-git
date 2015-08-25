@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="voteunit">
+	<menu id="menu" type="left">
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="发起投票" onclick="_zsnSend(&quot;/widgets/vote/newvote.xml&quot;)" />
+		<menu text="修改投票" onclick="_zsnSend(&quot;/widgets/vote/newvote.xml&quot;)" />
+		<menu text="删除投票" onclick="deletVote" />
+	</menu>
+	<script src="/widgets/vote/votehome.zs" />
+	<body id="votebody">
+		<div id="dheaddiv" class="full-transparence">
+			<hlist id="tablist" leftimg="/widgets/main/img/person_l.png"
+				rightimg="/widgets/main/img/person_r.png">
+				<button id="votem1" text="我的投票" onfocus="SwitchView(&quot;votem&quot;)"/>
+				<button id="votej1" text="我参与的投票"  onfocus="SwitchView(&quot;votej&quot;)"/>
+				<button id="votef1" text="好友的投票" onfocus="SwitchView(&quot;votef&quot;)"/>
+				<button id="voteo1" text="随便看看"  onfocus="SwitchView(&quot;voteo&quot;)"/>
+			</hlist>
+			<hr />
+			<!-- 我的投票 -->
+			<div id="votem" visible="true">
+				<div id="user">
+					<head src="/widgets/album/img/h.png" user-name="陈静聪"
+						view-count="256" signature="总有一日等好天气" />
+				</div>
+				<!-- style="margin:7"在切换tab的时候排版有问题 -->
+				<button id="submit" text="发起投票" type="btext" style="margin:0 0 0 7" 
+					onclick="_zsnSend(&quot;/widgets/vote/newvote.xml&quot;)"/>
+				<hr />
+				<vlist id="m" type="0">
+					<item id="mi1" title="邹小闹为人处事的高调指数" content="投票:1024  评论:50" ltail="2009-04-07 16:45"
+						onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="mi2" title="母亲节将至，你最愿意为母亲做些什么？" content="投票:124  评论:5" ltail="2009-04-01 00:00"
+						onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="mi3" title="作为大学生，你最关心的问题是什么？" content="投票:512  评论:1" ltail="2009-03-30 09:45"
+						onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="mi4" title="有哪位精通3DMAX" content="投票:1 评论:0" ltail="2009-03-30 09:45"
+						onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+				</vlist>
+			</div>
+			<!-- 我参与的投票 -->
+			<div id="votej" visible="false">
+				<vlist id="j" type="0">
+					<item id="ji1" src="http" title="邹小闹为人处事的高调指数" content="投票:1024  评论:50"
+						ltail="2009-04-07 16:45" onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="ji2" src="http" title="母亲节将至，你最愿意为母亲做些什么？" content="投票:124  评论:5"
+						ltail="2009-04-01 00:00" onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="ji3" src="http" title="作为大学生，你最关心的问题是什么？" content="投票:512  评论:1"
+						ltail="2009-03-30 09:45" onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="ji4" src="http" title="有哪位精通3DMAX" content="投票:1 评论:0" ltail="2009-03-30 09:45"
+						onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+				</vlist>
+			</div>
+			<!-- 好友的投票 -->
+			<div id="votef" visible="false">
+				<vlist id="f" type="0">
+					<item id="fi1" src="http" title="邹小闹为人处事的高调指数" content="投票:1024  评论:50"
+						ltail="2009-04-07 16:45" onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="fi2" src="http" title="母亲节将至，你最愿意为母亲做些什么？" content="投票:124  评论:5"
+						ltail="2009-04-01 00:00" onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)"/>
+					<item id="fi3" src="http" title="作为大学生，你最关心的问题是什么？" content="投票:512  评论:1"
+						ltail="2009-03-30 09:45" onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="fi4" src="http" title="有哪位精通3DMAX" content="投票:1 评论:0" ltail="2009-03-30 09:45"
+						onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+				</vlist>
+			</div>
+			<!-- 随便看看 -->
+			<div id="voteo" visible="false">
+				<vlist id="o" tyle="0">
+					<item id="oi1" src="http" title="邹小闹为人处事的高调指数" content="投票:1024  评论:50"
+						ltail="2009-04-07 16:45" onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="oi2" src="http" title="母亲节将至，你最愿意为母亲做些什么？" content="投票:124  评论:5"
+						ltail="2009-04-01 00:00" onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="oi3" src="http" title="作为大学生，你最关心的问题是什么？" content="投票:512  评论:1"
+						ltail="2009-03-30 09:45" onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+					<item id="oi4" src="http" title="有哪位精通3DMAX" content="投票:1 评论:0" ltail="2009-03-30 09:45"
+						onclick="_zsnSend(&quot;/widgets/vote/voting.xml&quot;)" />
+				</vlist>
+			</div>
+		</div>
+
+	</body>
+</unit>

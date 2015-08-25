@@ -1,0 +1,44 @@
+<!-- 别人的主页 -->
+
+<unit id="main_other_unit">		<!-- id写死 -->
+	
+	<label id="titlelabel" text="Ta的首页" />		<!-- id写死。XXX为用户名 -->
+
+	<head id="head" src="/widgets/album/img/h.png" user-name="小刚" view-count="访问量：123" signature="肚子饿了" data="mid"/>
+	<!-- id写死。src为头像url。signature是最后一条点滴。data为mid -->
+	
+	<label id="sex" text="性别：女"/>			<!-- 性别 -->
+	<label id="city" text="现居住地：广州"/>	<!-- 现居住地 -->
+	<label id="star" text="星座：巨蟹座"/>		<!-- 星座 -->
+				
+	<hlist id="nums" leftimg="/widgets/main/img/title_l.png" rightimg="/widgets/main/img/title_r.png" style="margin:0 -10 0 -10">	<!-- 全部写死 -->
+		<button bgpath="/widgets/main/img/friend.png" hgpath="/widgets/main/img/friend1.png" tips="12" onclick="FriendPage"/>		<!-- 好友，tips为好友个数，其他写死 -->
+		<button bgpath="/widgets/main/img/diary.png" hgpath="/widgets/main/img/diary1.png" tips="13" onclick="DiaryPage"/>		<!-- 日记，tips为日记篇数，其他写死 -->
+		<button bgpath="/widgets/main/img/album.png" hgpath="/widgets/main/img/album1.png" tips="14" onclick="AlbumPage"/>		<!-- 相册，tips为照片数，其他写死 -->
+		<button bgpath="/widgets/main/img/drop.png" hgpath="/widgets/main/img/drop1.png" tips="15" onclick="DropPage"/>			<!-- 点滴，tips为点滴数，其他写死 -->
+		<button bgpath="/widgets/main/img/vote.png" hgpath="/widgets/main/img/vote1.png" onclick="VotePage"/>					<!-- 投票，全部写死 -->
+		<button bgpath="/widgets/main/img/present.png" hgpath="/widgets/main/img/present1.png" onclick="TouchPage"/>			<!-- 礼物，全部写死 -->
+	</hlist>
+		
+	<!-- 最近访客 -->	
+	<hlist id="RList" leftimg="/widgets/main/img/person_l.png" rightimg="/widgets/main/img/person_r.png">		<!-- 全部写死 -->
+		<label id="ac1" text="陈静聪" data="mid" onclick="GoAccHome"/>		<!-- text是访问者姓名。data是其mid。onclick写死。 -->
+		<label id="ac2" text="周杰伦" data="mid" onclick="GoAccHome"/>
+		<label id="ac3" text="江威" data="mid" onclick="GoAccHome"/>
+	</hlist>
+		
+	<!-- 好友动态 -->
+	<div id="FDDiv">
+		<!-- 暂时不加内容内容 -->
+	</div>
+		
+	<!-- 留言 -->
+	<vlist id="LWList" type="0">
+		<item id="LW1" title="小A" data="wid=&quot;留言ID&quot; mid=&quot;留言人ID&quot;" src="/widgets/album/img/h.png" content="小A，你妈妈叫你回家吃饭。" onclick="ClickLW" ltail="2009.9.9 09:58"/>
+		<!-- title是留言发起人。src是留言发起人的头像url。content是留言内容。ltail是留言时间。onclick写死。 -->
+		<item id="LW2" title="小B" data="wid=&quot;留言ID&quot; mid=&quot;留言人ID&quot;" src="/widgets/album/img/h.png" content="小B，你妈妈叫你回家吃饭。小B，你妈妈叫你回家吃饭。" onclick="ClickLW" ltail="2009.9.9 09:58"/>
+		<item id="LW3" title="小C" data="wid=&quot;留言ID&quot; mid=&quot;留言人ID&quot;" src="/widgets/album/img/h.png" content="小C，你妈妈叫你回家吃饭。小C，你妈妈叫你回家吃饭。小C，你妈妈叫你回家吃饭。" onclick="ClickLW" ltail="2009.9.9 09:58"/>
+		<item id="LW4" title="小D" data="wid=&quot;留言ID&quot; mid=&quot;留言人ID&quot;" src="/widgets/album/img/h.png" content="小D，你妈妈叫你回家吃饭。" ltail="2009.9.9 09:58" onclick="ClickLW"/>
+	</vlist>
+	
+</unit>

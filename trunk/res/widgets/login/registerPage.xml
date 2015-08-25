@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="registerpage">
+
+	<script src="/widgets/login/login.zs" />
+
+	<!--menu type="left">
+		<menu text="失败发短信" onclick="_zsnShowcontent(&quot;logreg\\sendsms.xml&quot;)" />	
+		<menu text="删除" onclick="delete" />
+		<menu text="刷新" onclick="refresh" />
+		<menu text="退出" onclick="_zsnExit" />
+	</menu-->
+
+		
+	<body id="register" style="margin:4 3 0 4;">
+		<div id="head-transparence" class="head-transparence">
+			<label id="titlelabel" text="注册" />
+			<hr />
+		</div>
+		<label class="midle-transparence" text="GG有道是一个真实的交友网络，请您如实填写你的个人资料" style="font-size:x-small;padding:10 5;" wrap="true" />
+		
+		<div id="midle-white" class="midle-white" style="padding:5 0 5 0;gap:none 5">
+			<label text="姓名："   available="false" />
+			<textfield  id="name" value=""/>
+
+			<label text="性别："   available="false" />
+			<select  class="horizontal" max="1" style="gap:10 none;">
+				<checkbox id="male" type="radio" text="帅哥"/>
+				<checkbox id="female" type="radio" text="美女"/>
+				<checkbox id="secret" type="radio" text="保密"/>
+			</select>
+			
+			<label text="现居住地："   available="false" />
+			<div class="horizontal">
+				<combobox id="province">
+					<option id="option_guangdong" value="1" text="广东"  selected="true"/>
+					<option id="option_guangxi" value="2" text="广西"/>
+					<option id="option_beijing" value="3" text="北京"/>
+					<option id="option_hunan" value="3" text="湖南"/>
+					<option id="option_hubei" value="3" text="湖北"/>
+					<option id="option_shanghai" value="3" text="上海"/>
+					<option id="option_shandong" value="3" text="山东"/>
+					<option id="option_shanxi" value="3" text="山西"/>
+				</combobox>			
+				<label text="省"/>
+				<combobox id="city">
+					<option id="option_guangdong" value="1" text="广州"  selected="true"/>
+					<option id="option_guangxi" value="2" text="东莞"/>
+					<option id="option_beijing" value="3" text="佛山"/>
+				</combobox>
+				<label text="市"  />
+			</div>
+			<label id="submit_tip" text="温馨提示，姓名和性别设定后将不能修改。" style="padding:0;font-size:x-small;" wrap="true"/>
+		</div>
+		<div class="tail-white" >	
+				<hr />
+				<button text="保存" style="align:right;"  onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+		</div>	
+	</body>
+</unit>

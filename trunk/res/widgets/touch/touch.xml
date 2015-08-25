@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<unit id="touch_main">
+	
+	<!-- script src="/widgets/touch/touch.zs"/-->
+	
+<!--
+	<poppanel id="seleteFriend">
+		<select id="seleteF">
+		<list id="FriendChecks" type="c" num="2" />
+		</select>
+		<button id="selectfinish1" text="确定" onclick="CancelFriendPanel(&quot;seleteFriend&quot;)"/>	
+	</poppanel>
+-->
+	
+
+	<body id="touch_body">
+		<div id="tbdiv" class="head-transparence">
+			<hlist id="taglist">
+				<button id="default_touch" text="默认动作 " onfocus="changevisable(&quot;in_touch&quot;, &quot;out_touch&quot;)" />
+				<button id="custom_touch" text="自定义动作" onfocus="changevisable(&quot;out_touch&quot;, &quot;in_touch&quot;)"/>
+			</hlist>
+			<hr/>
+		</div>
+		
+		<div id="in_touch" class="tail-white" style="padding-left:5">
+			
+			<div style="layout:inlinelayout(true,fill)">
+				<label text="选择你要动的人:"/>
+				<button id="seleteFriendButton" text="选择好友" onclick="PopFriendPanel(&quot;seleteFriend&quot;,&quot;FriendChecks&quot;)"/>
+			</div>
+			
+			<select max="1" style="layout:gridlayout(2,9);gap:0 5;margin-top:10">
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/trample.png"/>
+					<label text="踩一下"/>
+				</div>		
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/lightning.png"/>
+					<label text="电"/>
+				</div>
+				
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/kiss.png"/>
+					<label text="飞吻"/>
+				</div>
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/bite.png"/>
+					<label text="给一拳"/>
+				</div>
+				
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/touch.png"/>
+					<label text="摸一下"/>
+				</div>
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/scratch.png"/>
+					<label text="挠痒痒"/>
+				</div>
+				
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/nipfoot.png"/>
+					<label text="捏脚"/>
+				</div>
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/nip.png"/>
+					<label text="捏一下"/>
+				</div>
+				<!--  -->
+		
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/ogle.png"/>
+					<label text="抛媚眼"/>
+				</div>
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/palm.png"/>
+					<label text="手撑"/>
+				</div>
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/finger.png"/>
+					<label text="手指"/>
+				</div>
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/smile.png"/>
+					<label text="微笑"/>
+				</div>
+		
+				<!--  -->
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/handshake.png"/>
+					<label text="握手"/>
+				</div>
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/bite.png"/>
+					<label text="咬一口"/>
+				</div>
+		
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/hug.png"/>
+					<label text="拥抱"/>
+				</div>
+				<div style="layout:inlinelayout(true,center);align:left;gap:3 0;">
+					<checkbox id="" type="radio"/>
+					<img src="/widgets/touch/img/snuggle.png"/>
+					<label text="依偎"/>
+				</div>
+			
+			</select>
+			
+			<button text="开始动他" id="import" style="align:center"/>
+		</div>
+			
+		<div id="out_touch" class="tail-white" visible="false" style="layout:inlinelayout(false,fill);padding-left:0" >
+
+				<div style="layout:inlinelayout(true,left)">
+		    	<textfield id="slefAction1" value="踢" />
+		    	<label text="他"/>
+		    	<textfield id="slefAction2" value="一下" />
+		    </div>
+		    <button id="add_touch" text="添加" style="align:center"/>
+
+		    <label text="自定义动作:"/>
+
+		    <select max="10" style="layout:gridlayout(2,2);gap:0 5;margin-top:5">
+					<checkbox type="check" text="摸一下"/>
+					<checkbox type="check" text="啃一下"/>
+					<checkbox type="check" text="摸一下"/>
+					<checkbox type="check" text="啃一下"/>
+		    </select>
+		     <button id="del_touch" text="删除选中项" style="align:center"/>
+		</div>
+	
+	</body>
+</unit>

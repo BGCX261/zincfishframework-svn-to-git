@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="votingunit">
+	<menu id="menu" type="left">
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+	</menu>
+	<script src="/widgets/vote/voting.zs" />
+	<body id="votingbody">
+		<div id="tbdiv" class="head-transparence">
+			<hlist id="listtab" type="5" leftimg="/widgets/main/img/person_l.png"
+				rightimg="/widgets/main/img/person_r.png">
+				<button id="tabv" text="投票" onfocus="SwitchView(&quot;voting&quot;)"/>
+				<button id="tabc" text="评论" onfocus="SwitchView(&quot;comments&quot;)"/>
+			</hlist>
+			<hr />
+		</div>
+		<div id="voting" available="true" class="tail-transparence">
+			<head src="/widgets/album/img/h.png" user-name="陈依依"
+				view-count="256" signature="2009/07/08~2009/08/07" />
+			<hr />
+			<label id="titlel" text="如果有一个奇迹真的发生在你的身上，你希望是什么？ " />
+			<hr />
+			<label id="descl" text="一天你走在路上，突然听到一句话“我去要跳楼！”紧接着有人从边上公寓一楼阳台上跳到你面前走了你想说  " />
+			<hr />
+			<div id="voting1" class="horizontal">
+				<checkbox id="c1" type="check" />
+				<label id="l1" text="被雷击中变超人:" />
+			</div>
+			<voteitem id="v1" count="2100" rate="15" />
+			<div id="voting2" class="horizontal">
+				<checkbox id="c2" type="check" />
+				<label id="l2" text="突然变高:" />
+			</div>
+			<voteitem id="v2" count="3001" rate="26" />
+
+			<div id="voting3" class="horizontal">
+				<checkbox id="c3" type="check" />
+				<label id="l3" text="被蜘蛛咬变蜘蛛人:" />
+			</div>
+			<voteitem id="v3" count="2532" rate="19" />
+
+			<div id="voting4" class="horizontal">
+				<checkbox id="c4" type="check" />
+				<label id="l4" text="中千万彩票:" />
+			</div>
+			<voteitem id="v4" count="4325" rate="30" />
+
+			<button id="submitb" text="投票" onclick="submitVote" />
+		</div>
+		<div id="comments" visible="false" class="tail-transparence">
+			<hlist id="info" type="2" leftimg="/widgets/main/img/person_l.png"
+				rightimg="/widgets/main/img/person_r.png" margin-tb="0">
+				<button bgpath="/widgets/diary/img/dup.png" hgpath="/widgets/diary/img/dup1.png" tips="赞" />
+				<button bgpath="/widgets/diary/img/ddown.png" hgpath="/widgets/diary/img/ddown1.png" tips="倒"
+					onclick="_zsnSend(&quot;/widgets/diary/diaryn.xml&quot;)" />
+				<button bgpath="/widgets/diary/img/dcom.png" hgpath="/widgets/diary/img/dcom1.png" tips="评论"
+					onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+				<button bgpath="/widgets/diary/img/dshare.png" hgpath="/widgets/diary/img/dshare1.png" tips="分享"
+					onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+			</hlist>
+			<textfield style="min-size:0 50"  id="editor" bg="1" w="230" />
+			<button id="adddiary" text="发表评论" type="btext" style="margin:0 0 0 7" />
+			<hr />
+			<vlist id="news" type="0">
+				<item src="http" title="大家的联想真丰富啊~~" ltail1="20" ltail2="100"
+					ltail="2009.04.07 16:45" onclick="_zsnPopDlg(&quot;应当跳转到哪个好友的主页？？&quot;)" />
+				<item src="http" title=" 你你你...害我满脸口水..." ltail1="20" ltail2="120"
+					ltail="2009.04.07 16:45" onclick="_zsnPopDlg(&quot;应当跳转到于鑫的主页。&quot;)" />
+				<item src="http" title="wo是个傻子" ltail1="220" ltail2="100"
+					ltail="2009.04.07 16:45" onclick="_zsnPopDlg(&quot;应当跳转到于鑫的主页。&quot;)" />
+			</vlist>
+		</div>
+	</body>
+</unit>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="loginpage" onload="initlogindata()">
+
+	<style src="/main.css" />
+	<script src="/widgets/login/login.zs" />
+
+	<menu type="0" text="登陆" onclick="Login">
+		<menu text="测试进入下一级" onclick="_zsnShowcontent(&quot;logreg\\ChangePwd.xml&quot;)" />
+		<menu text="删除" onclick="delete" />
+		<menu text="刷新" onclick="refresh" />
+		<menu text="退出" onclick="_zsnExit" />
+	</menu>
+
+	<body id="login" style="margin:10 10 0 10;">
+		<div id="head-transparence" class="head-transparence">
+			<div id="loginhead" style="layout:inlinelayout(true,center);
+			align:center">
+				<img id="imgtitle" src="/img/logo.png" />
+				<label id="texttitle" text="SNS登录"
+					style="font-size:x-large;color:0x000000;font-style:bold;" />
+			</div>
+		</div>
+		<div class="midle-transparence" style="padding:5;gap:0 5;">
+			<label id="labe2" text="手机号码(账号):" available="false" />
+			<br />
+			<textfield id="textphonenum" class="input" value="13560237826"
+				name="lh84" type="0" />
+			<label id="vote1" text="SNS密码" available="false" />
+			<br />
+			<textfield id="textpwd" class="input" value="661234" name="lh84"
+				type="0" />
+			<div style="layout:inlinelayout(true,fill);">
+				<label text="忘记密码？" available="true" style="color:0x0000ff;" />
+				<label text="注册" style="margin-left:10;color:0x0000ff;"
+					onclick="_zsnSend(&quot;/widgets/login/modifyPswd.xml&quot;)"
+					available="true" />
+			</div>
+			<div style="layout:inlinelayout(true,fill);">
+				<label text="记住密码" />
+				<checkbox id="pwdrember" select="true" />
+				<label text="自动登录" />
+				<checkbox id="loginself" select="true" />
+			</div>
+		</div>
+
+		<div id="login" class="tail-transparence" style="layout:inlinelayout(true,fill);padding:5;">
+			<button text="登录" onclick="Login" />
+			<button text="取消" style="margin-left:90" onclick="_zsnExit" />
+		</div>
+
+	</body>
+
+</unit>

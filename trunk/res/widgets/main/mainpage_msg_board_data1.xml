@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unit id="main_msg_board_unit">
+
+	<div id="msg_board_list" class="midle-transparence">
+		<div class="horizontal" style="padding: 0 0 0 -10;">
+			<bubble type="ALIGN_LEFT" text="qq最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+			<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威" available="false"/>
+		</div>
+		<div class="horizontal">
+			<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威" available="false"/>
+			<bubble text="qq最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+		</div>
+		<div class="horizontal" style="padding: 0 0 0 -10;">
+			<bubble type="ALIGN_LEFT" text="qq最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+			<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威" available="false"/>
+		</div>
+		<div class="horizontal">
+			<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威" available="false"/>
+			<bubble text="qq最重要的，拥有跟随内心与直觉的勇气" time="09.08.07" />
+		</div>
+	</div>
+</unit>

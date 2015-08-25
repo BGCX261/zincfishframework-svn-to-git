@@ -1,0 +1,12 @@
+﻿<unit id="friend_friend_unit">	<!-- id写死 -->
+	<vlist id="friendlist" type="1" > <!-- 写死 -->
+			<!-- 每页最多10项 -->
+			<item id="item1" src="头像地址" title="姓名" content="女2岁 广州" ltail="你和他的共同好友：1位" onclick="OnclickFr()" value="好友Mid"/>
+			<!-- id:item1~item10; src:头像地址; title:搜索到好友的姓名; content:好友信息（）; ltail:好友信息（）; onclick:写死; value:好友Mid-->
+	</vlist>
+
+	<!-- 翻页 -->
+	<button id="search_prev" text="上一页" onclick="prePage()"/><!--写死-->
+	<label  id="search_pages" text="1/10" data="pn=&quot;当前页码quot; total=&quot;总页码quot;"/>
+	<button id="search_next" text="下一页"  onclick="nextPage()"/><!--写死-->
+</unit>

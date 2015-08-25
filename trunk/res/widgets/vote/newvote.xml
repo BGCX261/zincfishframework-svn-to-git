@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="newvoteunit">
+	<menu id="menu" type="left">
+		<menu text="发起投票" onclick="submit" />
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+	</menu>
+	<script src="/widgets/vote/newvote.zs" />
+	<body id="newvotebody">
+		<div id="dheaddiv" class="head-transparence">
+			<label id="vatetitle" text="发起投票" style="margin:0 0 0 7"/>
+			<hr />
+		</div>
+		<div id="form" class="tail-white">
+			<div id="titlediv" class="horizontal">
+				<label id="vatetitle" text="投票主题：" />
+				<textfield id="titleeditor" bg="1" w="130"/>
+			</div>
+			<button id="description" text="添加详细说明" type="btext" onclick="showDescription" />
+			<textfield style="min-size:0 50"  id="editor" bg="1" w="230" visible="false"/>
+			<div id="candidate-d1" class="horizontal">
+				<label id="candidate-l1" text="候选项：" />
+				<textfield id="candidate-tf1" bg="1" w="130"/>
+			</div>
+			<div id="candidate-d2" class="horizontal">
+				<label id="candidate-l2" text="候选项：" />
+				<textfield id="candidate-tf2" bg="3" w="130"/>
+			</div>
+			<div id="candidate-d3" class="horizontal">
+				<label id="candidate-l3" text="候选项：" />
+				<textfield id="candidate-tf3" bg="1" w="130" />
+			</div>
+			<button id="add-candidate" text="添加更多候选项" type="btext"
+				onclick="addCandidate" />
+			<div id="typediv" class="horizontal">
+				<label id="type-l" text="可投选项:" />
+				<combobox id="type" type="iphone">
+					<option id="t1" text="单选" value="0" />
+					<option id="t2" text="多选" value="1" />
+				</combobox>
+			</div>
+			<div id="limitdiv" class="horizontal">
+				<label id="limit-l" text="投票限制:" />
+				<combobox id="limit"  type="iphone">
+					<option id="11" text="任何人" value="0" />
+					<option id="12" text="仅好友" value="1" />
+				</combobox>
+			</div>
+			<div id="datediv" class="horizontal">
+				<label id="date-1" text="截至日期:" />
+				<combobox id="date"  type="date" w="130"/>
+			</div>
+			<button id="submit" text="发起投票" type="btext" style="margin:7" onclick="submit"/>
+		</div>
+	</body>
+</unit>

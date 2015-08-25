@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<unit id="lgonepagechangepwd" onload="initchangepwdPage">
+	<!--unit id="modifypswdPage" -->
+	<script src="/widgets/login/login.zs" />
+
+	<!--
+		menu type="left"> <menu text="测试个人资料设置界面"
+		onclick="_zsnShowcontent(&quot;logreg\\regeditPage.xml&quot;)" />
+		<menu text="删除" onclick="delete" /> <menu text="刷新" onclick="refresh"
+		/> <menu text="退出" onclick="_zsnExit" /> </menu> <menu type="right"
+		text="下一步" onclick="changepwdNextstep()"/
+	-->
+
+	<body id="modifypswd">
+		<div id="head-transparence" class="head-transparence">
+			<label id="titlelabel" text="修改密码" />
+			<hr />
+		</div>
+		<div class="midle-transparence">
+			<label text="尊敬的用户，恭喜你注册成功!" style="font-size:x-small;" wrap="true" />
+		</div>
+		<div id="midle-white" class="midle-white">
+			<div class="horizontal">
+				<label text="帐号:" />
+				<label id="originalphoneNum" style="color:0xff0000" text="13800138000" />
+			</div>
+			<div class="horizontal">
+				<label text="密码:" />
+				<label id="originalpswd" style="color:0xff0000" text="000000" />
+			</div>
+			<hr />
+			<label text="建议您马上修改密码" wrap="true" />
+			<div class="horizontal">
+				<label text="输入新密码：" />
+				<textfield id="newpswd" value="" />
+			</div>
+			<div class="horizontal">
+				<label text="确认新密码：" />
+				<textfield id="newpswdconfirm" value="" />
+			</div>
+		</div>
+
+		<div class="tail-white">
+			<hr />
+			<div class="horizontal">
+				<button text="保存" style="align:left;" onclick="savePassword" />
+				<button text="跳过" style="align:right;" onclick="skip" />
+			</div>
+		</div>
+	</body>
+	<poppanel id="msg" class="popbg">
+		<label text="您好，建议您修改默认密码.确定跳过修改密码吗?" />
+		<div class="horizontal">
+			<button text="取消" onclick="cancel" />
+			<button text="确定" onclick="ok" />
+		</div>
+	</poppanel>
+</unit>

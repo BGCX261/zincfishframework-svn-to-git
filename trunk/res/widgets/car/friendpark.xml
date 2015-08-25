@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="friparkunit">
+	<script src="/widgets/car/describe.zs" />
+
+	<menu type="left">
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="争车位" onclick="_zsnSend(&quot;/widgets/car/car.xml&quot;)" />
+	</menu>
+
+    <poppanel id="links" class="poppanelbg" style="padding: 10 0 10 0">
+    	 <vlist id="frilist" type="6">
+    	 	<item title="去他的车位" icon="/widgets/car/img/dian.png" onclick="_zsnSend(quot;/widgets/car/car.xmlquot;)"/>
+    	 	<item title="看他的汽车" icon="/widgets/car/img/dian.png" onclick="_zsnSend(quot;/widgets/car/carstatus.xmlquot;)"/>
+    	 	<item title="看他的首页" icon="/widgets/car/img/dian.png" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)"/>
+    	 </vlist>
+    </poppanel>
+
+	<body id="friendbody">
+		<div id="box" class="carboard">
+		    <vlist id="frilist" type="5">
+		    	<item name="江威" level="全满" onclick="_zssShowPopWindow(&quot;links&quot;)"/>
+		    	<item name="陈静聪" level="满" onclick="_zssShowPopWindow(&quot;links&quot;)"/>
+		    	<item name="于鑫" level="空" onclick="_zssShowPopWindow(&quot;links&quot;)"/>
+		    	<item name="杜紹师" level="全满" onclick="_zssShowPopWindow(&quot;links&quot;)"/>
+		    	<item name="马骁军" level="满" onclick="_zssShowPopWindow(&quot;links&quot;)"/>
+		    	<item name="虞晓伟" level="满" onclick="_zssShowPopWindow(&quot;links&quot;)"/>
+		    	<item name="罗积" level="空" onclick="_zssShowPopWindow(&quot;links&quot;)"/>
+		    </vlist>
+		</div>
+	</body>
+</unit>  

@@ -1,0 +1,27 @@
+﻿<!-- 编辑照片属性页面。原接口：http://test.3g.cn/sns/interface/AlbumPicEdit.aspx -->
+
+<unit id="EditPhoto_unit">		<!-- id写死 -->
+	<!-- <body id="EditPhoto_body"> -->				<!-- !!!!!这里的body标签去掉 -->
+	
+ 		<textfield id="nameT" value="照片名" w="100"/>	<!-- id、w写死 -->
+
+ 		<combobox id="albumC"  w="100">		<!-- id、w写死 -->
+ 				<option id="op1" text="专辑名1" value="专辑ID1" select="true"/>		<!-- id:op1~opn。text为专辑名称。所属专辑设置select="true"。value为专辑id。 -->
+				<option id="op2" text="专辑名2" value="专辑ID2" />
+				<option id="op0" text="专辑名3" value="专辑ID3" />
+ 		</combobox>
+
+ 		<textfield id="desT" value="照片描述" w="100"/>		<!-- id、w写死 -->
+
+		<textfield id="dateT" value="2009-12-39 15:45" available="false" w="100"/>		<!-- id、w、available写死 -->
+
+		<img id="photoI" src="/widgets/album/temp/upicture.png" data="照片ID"/>		<!-- id写死。src为照片的url。 -->
+    	
+    <hlist id="friHL">		<!-- 所提到的好友列表。id写死。 -->
+    	<label id="fri0" text="好友A" data="A的mid"/>		<!-- id: fir0~fir1 -->
+    	<label id="fri1" text="好友B" data="B的mid"/>			
+    </hlist>
+  
+	<!-- </body> -->				<!-- !!!!!这里的body标签去掉 -->
+
+</unit>

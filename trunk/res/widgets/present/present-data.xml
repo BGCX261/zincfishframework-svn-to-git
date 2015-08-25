@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="presenthome">
+	
+		<div id="garbage"  visible="true" type="1">
+			<checkbox id="ck-1" type="radio" />
+				<img id="img-1" src="loca://widgets/present/img/flower.png" />
+			<checkbox id="ck-2" type="radio" />
+			<img id="img-2" src="loca://widgets/present/img/flower.png" />			
+			<br/>
+			
+			<checkbox id="ck-3" type="radio" />
+			<img id="img-3" src="loca://widgets/present/img/flower.png" />
+			<checkbox id="ck-4" type="radio" />
+			<img id="img-4" src="loca://widgets/present/img/flower.png" />
+			<br/>
+			
+			<checkbox id="ck-5" type="radio" />
+			<img id="img-5" src="loca://widgets/present/img/flower.png" />
+		</div>
+		
+		<div id="high-class" visible="false" type="1">
+			<checkbox id="ck-1" type="radio" />
+			<img id="img-1" src="loca://widgets/present/img/car.png" />
+			<checkbox id="ck-2" type="radio"  />
+			<img id="img-2" src="loca://widgets/present/img/car.png" />
+			<br/>
+			
+			<checkbox id="ck-3" type="radio"   />
+			<img id="img-3" src="loca://widgets/present/img/car.png" />
+			<checkbox id="ck-4" type="radio"   />
+			<img id="img-4" src="loca://widgets/present/img/car.png" />
+			<br/>
+			
+			<checkbox id="ck-5" type="radio"  />
+			<img id="img-5" src="loca://widgets/present/img/car.png" />
+		</div>
+</unit>

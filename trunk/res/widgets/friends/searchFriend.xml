@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="searchFriendpage">
+
+	<script src="/widgets/friends/searchFriend.zs" />
+
+	<body id="searchFriendbody">
+		<div id="head-transparence" class="head-transparence">
+			<hlist id="searchbuttons" leftimg="/widgets/main/img/person_l.png" rightimg="/widgets/main/img/person_r.png" >
+				<button id="searchbutton1" text="查找同学" onfocus="changeSearchvisable(&quot;searchclassmate&quot;, &quot;searchworkmate&quot;,&quot;searchname&quot;,&quot;searchexact&quot; )" />
+				<button id="searchbutton2" text="查找同事" onfocus="changeSearchvisable(&quot;searchworkmate&quot;,&quot;searchname&quot;,&quot;searchclassmate&quot; ,&quot;searchexact&quot;)" />
+				<button id="searchbutton3" text="按姓名" onfocus="changeSearchvisable(&quot;searchname&quot;,&quot;searchclassmate&quot;,&quot;searchworkmate&quot;,&quot;searchexact&quot; )" />
+				<button id="searchbutton4" text="精确查找" onfocus="changeSearchvisable(&quot;searchexact&quot;,&quot;searchclassmate&quot;,&quot;searchworkmate&quot;,&quot;searchname&quot; )" />
+			</hlist>
+		</div>
+		<hr/>
+
+		<div id="searchclassmate" class="tail-white" style="padding:0;gap:none 10;min-size:0 260;">	
+			<div class="horizontal" style="align:center;layout:inlinelayout(true,center);">
+				<img src="/widgets/friends/img/search.png"/>
+				<img src="/widgets/friends/img/schoolmate.png"/>
+			</div>
+			<div class="horizontal" >
+				<label text="学校名称："  style="min-size:80 0;"/>	
+				<textfield  id="college" value="" name="Words1" />
+			</div>
+			<div class="horizontal">
+				<label text="院系班级：" style="min-size:80 0;"/>
+				<textfield  id="class" value="" name="Words2" />
+			</div>
+			<div class="horizontal">
+				<label text="入学年份：" style="min-size:80 0;"/>
+				<combobox id="yearen"  name="Words3" >
+					<option id="option1" text="无"/>
+					<option id="option4" value="2000" text="2000"/>
+					<option id="option4" value="1999" text="1999"/>
+					<option id="option4" value="1998" text="1998"/>
+					<option id="option4" value="1997" text="1997"/>
+					<option id="option4" value="1996" text="1996"/>
+					<option id="option4" value="1995" text="1995"/>
+					<option id="option4" value="1994" text="1994"/>
+					<option id="option4" value="1993" text="1993"/>
+					<option id="option4" value="1992" text="1992"/>
+					<option id="option4" value="1991" text="1991"/>
+					<option id="option4" value="1990" text="1990"/>
+					<option id="option4" value="1989" text="1989"/>
+					<option id="option4" value="1988" text="1988"/>
+					<option id="option4" value="1987" text="1987"/>
+					<option id="option4" value="1986" text="1986"/>
+					<option id="option4" value="1985" text="1985"/>
+					<option id="option4" value="1984" text="1984"/>
+					<option id="option4" value="1983" text="1983"/>
+					<option id="option4" value="1982" text="1982"/>
+					<option id="option4" value="1981" text="1981"/>
+					<option id="option4" value="1980" text="1980" select="true"/>
+				</combobox>
+			</div>
+			<button text="查找" bgpath="widgets/friends/img/seach_unsel.png" hgpath="widgets/friends/img/search_sel.png" onclick="SearchClassmate"/>
+		</div>
+
+		<div id="searchworkmate" class="tail-white" visible="false" style="padding:0;gap:none 10;min-size:0 260;">
+			<div class="horizontal" style="align:center;layout:inlinelayout(true,center);" >
+				<img src="/widgets/friends/img/search.png"/>
+				<img src="/widgets/friends/img/workmate.png"/>
+			</div>
+			<div class="horizontal" >
+				<label text="公司名称："  style="min-size:80 0;"/>
+				<textfield  id="company" value="" name="words1"/>
+			</div>
+			<button text="查找"  bgpath="widgets/friends/img/seach_unsel.png" hgpath="widgets/friends/img/search_sel.png" onclick="SearchWorkmate"/>
+		</div>
+			
+		<div id="searchname" class="tail-white" visible="false" style="padding:0;gap:none 10;min-size:0 260;">
+			<div class="horizontal" style="align:center;layout:inlinelayout(true,center);">
+				<img src="/widgets/friends/img/search.png"/>
+				<img src="/widgets/friends/img/name.png"/>
+			</div>
+			<div class="horizontal" >
+				<label text="姓名："  style="min-size:80 0;"/>
+				<textfield  id="friname" value="" name="words1"/>
+			</div>
+			<div class="horizontal" >
+				<label text="居住城市：" style="min-size:80 0;"/>
+				<textfield  id="cityin" value="" name="words2"/>
+			</div>
+			<div class="horizontal" >
+				<label text="性别：" style="min-size:80 0;"/>
+				<combobox id="sex" name="words3" >
+					<option id="option_guangdong" value="0" text="不限"/>
+					<option id="option_guangxi" value="1" text="男" selected="true"/>
+					<option id="option_beijing" value="2" text="女"/>
+				</combobox>
+			</div>
+						
+			<button text="查找"  bgpath="widgets/friends/img/seach_unsel.png" hgpath="widgets/friends/img/search_sel.png" onclick="SearchName"/>
+		</div>
+			
+		<div id="searchexact" class="tail-white" visible="false" style="padding:0;gap:none 10;min-size:0 260;">
+			<div class="horizontal" style="align:center;layout:inlinelayout(true,center);">
+				<img src="/widgets/friends/img/search.png"/>
+				<img src="/widgets/friends/img/searchexat.png"/>
+			</div>
+			<div class="horizontal" >
+				<label text="手机号："  style="min-size:80 0;"/>
+				<textfield  id="phonenum" value="" name="words1" type="0" />
+			</div>
+
+			<button text="查找"  bgpath="widgets/friends/img/seach_unsel.png" hgpath="widgets/friends/img/search_sel.png" onclick="SearchExact"/>
+		</div>	
+
+		
+
+
+
+
+
+
+
+
+	
+		<!--div style="border1,background1" h="300">
+			<list id="searchbuttons" type="h" w="200">
+				<label id="searchbutton1" text="查找同学" onclick="changeSearchvisable(&quot;searchstudent&quot;, &quot;searchworkmate&quot;,&quot;searchname&quot;,&quot;searchexact&quot; )" available="true"/>
+				<label id="searchbutton2" text="| 查找同事" onclick="changeSearchvisable(&quot;searchworkmate&quot;,&quot;searchname&quot;,&quot;searchstudent&quot; ,&quot;searchexact&quot;)" available="true"/>
+				<label id="searchbutton3" text="| 按姓名" onclick="changeSearchvisable(&quot;searchname&quot;,&quot;searchstudent&quot;,&quot;searchworkmate&quot;,&quot;searchexact&quot; )" available="true"/>
+				<label id="searchbutton4" text="| 精确查找" onclick="changeSearchvisable(&quot;searchexact&quot;,&quot;searchstudent&quot;,&quot;searchworkmate&quot;,&quot;searchname&quot; )" available="true"/>
+			</list>			
+			<hr w="200"/>
+			
+			<img src="widgets/img/search.png" style="searchimgpos"/>
+			
+			<div id="searchstudent" h="">		
+				<img src="widgets/img/schoolmate.png" x="80" y="30"/>
+				<label id="labe1" text="学校名称"  style="margin1"/>	
+				<textfield  id="title1" value="" name="Words1" type="0" w="130"/>				
+				<label id="labe2" text="院系班级" />
+				<textfield  id="title2" value="" name="Words2" w="130"/>
+				<br/>
+				<label id="labe2" text="入学年份：" />
+				<combobox id="combox"  name="Words3">
+					<option id="option1" text="无"/>
+					<option id="option4" value="2000" text="2000"/>
+					<option id="option4" value="1999" text="1999"/>
+					<option id="option4" value="1998" text="1998"/>
+					<option id="option4" value="1997" text="1997"/>
+					<option id="option4" value="1996" text="1996"/>
+					<option id="option4" value="1995" text="1995"/>
+					<option id="option4" value="1994" text="1994"/>
+					<option id="option4" value="1993" text="1993"/>
+					<option id="option4" value="1992" text="1992"/>
+					<option id="option4" value="1991" text="1991"/>
+					<option id="option4" value="1990" text="1990"/>
+					<option id="option4" value="1989" text="1989"/>
+					<option id="option4" value="1988" text="1988"/>
+					<option id="option4" value="1987" text="1987"/>
+					<option id="option4" value="1986" text="1986"/>
+					<option id="option4" value="1985" text="1985"/>
+					<option id="option4" value="1984" text="1984"/>
+					<option id="option4" value="1983" text="1983"/>
+					<option id="option4" value="1982" text="1982"/>
+					<option id="option4" value="1981" text="1981"/>
+					<option id="option4" value="1980" text="1980" selected="true"/>
+				</combobox>
+				<br/>
+				<button id="loadbutton4" text="查找" bgpath="widgets/img/seach_unsel.png" hgpath="widgets/img/search_sel.png" onclick="Search(&quot;searchstudent&quot;,&quot;1&quot;,&quot;St=0&quot;)"/>
+			</div>
+			
+			<div id="searchworkmate" visible="false">		
+				<img src="widgets/img/workmate.png" x="80" y="30"/>
+
+				<label id="labe1" text="公司名称"  style="margin1"/>
+				<textfield  id="title1" value="门户" name="words1" type="0"  w="130"/>
+				<button id="loadbutton4" text="查找"  bgpath="widgets/img/seach_unsel.png" hgpath="widgets/img/search_sel.png" onclick="Search(&quot;searchworkmate&quot;,&quot;1&quot;,&quot;St=1&quot;)"/>
+			</div>
+			
+			<div id="searchname" visible="false">			
+				<img src="widgets/img/name.png" x="100" y="30"/>
+
+				<label id="labe1" text="姓名"  style="margin1"/>
+				<textfield  id="title1" value="张锐" name="words1" type="0" w="130"/>
+				
+				<label id="labe1" text="居住城市"/>
+				<textfield  id="title2" value="" name="words2"  w="130"/>
+				<label id="vote4" text="市"  />
+				<br/>
+				<label id="labe2" text="性别" />
+				<combobox id="sex" name="words3">
+						<option id="option_guangdong" value="0" text="不限"/>
+						<option id="option_guangxi" value="1" text="男" selected="true"/>
+						<option id="option_beijing" value="2" text="女"/>
+				</combobox>
+				<br/>
+				<button id="loadbutton4" text="查找"  bgpath="widgets/img/seach_unsel.png" hgpath="widgets/img/search_sel.png" onclick="Search(&quot;searchname&quot;,&quot;1&quot;,&quot;St=2&quot;)"/>
+			</div>
+			
+			<div id="searchexact" visible="false">
+				<img src="widgets/img/searchexat.png" x="100" y="30"/>		
+
+				<label id="labe1" text="手机号:"  style="margin1"/>
+				<textfield  id="title1" value="13560237826" name="words2" type="0"  w="130"/>
+				<br/>
+				<button id="loadbutton4" text="查找"  bgpath="widgets/img/seach_unsel.png" hgpath="widgets/img/search_sel.png" onclick="Search(&quot;searchexact&quot;,&quot;1&quot;,&quot;St=3&quot;)"/>
+			</div>	
+		</div-->
+	</body>
+</unit>

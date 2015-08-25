@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<unit id="friendpage">
+	<style src="/main.css" />
+	<script src="/widgets/friends/mainfriend.zs" />
+
+	<menu type="0">
+		<menu text="回首页" onclick="_zsnSend(&quot;/widgets/main/mainpage.xml&quot;)" />
+	</menu>
+
+	<body id="friendbody">
+		<div class="title" bind="north">
+			<img src="/widgets/main/img/resent.png" />
+			<label text="我的好友" />
+		</div>
+		<checkbox class="friend_group" text="默认分组(6/7)"
+			onclick="expendTag(&quot;default_group_list&quot;)" />
+		<div id="default_group_list" class="group_list" visible="false">
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+		</div>
+		<checkbox class="friend_group" text="我的好友(1/8)"
+			onclick="expendTag(&quot;friend_group_list&quot;)" />
+		<div id="friend_group_list" class="group_list" visible="false">
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+			<div class="visitoritem">
+				<img src="/ui/mixtag_user.png" class="headimg" />
+				<div class="friend_info" onclick="">
+					<label text="陈静聪" style="align:center;" />
+					<label text="2009-09-09 09:09" type="omit" class="friend_sig" />
+				</div>
+			</div>
+		</div>
+	</body>
+</unit>

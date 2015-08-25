@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="comment_list_unit">
+    <script src="/widgets/common/comment/comment_list.zs" />
+	<menu id="menu" type="left">
+		<menu text="删除评论" onclick="DeleteComment" />
+	</menu>
+
+	
+	<body id="comment_list_body">	
+		<div class="head-transparence">
+	       <label text="评论"/>
+		   <hr/>
+	    </div>
+	    
+		<div class="tail-transparence" style="min-size:0 260;">
+			<vlist id="comment_list" type="1" visible="false">
+			</vlist>
+
+			<div style="layout:inlinelayout(true,fill);align:center;" >
+				<button id="comment_list_prev" text="上一页"	onclick="_zsnSend(&quot; 上一页URL&quot;)" visible="false"/>
+				<label  id="comment_list_pages" text="1/10" visible="false"/>
+				<button id="comment_list_next" text="下一页" onclick="_zsnSend(&quot; 下一页URL&quot;)" visible="false"/>
+			</div>
+		</div>
+
+	</body>
+</unit>
+
+

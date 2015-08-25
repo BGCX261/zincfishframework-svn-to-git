@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="comment_msg_main">
+	<script src="/widgets/message/comment_msg_list.zs" />
+	<menu id="menu" type="left">
+		<menu text="回首页" onclick="_zssSwitch(&quot;/widgets/main/mainpage.xml&quot;)" />
+		<menu text="消息中心" onclick="MsgCenter()" />
+		<menu text="删除评论" onclick="DeleteComMessage()" />
+	</menu>
+	
+	<!-- message_pop和message_text(text属性可替换)写死 -->
+    <poppanel id="message_pop" class="poppanelbg" style="padding: 10 0 10 0">
+    	<label id="message_text" text="评论已经发送"/>
+    	<button id="ok" text="确定" onclick="_zssHidePopWindow(&quot;message_pop&quot;)"/>
+    </poppanel>
+	
+	<body id="comment_msg_body">
+	   <div id="dheaddiv" class="full-transparence">
+	         <hlist id="tablist" type="5">
+	             <button text="评论" onfocus="CSwitchView(&quot;comment_msg_in&quot;)"/>
+	             <button text="评论回复" onfocus="CSwitchView(&quot;comment_msg_out&quot;)"/>
+	         </hlist>
+	         <hr />
+	         <div id="comment_msg_in" style="min-size:0 260;">
+	             <vlist id="comment_msg_in_list" type="0"/>
+	             <div id="comment_msg_in_div" class="horizontal" style="align:center">
+					<button id="comment_msg_in_next" text="下一页" visible="false"/>
+					<label  id="comment_msg_in_page" text="1/10" value="页码" visible="false"/>
+					<button id="comment_msg_in_prev" text="上一页" visible="false"/>
+				</div>
+	         </div>
+	         <div id="comment_msg_out" visible="false" style="min-size:0 260;">
+	            <vlist id="comment_msg_out_list" type="0"/>
+	            <div id="comment_msg_out_div" class="horizontal" style="align:center">
+					<button id="comment_msg_out_next" text="下一页" visible="false"/>
+					<label  id="comment_msg_out_page" text="1/10" value="页码" visible="false"/>
+					<button id="comment_msg_out_prev" text="上一页" visible="false"/>
+				</div>
+	         </div>
+	    </div>
+	</body>
+</unit>

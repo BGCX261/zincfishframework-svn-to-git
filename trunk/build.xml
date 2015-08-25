@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="SNS" default="run" basedir=".">
+	<!-- Defining Antenna's WTK tasks hard coded -->
+	<taskdef resource="antenna.properties" classpath="D:\lib\antenna-bin-1.1.0-beta.jar" />
+	<!-- Defining ant-contrib tasks hard coded-->
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="D:\lib\ant-contrib.jar" />
+	<!-- WTK HOME -->
+	<property name="wtk.home" location="D:\SonyEricsson\JavaME_SDK_CLDC\WTK2" />
+	<property name="wtk.midp.version" value="2.0" />
+	<property name="wtk.cldc.version" value="1.1" />
+
+	<!-- AKEBONO PATH -->
+	<property name="lib.jars" location="D:\lib\Akebono\AkebonoStub.jar" />
+
+	<!-- LIBGEN DIR -->
+	<property name="libgen.dir" location="D:\lib\Akebono" />
+	<property name="libgen.name" value="DongleLibGen.jar" />
+	<property name="libplatform" value="STD" />
+	<!-- e.g. STD or LITE or DOJA-->
+	<property name="libversion" value="1.0" />
+	<!-- e.g. 1.3 or 1.4-->
+
+	<!-- absolute path of the text file containing absolute paths of additional libraries to be added -->
+
+	<property name="libraries" value="${wtk.home}/lib/midpapi20.jar;${wtk.home}/lib/cldcapi11.jar;${wtk.home}/lib/mmapi.jar;${wtk.home}/lib/wma20.jar;${wtk.home}/lib/jsr75.jar" />
+
+	<property name="application.name" value="SNS" />
+	<property name="myantroot.dir" location="myant" />
+	<property name="src.dir" location="src" />
+	<property name="resources.dir" location="res" />
+	<property name="psrc.dir" location="${myantroot.dir}/psrc" />
+	<property name="classes.dir" location="${myantroot.dir}/classes" />
+	<property name="unzipedclasses.dir" location="${myantroot.dir}/unzipedclasses" />
+	<property name="dist.dir" location="${myantroot.dir}/dist" />
+	<property name="resources.dir" location="res" />
+	<property name="MIDlet.1.name" value="${application.name}" />
+	<property name="MIDlet.1.class" value="midlet.SNSMIDlet" />
+	<property name="MIDlet.1.icon" value="/logo2.png" />
+	<property name="MIDletSuite.name" value="${application.name}" />
+	<property name="MIDletSuite.vendor" value="3g.cn" />
+	<property name="MIDletSuite.version" value="1.0" />
+	<property name="MicroEdition.Configuration.version" value="CLDC-1.1" />
+	<property name="MicroEdition.Profile.version" value="MIDP-2.0" />
+
+	<property name="wtk.optionalpda.enabled" value="true" />
+
+	<!-- 创建本地目录存储打包jar和jad -->
+	<property name="date_year" value="date_year" />
+	<property name="date_month" value="date_month" />
+	<property name="date_day" value="date_day" />
+	<property name="date_hm" value="date_hm" />
+	<property name="dir_sns" value="D:\SNS_JAR" />
+	<taskdef name="date_file" classname="ant.file.DateFile" />
+
+	<target name="cleanup">
+		<echo message="Cleaning up..." />
+		<delete file="${myantroot.dir}/MANIFEST.MF" />
+		<delete dir="${psrc.dir}" />
+		<delete dir="${classes.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${unzipedclasses.dir}" />
+	</target>
+
+	<target name="initialize" depends="cleanup">
+		<mkdir dir="${psrc.dir}" />
+		<mkdir dir="${classes.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${unzipedclasses.dir}" />
+	</target>
+
+	<target name="compile" depends="initialize">
+		<echo message="COMPILING" />
+		<wtkpreprocess srcdir="${src.dir}" destdir="${psrc.dir}" filter="false" encoding="UTF-8" />
+
+		<wtkbuild sourcepath="" srcdir="${psrc.dir}" destdir="${classes.dir}" preverify="false" classpath="${libraries};${lib.jars}" cldc="false" nofloat="false" encoding="UTF-8" />
+	</target>
+
+	<target name="package" depends="compile">
+		<echo message="PACKAGING" />
+		<wtkjad jadfile="${dist.dir}/${application.name}.jad" jarfile="${dist.dir}/${application.name}.jar" name="${MIDletSuite.name}" version="${MIDletSuite.version}" vendor="${MIDletSuite.vendor}">
+			<midlet name="${MIDlet.1.name}" icon="${MIDlet.1.icon}" class="${MIDlet.1.class}" />
+		</wtkjad>
+		<manifest file="${myantroot.dir}/MANIFEST.MF">
+			<attribute name="MIDlet-Name" value="${MIDletSuite.name}" />
+			<attribute name="MIDlet-Version" value="${MIDletSuite.version}" />
+			<attribute name="MIDlet-Vendor" value="${MIDletSuite.vendor}" />
+			<attribute name="MIDlet-1" value="${MIDlet.1.name}, ${MIDlet.1.icon}, ${MIDlet.1.class}" />
+			<attribute name="MicroEdition-Configuration" value="${MicroEdition.Configuration.version}" />
+			<attribute name="MicroEdition-Profile" value="${MicroEdition.Profile.version}" />
+			<attribute name="DevicePlatform" value="MIDP" />
+			<!-- e.g. MIDP, or SYMBIAN, or SE -->
+		</manifest>
+
+		<delete>
+			<fileset dir="res">
+				<include name="**/*.db" />
+			</fileset>
+		</delete>
+
+		<wtkpackage jadfile="${dist.dir}/${application.name}.jad" jarfile="${dist.dir}/${application.name}.jar" manifest="${myantroot.dir}/MANIFEST.MF" libclasspath="${lib.jars}" cldc="false" nofloat="false" obfuscate="false" preverify="false">
+			<fileset dir="${classes.dir}" />
+			<!--fileset dir="${resources.dir}" /-->
+		</wtkpackage>
+	</target>
+
+	<target name="libgen" depends="compile, package">
+		<echo message="LIBGEN" />
+		<antcall target="first-libgen" />
+	</target>
+
+	<target name="first-libgen">
+		<java jar="${libgen.dir}/${libgen.name}" fork="true" args="&quot;${dist.dir}/${application.name}.jar&quot; &quot;${wtk.home}&quot; ${libplatform} &quot;${libraries}&quot; ${libversion}" output="d:/antlog.txt" />
+		<if>
+			<not>
+				<isfileselected file="d:/antlog.txt">
+					<contains text="Lib-Gen completed succesfully" />
+				</isfileselected>
+			</not>
+			<then>
+				<antcall target="re-libgen" />
+			</then>
+		</if>
+
+		<delete file="d:/antlog.txt" />
+
+	</target>
+
+	<target name="re-libgen">
+		<echo message="Time out!" />
+		<antcall target="first-libgen" />
+	</target>
+
+	<!-- ================================= 
+          target: packageresource 
+          description:package resources into JAR-pack             
+         ================================= -->
+	<target name="packageresource" depends="libgen" description="package resources into JAR-pack">
+		<echo>Package Resources</echo>
+		<echo>Unzip JAR-pack...</echo>
+		<unzip src="${dist.dir}/${application.name}.jar" dest="${unzipedclasses.dir}" />
+		<delete file="${dist.dir}/${application.name}.jar"/>
+		<echo>Re-package the JAR-pack with resources...</echo>
+		<wtkpackage jadfile="${dist.dir}/${application.name}.jad" jarfile="${dist.dir}/${application.name}.jar" manifest="${myantroot.dir}/MANIFEST.MF" cldc="false" nofloat="false" obfuscate="false" preverify="false">
+			<fileset dir="${unzipedclasses.dir}" excludes="META-INF/*" />
+			<fileset dir="${resources.dir}" excludes="**/*.db" />
+		</wtkpackage>
+		<echo>Re-package OK!</echo>
+	</target>
+
+	<target name="obfuscate" depends="packageresource">
+		<echo message="OBFUSCATING" />
+		<wtkobfuscate jadfile="${dist.dir}/${application.name}.jad" jarfile="${dist.dir}/${application.name}.jar" obfuscator="proguard" classpath="${lib.jars}" verbose="no">
+			<argument value="-printmapping mapping.txt" />
+			<argument value="-dontusemixedcaseclassnames" />
+			<argument value="-defaultpackage ''" />
+			<argument value="-overloadaggressively" />
+			<argument value="'-keep public class * extends javax.microedition.midlet.MIDlet'" />
+		</wtkobfuscate>
+	</target>
+
+	<target name="preverify" depends="obfuscate">
+		<echo message="PRE-VERIFY" />
+		<wtkpreverify jadfile="${dist.dir}/${application.name}.jad" jarfile="${dist.dir}/${application.name}.jar" bootclasspath="${libraries}" cldc="false" nofloat="false" classpath="${lib.jars}" />
+
+		<wtkjad jadfile="${dist.dir}/${application.name}.jad" jarfile="${dist.dir}/${application.name}.jar" name="${MIDletSuite.name}" version="${MIDletSuite.version}" vendor="${MIDletSuite.vendor}">
+			<midlet name="${MIDlet.1.name}" icon="${MIDlet.1.icon}" class="${MIDlet.1.class}" />
+		</wtkjad>
+	</target>
+
+	<target name="run" depends="preverify,package">
+		<!-- 存储打包的SNS包 -->
+		<echo message="存储打包的SNS包" />
+		<date_file />
+		<echo message="当前时间=${date_year}-${date_month}-${date_day}:${date_hm}" />
+		<mkdir dir="${dir_sns}\${date_year}\${date_month}\${date_day}\${date_hm}" />
+		<copy file="${dist.dir}/${application.name}.jad" todir="${dir_sns}\${date_year}\${date_month}\${date_day}\${date_hm}" />
+		<copy file="${dist.dir}/${application.name}.jar" todir="${dir_sns}\${date_year}\${date_month}\${date_day}\${date_hm}" />
+		<echo message="完成打包文件存储       运行J2ME程序" />
+
+		<exec executable="${wtk.home}\bin\emulator.exe" searchpath="false">
+			<arg line="-Xdevice:SonyEricsson_JP8_240x320_Emu" />
+			<arg line="-Xheapsize:10M" />
+			<arg line="-Xdescriptor:${dist.dir}/${application.name}.jad" />
+			<!--arg line="-Xdebug" />
+			<arg line="-Xrunjdwp:transport=dt_socket,address=8000,server=y" /-->
+		</exec>
+
+		<!--wtkrun jadfile="${dist.dir}/${application.name}.jad" device="SonyEricsson_JP8_240x320_Emu" heapSize="10M" /-->
+	</target>
+
+	<target name="go">
+		<exec executable="${wtk.home}\bin\emulator.exe" searchpath="false">
+			<arg line="-Xdevice:SonyEricsson_JP8_240x320_Emu" />
+			<arg line="-Xheapsize:10M" />
+			<arg line="-Xdescriptor:${dist.dir}/${application.name}.jad" />
+			<!-- arg line="-Xdebug" />
+				<arg line="-Xrunjdwp:transport=dt_socket,address=8000,server=y" /-->
+		</exec>
+		<!--wtkrun jadfile="${dist.dir}/${application.name}.jad" device="SonyEricsson_JP8_240x320_Emu" heapSize="10M" /-->
+	</target>
+
+	<target name="repack">
+		<delete file="${dist.dir}/${application.name}.jar"/>
+		<echo>Re-package the JAR-pack with resources...</echo>
+		<wtkpackage jadfile="${dist.dir}/${application.name}.jad" jarfile="${dist.dir}/${application.name}.jar" manifest="${myantroot.dir}/MANIFEST.MF" cldc="false" nofloat="false" obfuscate="false" preverify="false">
+			<fileset dir="${unzipedclasses.dir}" excludes="META-INF/*" />
+			<fileset dir="${resources.dir}" excludes="**/*.db" />
+		</wtkpackage>
+		<echo>Re-package OK!</echo>
+
+		<exec executable="${wtk.home}\bin\emulator.exe" searchpath="false">
+			<arg line="-Xdevice:SonyEricsson_JP8_240x320_Emu" />
+			<arg line="-Xheapsize:10M" />
+			<arg line="-Xdescriptor:${dist.dir}/${application.name}.jad" />
+			<!-- arg line="-Xdebug" />
+    					<arg line="-Xrunjdwp:transport=dt_socket,address=8000,server=y" /-->
+		</exec>
+	</target>
+
+	<target name="rebuild" depends="cleanup,package, preverify">
+	</target>
+</project>

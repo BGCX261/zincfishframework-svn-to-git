@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="comment_unit">
+    <script src="/widgets/common/comment/viewcomment.zs" />
+	<menu id="menu" type="left">
+		<menu text="删除回复" onclick="DeleteComReplay" />
+	</menu>
+	
+	<!-- message_pop和message_text(text属性可替换)写死 -->
+    <poppanel id="message_pop" class="poppanelbg" style="padding: 10 0 10 0">
+    	<label id="message_text" text="操作已经完成"/>
+    	<button id="ok" text="确定" onclick="_zssHidePopWindow(&quot;message_pop&quot;)"/>
+    </poppanel>
+	
+	<body id="comment_body">
+	   <div id="dheaddiv" class="full-transparence" style="min-size:0 260;">
+	        <head id="comment_content" src="url" user-name="某某评论道："	 signature="评论内容" view-count="时间" value="评论id"/> <!-- id 写死； src 头像； 其它如属性值 -->
+	        <textfield id="reply_text" style="min-size: 0 60;"/>
+	        <button id="submit" text="添加回复" onclick="AddCommentReplay"/>
+			<vlist id="comment_reply_list" type="0"/><!-- id、type写死 -->
+            <div id="comment_reply_div" class="horizontal" style="align:center">
+	            <button id="comment_reply_next" text="下一页" visible="false"/>
+				<label  id="comment_reply_pages" text="1/1" value="页码" visible="false"/>
+				<button id="comment_reply_prev" text="上一页" visible="false"/>
+			</div>
+	    </div>
+	</body>
+</unit>
+
+

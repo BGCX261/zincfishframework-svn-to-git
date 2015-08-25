@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unit id="main_guest_unit">
+	
+	<turnpage id="turnpage" src="/widgets/main/img/turnpage_guest.png" num="20" 
+	url="http://test.3g.cn/gt2-kjava/widgets/main/mainpage_guest_data1.xml"/>
+	
+	<body id="main_body">
+		<div id="guest_list" class="midle-transparence">
+			<mixtag id="mt1" src="/ui/mixtag_user.png" user-name="江威" date="2009.08.28 11:23"/>
+			<mixtag id="mt2" src="/ui/mixtag_user.png" user-name="陈静聪" date="2009.08.29 12:23"/>
+			<mixtag id="mt3" src="/ui/mixtag_user.png" user-name="A du" date="2009.08.29 15:25"/>
+			<mixtag id="mt4" src="/ui/mixtag_user.png" user-name="于鑫" date="2009.08.30 15:25"/>
+			<mixtag id="mt5" src="/ui/mixtag_user.png" user-name="Helen" date="2009.08.30 15:25"/>
+			<mixtag id="mt6" src="/ui/mixtag_user.png" user-name="hello" date="2009.08.30 15:25"/>
+			<mixtag id="mt7" src="/ui/mixtag_user.png" user-name="World" date="2009.08.30 15:25"/>
+		</div>
+	</body>
+</unit>

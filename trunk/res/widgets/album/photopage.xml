@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit id="PhotoPage_Unit">
+	<script src="/widgets/album/PhotoPage.zs" />
+
+	<menu type="left">
+		<menu text="编辑照片属性" onclick="EditPhoto()" />
+		<menu text="设为专辑封面" onclick="ShowSetCover()" />
+		<menu text="删除照片" onclick="ShowDeletePhoto()" />
+		<menu text="照片所在专辑" onclick="AlbumWithPhoto()"/>
+		<menu text="我的相册首页" onclick="_zsnSend(&quot;/widgets/album/album.xml&quot;)" />
+	</menu>
+	
+	<!-- 评论框 -->
+    <poppanel id="comments" class="popbg" style="padding: 0 0 0 0;">
+        <label id="titlelabel" text="评论区"/>
+	    <hr />
+	    <textfield id="commentT" />
+	    <button id="commentB" text="提交评论" onclick="SubComment"/>
+	    <hr/>
+        <vlist id="popcomlist" type="1">
+         </vlist>
+         <button id="MoreComment" text="更多评论" onclick="MoreComment"/>
+    </poppanel>
+    
+    <!-- 确认删除框 -->
+    <poppanel id="DelPop" class="popbg" style="layout:inlinelayout(false,center)">
+		<label id="DelLable" />
+		<div id="DelButton" style="layout:inlinelayout(true,center)">
+			<button id="DelSure" text="确定" onclick="SureDel()"/>
+			<button id="DelCancel" text="取消" onclick="CancelDel()"/>
+		</div>
+	</poppanel>
+	
+	<!-- 设为专辑封面确认 -->
+	<poppanel id="CoverPop" class="popbg" style="layout:inlinelayout(false,center)">
+		<label id="CoverLable" />
+		<div id="CoverButton" style="layout:inlinelayout(true,center)">
+			<button id="CoverSure" text="确定" onclick="SureCover()"/>
+			<button id="CoverCancel" text="取消" onclick="CancelCover()"/>
+		</div>
+	</poppanel>
+    
+	<body id="PhotoPage_body" style="margin:0">
+	   <album id="albumlist" init="3" data="mid=&quot;相册主人的mid&quot; id=&quot;相册ID&quot;">
+	   	<!--
+	        <item id="0" src="/widgets/album/temp/lyf01.png" onclick="ClickPhoto()" title="西湖美景 - 刘亦菲01" ltail1="200" ltail2="20" ltail="2009-04-07"/>
+	        <item id="1" src="/widgets/album/temp/lyf02.png" onclick="ClickPhoto()" title="西湖美景 - 刘亦菲02" ltail1="220" ltail2="50" ltail="2009-04-07"/>
+	        <item id="2" src="/widgets/album/temp/lyf03.png" onclick="ClickPhoto()" title="西湖美景 - 刘亦菲03" ltail1="230" ltail2="380" ltail="2009-05-07"/>
+	        <item id="3" src="/widgets/album/temp/lyf04.png" onclick="ClickPhoto()" title="西湖美景 - 刘亦菲04" ltail1="280" ltail2="90" ltail="2009-07-07"/>
+	        <item id="4" src="/widgets/album/temp/lyf05.png" onclick="ClickPhoto()" title="西湖美景 - 刘亦菲05" ltail1="210" ltail2="30" ltail="2009-06-07"/>
+	        <item id="5" src="/widgets/album/img/11.png" onclick="ClickPhoto()" title="西湖美景 - 刘亦菲05" ltail1="210" ltail2="30" ltail="2009-06-07"/>
+			-->
+	   </album>
+	</body>
+	
+</unit>  

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unit id="EditPhoto_unit">
+	<script src="/widgets/album/EditPhoto.zs" />
+	
+	<!-- 选择好友弹出框 -->	
+	<poppanel id="FriSelPop" class="popbg">
+		<label id="MyFri" text="我的好友"/>
+		<select id="FriSelect" max="100">
+		</select>
+		<button id="SelectFinish" text="确定" onclick="updateRcvrs()"/>	
+	</poppanel>
+	
+	<menu type="left">
+		<menu text="确认修改" onclick="ModifyPhotoAttr()"/>
+	</menu>
+	
+	<body id="EditPhoto_body">
+	
+		<div id="headD" class="head-transparence">
+	    	<label id="headL" text="编辑照片属性"/>
+	    	<hr/>
+    	</div>
+    	
+    	<div id="UpBody" class="midle-white" style="padding:0;layout:gridlayout(2,1);gap:5 0;">
+    	    <div id="leftD" style="min-size:110 0; layout:inlinelayout(false,fill); gap:0 5;" >
+		    		<label id="nameL" text="照片名:"/>
+		    		<textfield id="nameT" w="100"/>
+		    		<label id="albumL" text="所属专辑"/>
+		    		<combobox id="albumC"  w="100">
+		    			<!--
+		   				<option id="op1" text="西湖风景" value="0" />
+							<option id="op2" text="国外旅游" value="1" />
+							<option id="op0" text="野外狩猎" value="2" />
+							-->
+		    		</combobox>
+		    		<label id="desL" text="描述"/>
+		    		<textfield id="desT" w="100"/>
+		    		<label id="dateL" text="上传日期:"/>
+		    		<textfield id="dateT" value="2009-12-39 15:45" available="false" w="100"/>
+    	    </div>
+    	    <div id="rightD" style="layout:inlinelayout(false,center);align:top" >
+		    		<img id="photoI" src="/widgets/album/temp/upicture.png" name="点击浏览" onclick="BrowserPictures()"/>
+    	    </div> 
+    	</div>
+    	
+    	 <div id="downBody" class="tail-white" style="padding:0;layout:gridlayout(2,1);gap:5 0;">
+    	    <div id="downD" style="min-size:110 0; layout:inlinelayout(false,fill); gap:0 5;" >
+		    		<label id="friL" text="照片里还有谁:"/>
+    				<hlist id="friHL">
+    					<!--
+    					<label text="qwe"/>
+    					<label text="qwe"/>
+							-->
+    				</hlist>
+    	    </div>
+		    <button id="SelectFri" text="选择" onclick="PopFriendPanel(&quot;FriSelPop&quot;,&quot;FriSelect&quot;)"/>
+    	</div>
+  
+	</body>
+	
+</unit>
